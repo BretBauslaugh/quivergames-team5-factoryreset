@@ -564,6 +564,20 @@ MonoBehaviour:
   _previewMat: {fileID: 2100000, guid: 5c9c1c9cc9ce6344bb25abab791ad0f1, type: 2}
   _placeRotation: 45
   _grid: {fileID: 991561925}
+  _placeItemSFX:
+    Guid:
+      Data1: 1129083353
+      Data2: 1293006667
+      Data3: 1302359464
+      Data4: 729319011
+    Path: event:/SFX/SFX_Item_Placed
+  _hoverItemSFX:
+    Guid:
+      Data1: -1047960259
+      Data2: 1340233700
+      Data3: -346854501
+      Data4: -549759159
+    Path: event:/SFX/SFX_Item_Hover
 --- !u!114 &1193656633
 MonoBehaviour:
   m_ObjectHideFlags: 0
