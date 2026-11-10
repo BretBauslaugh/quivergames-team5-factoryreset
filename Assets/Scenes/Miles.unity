@@ -564,6 +564,7 @@ MonoBehaviour:
   _previewMat: {fileID: 2100000, guid: 5c9c1c9cc9ce6344bb25abab791ad0f1, type: 2}
   _placeRotation: 45
   _grid: {fileID: 991561925}
+  _resource: {fileID: 11400000, guid: f7e6570b15dd0dc44a9d423eaaca17ae, type: 2}
 --- !u!114 &1193656633
 MonoBehaviour:
   m_ObjectHideFlags: 0

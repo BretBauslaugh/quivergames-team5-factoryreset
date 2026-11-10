@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f184085966e4b1d469e75c1d042a640f, type: 3}
   m_Name: Resource
   m_EditorClassIdentifier: Assembly-CSharp::Resource
-  _startX: 0
-  _startY: 0
+  _startX: 100
+  _startY: 100
