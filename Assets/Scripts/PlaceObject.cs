@@ -9,6 +9,7 @@ public class PlaceObject : MonoBehaviour
     [SerializeField] private Material _previewMat;
     [SerializeField] private int _placeRotation;
     [SerializeField] private Grid _grid;
+    [SerializeField] private Resource _resource;
 
     private GameObject _placeable;
     private GameObject _previewObject;
@@ -40,6 +41,7 @@ public class PlaceObject : MonoBehaviour
     {
         if (_canPlace && _placeable != null)
         {
+            
             Instantiate(_placeable, _cursorToGridPos.Flatten(), _previewObject.transform.rotation);
             foreach (var c in _previewObject.GetComponents<Collider>()) c.enabled = true;
             _canPlace = false;
