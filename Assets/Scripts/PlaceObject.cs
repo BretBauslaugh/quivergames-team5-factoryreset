@@ -1,21 +1,28 @@
+using FMOD.Studio;
+using FMODUnity;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlaceObject : MonoBehaviour
 {
+    [Header("Properties")]
     [SerializeField] private float _placeDelay = 0.1f;
     [SerializeField] private Material _previewMat;
     [SerializeField] private int _placeRotation;
     [SerializeField] private Grid _grid;
     [SerializeField] private Resource _resource;
 
+    [Header("FMOD")]
+    [SerializeField] EventReference _placeItemSFX;
+    [SerializeField] EventReference _hoverItemSFX;
+
     private GameObject _placeable;
     private GameObject _previewObject;
     private Camera _camera;
     private Vector3 _cursorPos;
     private Vector3 _cursorToGridPos;
+    private Vector3 _currentHoverPosition; //this is to prevent a bug for the hover SFX
     private bool _canPlace = false;
 
     void Start()
@@ -48,6 +55,7 @@ public class PlaceObject : MonoBehaviour
 
             if (_previewObject != null)
             {
+                PlaySFX(_placeItemSFX);
                 Destroy(_previewObject);
             }
 
@@ -75,6 +83,11 @@ public class PlaceObject : MonoBehaviour
             if (_previewObject != null)
             {
                 _previewObject.transform.position = _cursorToGridPos.Flatten();
+                if (_previewObject.transform.position != _currentHoverPosition) //this is to prevent the hover SFX from spamming when moving an item is idle
+                {
+                    Play3DSFX(_hoverItemSFX);
+                    _currentHoverPosition = _previewObject.transform.position;
+                }
             }
 
         }
@@ -122,5 +135,21 @@ public class PlaceObject : MonoBehaviour
             Destroy(_previewObject);
             _previewObject = null;
         }
+    }
+
+    // FMOD
+    public void Play3DSFX(EventReference SFX)
+    {
+        EventInstance instance = RuntimeManager.CreateInstance(SFX);
+        instance.start();
+        instance.set3DAttributes(RuntimeUtils.To3DAttributes(_previewObject.transform.position));
+        instance.release();
+    }
+
+    public void PlaySFX(EventReference SFX)
+    {
+        EventInstance instance = RuntimeManager.CreateInstance(SFX);
+        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); //added to prevent warnings
+        RuntimeManager.PlayOneShot(SFX, transform.position);
     }
 }
