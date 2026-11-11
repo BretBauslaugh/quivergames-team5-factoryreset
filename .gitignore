@@ -139,3 +139,4 @@ FMOD/restore/
 FMOD/fmod.log
 FMOD/fmod_editor.log
 FMOD/Metadata/ProfilerSession
+.DS_Store
