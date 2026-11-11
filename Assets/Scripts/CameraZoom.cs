@@ -56,7 +56,6 @@ public class CameraZoom : MonoBehaviour
                 float clampedY = Mathf.Clamp(newY, minY, maxY);
                 step = Mathf.Abs(step.y) > 0.0001f ? step * ((clampedY - transform.position.y) / step.y) : Vector3.zero;
             }
-
             transform.position += step;
         }
     }
