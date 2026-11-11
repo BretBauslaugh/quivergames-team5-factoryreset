@@ -10,6 +10,7 @@ public class PlaceObject : MonoBehaviour
     [SerializeField] private float _placeDelay = 0.1f;
     [SerializeField] private Material _previewMat;
     [SerializeField] private int _placeRotation;
+    [SerializeField] LayerMask _groundMask;
     [SerializeField] private Grid _grid;
     [SerializeField] private Resource _resource;
 
@@ -26,6 +27,7 @@ public class PlaceObject : MonoBehaviour
     private Vector3 _cursorToGridPos;
     private Vector3 _currentHoverPosition; //this is to prevent a bug for the hover SFX
     private bool _canPlace = false;
+    public bool IsPlacing => _previewObject != null;
 
     void Start()
     {
@@ -42,7 +44,7 @@ public class PlaceObject : MonoBehaviour
         }
 
         _previewObject = Instantiate(_placeable);
-        foreach (var c in _previewObject.GetComponents<Collider>()) c.enabled = false;
+        foreach (var c in _previewObject.GetComponentsInChildren<Collider>()) c.enabled = false;
         MakePreviewMaterial(_previewObject, _previewMat);
         SetLayer(_previewObject, LayerMask.NameToLayer("Preview"));
         StartCoroutine(PlacementDelay(_placeDelay));
@@ -61,16 +63,12 @@ public class PlaceObject : MonoBehaviour
 
             _resource.Spend(_placeableData.Cost);
 
-            Instantiate(_placeable, _cursorToGridPos.Flatten(), _previewObject.transform.rotation);
-            foreach (var c in _previewObject.GetComponents<Collider>()) c.enabled = true;
+            var placed = Instantiate(_placeable, _cursorToGridPos.Flatten(), _previewObject.transform.rotation);
+            SetLayer(placed, LayerMask.NameToLayer("Placeable"));
             _canPlace = false;
-
-            if (_previewObject != null)
-            {
-                PlaySFX(_placeItemSFX);
-                Destroy(_previewObject);
-            }
-
+            PlaySFX(_placeItemSFX);
+            Destroy(_previewObject);
+            _previewObject = null;
         }
     }
 
@@ -84,6 +82,7 @@ public class PlaceObject : MonoBehaviour
     {
         if (Mouse.current == null) return;
         Ray ray = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        if (_previewObject == null) return;
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {

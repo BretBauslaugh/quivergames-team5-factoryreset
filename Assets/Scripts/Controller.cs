@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class Controller : MonoBehaviour
@@ -7,6 +8,7 @@ public class Controller : MonoBehaviour
 
     private PlaceObject _placeObject;
     private Camera _mainCamera;
+    private SelectionManager _selection;
     void Start()
     {
         _mainCamera = Camera.main;  
@@ -23,10 +25,15 @@ public class Controller : MonoBehaviour
 
     public void OnInteract(InputValue value)
     {
-        if(_placeObject != null)
+        if (!value.isPressed) return;
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (_placeObject.IsPlacing)
         {
             _placeObject.TryPlace();
-            
+        }
+        else
+        {
+            _selection.ClickSelect();
         }
     }
 
