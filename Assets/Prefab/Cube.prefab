@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1657237943240027563}
   - component: {fileID: 4605098968955319328}
   - component: {fileID: 7135033024525332677}
-  - component: {fileID: 4500782331727552921}
+  - component: {fileID: 1122498689506562510}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -113,7 +113,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4500782331727552921
+--- !u!114 &1122498689506562510
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +122,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6777565005709001327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab700a7d0ab91a041a81a3b7a9dc33af, type: 3}
+  m_Script: {fileID: 11500000, guid: d749c98ca0c4a754bb9b3edb56036a98, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Building01
-  _buildingData: {fileID: 11400000, guid: 75034b320ad6af644b696c138df85bbb, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingInstance
+  _data: {fileID: 11400000, guid: 8593f6db20726054e81558cbe515ef50, type: 2}
+  _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}

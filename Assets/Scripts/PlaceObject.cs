@@ -19,6 +19,8 @@ public class PlaceObject : MonoBehaviour
 
     private GameObject _placeable;
     private GameObject _previewObject;
+    private Structure _placeableData;
+
     private Camera _camera;
     private Vector3 _cursorPos;
     private Vector3 _cursorToGridPos;
@@ -32,6 +34,8 @@ public class PlaceObject : MonoBehaviour
 
     public void SelectPlaceable(GameObject prefab){
         _placeable = prefab;
+        _placeableData = prefab.GetComponent<BuildingInstance>().Data;
+
         if(_previewObject != null)
         {
             Destroy(_previewObject);
@@ -48,7 +52,15 @@ public class PlaceObject : MonoBehaviour
     {
         if (_canPlace && _placeable != null)
         {
-            
+            //_resource.LogAll();
+            if (!_resource.CanAfford(_placeableData.Cost))
+            {
+                Debug.Log("Not enough resource");
+                return;
+            }
+
+            _resource.Spend(_placeableData.Cost);
+
             Instantiate(_placeable, _cursorToGridPos.Flatten(), _previewObject.transform.rotation);
             foreach (var c in _previewObject.GetComponents<Collider>()) c.enabled = true;
             _canPlace = false;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3679264931802235027}
   - component: {fileID: 7140479595403388657}
   - component: {fileID: 8667388411806708500}
-  - component: {fileID: 8182538366672235291}
+  - component: {fileID: 4033674236143543448}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -113,7 +113,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8182538366672235291
+--- !u!114 &4033674236143543448
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +122,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7580777238761374720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b61b6143af344946aae60d9ed93a79c, type: 3}
+  m_Script: {fileID: 11500000, guid: d749c98ca0c4a754bb9b3edb56036a98, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Building02
-  _buildingData: {fileID: 11400000, guid: bc1d59ead24758a4bbdd379a29065075, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingInstance
+  _data: {fileID: 11400000, guid: 6b07e947381d54549a0c92b3225eabaa, type: 2}
+  _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
