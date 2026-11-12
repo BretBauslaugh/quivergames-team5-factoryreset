@@ -200,7 +200,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 503034053}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 976162720}
+        m_TargetAssemblyTypeName: QTE_PressTheButton, Assembly-CSharp
+        m_MethodName: OnPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &503034053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +380,7 @@ GameObject:
   - component: {fileID: 976162718}
   - component: {fileID: 976162717}
   - component: {fileID: 976162719}
+  - component: {fileID: 976162720}
   m_Layer: 5
   m_Name: QTE_Button
   m_TagString: Untagged
@@ -461,6 +474,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &976162720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976162715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d904c2fc9fd55945a0781b619e00696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QTE_PressTheButton
+  _buttonPressed: 0
+  _secondsLeft: 3
+  _secondsLeftLabel: {fileID: 1457054978}
+  _parentObject: {fileID: 1291993855}
 --- !u!156049354 &991561925 stripped
 Grid:
   m_CorrespondingSourceObject: {fileID: 2611252288187425903, guid: 4cec4ad5417eb804480933e70773b199, type: 3}
@@ -756,6 +785,11 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &1291993855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7580777238761374720, guid: e281a6e5de959cc44987f9cd5c0bca4d, type: 3}
+  m_PrefabInstance: {fileID: 1315428319}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1315428319
 PrefabInstance:
   m_ObjectHideFlags: 0
