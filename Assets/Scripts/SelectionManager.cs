@@ -50,6 +50,10 @@ public class SelectionManager : MonoBehaviour
     {
         if (selected != null) selected.SetSelected(false);
         selected = hovered;
-        if (selected != null) selected.SetSelected(true);
+        if (selected != null)
+        {
+            selected.SetSelected(true);
+            selected.OnClicked();
+        }
     }
 }

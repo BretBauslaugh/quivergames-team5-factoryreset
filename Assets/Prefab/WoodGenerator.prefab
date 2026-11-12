@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 4605098968955319328}
   - component: {fileID: 7135033024525332677}
   - component: {fileID: 1122498689506562510}
-  m_Layer: 0
-  m_Name: Cube
+  - component: {fileID: 8022764412971247154}
+  m_Layer: 7
+  m_Name: WoodGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,3 +128,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInstance
   _data: {fileID: 11400000, guid: 8593f6db20726054e81558cbe515ef50, type: 2}
   _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
+--- !u!114 &8022764412971247154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777565005709001327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10de14e2b88d7844d85bf0a5d20cbc51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Generator
+  _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
+  _tickInterval: 1

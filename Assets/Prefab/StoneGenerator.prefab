@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 7140479595403388657}
   - component: {fileID: 8667388411806708500}
   - component: {fileID: 4033674236143543448}
-  m_Layer: 0
-  m_Name: Sphere
+  - component: {fileID: 8525970890182599651}
+  m_Layer: 7
+  m_Name: StoneGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,3 +128,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInstance
   _data: {fileID: 11400000, guid: 6b07e947381d54549a0c92b3225eabaa, type: 2}
   _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
+--- !u!114 &8525970890182599651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7580777238761374720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10de14e2b88d7844d85bf0a5d20cbc51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Generator
+  _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
+  _tickInterval: 1

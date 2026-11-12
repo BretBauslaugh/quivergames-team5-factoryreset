@@ -45,6 +45,14 @@ public  class BuildingInstance : MonoBehaviour
         rend.material.color = selected ? Color.green : hovered ? Color.yellow : baseColor;
     }
 
+    public void OnClicked()
+    {
+        foreach(var r in _data.ClickReward)
+        {
+            _resources.Add(r.Type, r.Amount);
+        }
+    }
+
     //protected virtual void PrintCurrentInfo()
     //{
     //    Debug.Log($"Id = {StrucData.Id}, " + $"Name = {StrucData.DisplayName}, " +  

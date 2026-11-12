@@ -17,4 +17,9 @@ MonoBehaviour:
   Cost:
   - Type: {fileID: 11400000, guid: ffb3ced3f793ab44491696dd68e9a8a5, type: 2}
     Amount: 25
-  Production: []
+  ClickReward:
+  - Type: {fileID: 11400000, guid: 48776268185bb3c4c988db8ed87f0da6, type: 2}
+    Amount: 50
+  Production:
+  - Type: {fileID: 11400000, guid: 562aa663dc72a5c4b8c34c9aec65fbc4, type: 2}
+    Amount: 10

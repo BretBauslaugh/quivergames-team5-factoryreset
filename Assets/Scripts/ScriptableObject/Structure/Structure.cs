@@ -7,4 +7,5 @@ public class Structure : ScriptableObject
     public string Id;
     public string DisplayName;
     public ResourceAmount[] Cost;
+    public ResourceAmount[] ClickReward;
 }

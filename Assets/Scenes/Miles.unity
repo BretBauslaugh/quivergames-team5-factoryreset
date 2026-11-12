@@ -378,6 +378,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1187761371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7033495271524739909, guid: ee1293c9fb66e5543b43dedec7e22598, type: 3}
+  m_PrefabInstance: {fileID: 4744656154285210997}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1187761375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187761371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64a87c47b21d8a4fb255700aa1f1cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SelectionManager
+  placeableMask:
+    serializedVersion: 2
+    m_Bits: 128
+  placeObject: {fileID: 1193656632}
 --- !u!114 &1193656632 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6493953686401419147, guid: ee1293c9fb66e5543b43dedec7e22598, type: 3}
@@ -855,6 +876,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5703601073799705481, guid: ee1293c9fb66e5543b43dedec7e22598, type: 3}
+      propertyPath: _selection
+      value: 
+      objectReference: {fileID: 1187761375}
     - target: {fileID: 6038168199702712513, guid: ee1293c9fb66e5543b43dedec7e22598, type: 3}
       propertyPath: m_Name
       value: ControlsContainer
@@ -906,7 +931,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7033495271524739909, guid: ee1293c9fb66e5543b43dedec7e22598, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1187761375}
   m_SourcePrefab: {fileID: 100100000, guid: ee1293c9fb66e5543b43dedec7e22598, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
