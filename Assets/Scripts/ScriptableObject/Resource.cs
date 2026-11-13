@@ -45,11 +45,11 @@ public class Resource : ScriptableObject
         RaiseChanged();
     }
 
-    public void LogAll()
-    {
-        foreach (var kv in _amounts)
-            Debug.Log($"{kv.Key.DisplayName}: {kv.Value}");
-    }
+    //public void LogAll()
+    //{
+    //    foreach (var kv in _amounts)
+    //        Debug.Log($"{kv.Key.DisplayName}: {kv.Value}");
+    //}
 
     private void RaiseChanged()
     {
