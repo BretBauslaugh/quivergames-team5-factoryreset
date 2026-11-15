@@ -4,7 +4,7 @@ using UnityEngine;
 public class Generator : MonoBehaviour
 {
     [SerializeField] private Resource _resources;
-    [SerializeField] private float _tickInterval = 1f;
+    //[SerializeField] private float _tickInterval = 1f;
 
     private Generators_SO _data;
     private float _timer;
@@ -28,9 +28,9 @@ public class Generator : MonoBehaviour
     private void Update()
     {
         _timer += Time.deltaTime;
-        while (_timer >= _tickInterval)
+        while (_timer >= _data.GeneratePeriod)
         {
-            _timer -= _tickInterval;
+            _timer -= _data.GeneratePeriod;
             foreach (var p in _data.Production)
                 _resources.Add(p.Type, p.Amount);
         }

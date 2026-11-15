@@ -23,3 +23,4 @@ MonoBehaviour:
   Production:
   - Type: {fileID: 11400000, guid: 562aa663dc72a5c4b8c34c9aec65fbc4, type: 2}
     Amount: 10
+  GeneratePeriod: 5

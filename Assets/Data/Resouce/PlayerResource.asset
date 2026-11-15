@@ -19,4 +19,6 @@ MonoBehaviour:
     Amount: 100
   - Type: {fileID: 11400000, guid: 48776268185bb3c4c988db8ed87f0da6, type: 2}
     Amount: 0
+  - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
+    Amount: 0
   _onChanged: {fileID: 11400000, guid: 7ce843d09b786bd43b816a96d6beb777, type: 2}
