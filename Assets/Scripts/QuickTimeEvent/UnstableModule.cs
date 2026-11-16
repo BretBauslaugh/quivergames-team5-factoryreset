@@ -14,7 +14,7 @@ public class UnstableModule : MonoBehaviour
     [SerializeField] private TMP_Text _labelText;
     [SerializeField] private TMP_Text _timeText;
     [SerializeField] private Image _image;
-    [SerializeField] private Vector2 _screenOffset = new Vector2(0f, 100f);
+    [SerializeField] private Vector2 _screenOffset = new Vector2(0f, 200f);
 
     private int _pressed = 0;
     private bool _qteActive = false;
@@ -83,10 +83,7 @@ public class UnstableModule : MonoBehaviour
     private void OnFailed()
     {
         //Explosion
+        Destroy(gameObject, 1f);
     }
-
-
-
-
 
 }

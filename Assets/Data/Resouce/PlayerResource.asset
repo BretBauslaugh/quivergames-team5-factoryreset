@@ -21,4 +21,6 @@ MonoBehaviour:
     Amount: 0
   - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
     Amount: 0
+  - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
+    Amount: 0
   _onChanged: {fileID: 11400000, guid: 7ce843d09b786bd43b816a96d6beb777, type: 2}
