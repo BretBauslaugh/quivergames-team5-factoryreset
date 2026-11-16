@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Gamma
   _default: 0
-  _current: 0
+  _current: 0.3
   _valueMinMax: {x: -0.5, y: 0.5}
   _sliderMinMax: {x: 0, y: 10}
   _volumeProfile: {fileID: 11400000, guid: e7f16816fd7376b43bf5fc070c685af5, type: 2}
