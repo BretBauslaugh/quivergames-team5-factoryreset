@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPresetFolder" id="{291e9127-f660-4bc6-a7c0-05cef5f84f64}">
+		<property name="name">
+			<value>UISliderControl</value>
+		</property>
+		<relationship name="folder">
+			<destination>{54cf44d6-d432-4d2a-8273-562c6b2faff0}</destination>
+		</relationship>
+	</object>
+</objects>
