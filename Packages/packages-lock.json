@@ -1,5 +1,15 @@
 {
   "dependencies": {
+    "com.qhenshaw.uicomponents": {
+      "version": "https://github.com/qhenshaw/UIComponents.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.inputsystem": "1.4.4",
+        "com.unity.ugui": "1.0.0"
+      },
+      "hash": "6d09d3c6720de5a606ed75d8b070536b54addd95"
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.16",
       "depth": 0,
