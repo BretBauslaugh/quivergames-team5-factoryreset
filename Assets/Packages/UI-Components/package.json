@@ -1,0 +1,23 @@
+{
+  "displayName": "UI Components",
+  "author": "Quin Henshaw",
+  "version": "2.3.0",
+  "name": "com.qhenshaw.uicomponents",
+  "documentationUrl": "https://github.com/qhenshaw/UIComponents",
+  "changelogUrl": "https://github.com/qhenshaw/UIComponents/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/qhenshaw/UIComponents/blob/main/LICENSE.md",
+  "description": "Additional UI components useful for building Unity menus and settings windows.",
+  "unity": "2021.3",
+  "dependencies": {
+    "com.unity.inputsystem": "1.4.4",
+    "com.unity.ugui": "1.0.0"
+  },
+  "samples": [
+    {
+      "displayName": "Main Menu and Gameplay",
+      "description": "Main Menu and Gameplay sample scenes with pause and settings sliders. Make sure scenes are added to build settings.",
+      "path": "Samples~/MainMenu"
+    }
+  ],
+  "_fingerprint": "6d09d3c6720de5a606ed75d8b070536b54addd95"
+}

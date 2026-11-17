@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 676953100}
   - component: {fileID: 676953099}
   - component: {fileID: 676953098}
+  - component: {fileID: 676953102}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -231,6 +232,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &676953102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676953097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c316d209e2ed5714a8ecb676559bfdf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingGrid
+  _grid: {fileID: 991561925}
 --- !u!156049354 &991561925 stripped
 Grid:
   m_CorrespondingSourceObject: {fileID: 2611252288187425903, guid: 4cec4ad5417eb804480933e70773b199, type: 3}
@@ -693,6 +707,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2611252288187425903, guid: 4cec4ad5417eb804480933e70773b199, type: 3}
+      propertyPath: m_CellSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611252288187425903, guid: 4cec4ad5417eb804480933e70773b199, type: 3}
+      propertyPath: m_CellSize.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3641198331962278660, guid: 4cec4ad5417eb804480933e70773b199, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -750,9 +772,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2526206162851559529, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1193656632}
+    - target: {fileID: 3155099431793183690, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1193656632}
     - target: {fileID: 4884756610675781312, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214798503509388409, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5433282286212903093, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_Pivot.x
@@ -834,6 +868,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6211331394207591020, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6247823109443411580, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1193656632}
     - target: {fileID: 7565818938703610548, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -863,6 +905,10 @@ PrefabInstance:
       propertyPath: _grid
       value: 
       objectReference: {fileID: 991561925}
+    - target: {fileID: 6493953686401419147, guid: ee1293c9fb66e5543b43dedec7e22598, type: 3}
+      propertyPath: _buildingGrid
+      value: 
+      objectReference: {fileID: 676953102}
     - target: {fileID: 8012061787280320248, guid: ee1293c9fb66e5543b43dedec7e22598, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

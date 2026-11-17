@@ -1,12 +1,15 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class Controller : MonoBehaviour
 {
     [SerializeField] private GameObject _target;
+    [SerializeField] private SelectionManager _selection;
 
     private PlaceObject _placeObject;
     private Camera _mainCamera;
+
     void Start()
     {
         _mainCamera = Camera.main;  
@@ -19,14 +22,21 @@ public class Controller : MonoBehaviour
         {
             Debug.LogWarning($"{gameObject.name} Get component failed");
         }
+
+
     }
 
     public void OnInteract(InputValue value)
     {
-        if(_placeObject != null)
+        if (!value.isPressed) return;
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (_placeObject.IsPlacing)
         {
             _placeObject.TryPlace();
-            
+        }
+        else
+        {
+            _selection.ClickSelect();
         }
     }
 

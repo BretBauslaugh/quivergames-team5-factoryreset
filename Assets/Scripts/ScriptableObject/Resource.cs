@@ -1,4 +1,3 @@
-using Mono.Cecil;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,6 +37,15 @@ public class Resource : ScriptableObject
         }
     }
 
+    public void SpendUpTo(ResourceAmount[] amounts)
+    {
+        foreach (var a in amounts)
+        {
+            int take = Mathf.Min(a.Amount, Get(a.Type));
+            if (take > 0) Add(a.Type, -take);
+        }
+    }
+
     public void ResetToStart()
     {
         _amounts.Clear();
@@ -45,11 +53,11 @@ public class Resource : ScriptableObject
         RaiseChanged();
     }
 
-    public void LogAll()
-    {
-        foreach (var kv in _amounts)
-            Debug.Log($"{kv.Key.DisplayName}: {kv.Value}");
-    }
+    //public void LogAll()
+    //{
+    //    foreach (var kv in _amounts)
+    //        Debug.Log($"{kv.Key.DisplayName}: {kv.Value}");
+    //}
 
     private void RaiseChanged()
     {
