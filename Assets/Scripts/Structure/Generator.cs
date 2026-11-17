@@ -8,6 +8,7 @@ public class Generator : MonoBehaviour
 
     private Generators_SO _data;
     private float _timer;
+    private BuildingInstance _building;
 
     private void Start()
     {
@@ -17,7 +18,8 @@ public class Generator : MonoBehaviour
             return;
         }
 
-        _data = GetComponent<BuildingInstance>().Data as Generators_SO;
+        _building = GetComponent<BuildingInstance>();
+        _data = _building.Data as Generators_SO;
         if (_data == null)
         {
             Debug.LogWarning($"{name}:failed to get component", this);
@@ -31,8 +33,7 @@ public class Generator : MonoBehaviour
         while (_timer >= _data.GeneratePeriod)
         {
             _timer -= _data.GeneratePeriod;
-            foreach (var p in _data.Production)
-                _resources.Add(p.Type, p.Amount);
+            _building.PayOut(_data.Production);
         }
     }
 }

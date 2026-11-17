@@ -67,7 +67,7 @@ public  class BuildingInstance : MonoBehaviour
     public float ProductionMultiplier()
     {
         float mult = 1f;
-        if (_grid != null) return mult;
+        if (_grid == null) return mult;
         foreach (var n in _grid.Neighbours(Cell))
         {
             if (n.TryGetComponent(out IEnhancer e)) mult *= e.Multiplier;

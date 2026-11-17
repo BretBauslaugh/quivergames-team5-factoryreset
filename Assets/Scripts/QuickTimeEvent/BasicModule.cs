@@ -17,6 +17,7 @@ public class BasicModule : MonoBehaviour
 
     private bool _qteActive = false;
     private Camera _cam;
+    private BuildingInstance _building;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class BasicModule : MonoBehaviour
             return;
         }
 
+        _building = GetComponent<BuildingInstance>();
         _ui.SetActive(false);
         _cam = Camera.main;
         _image.color = Color.white;
@@ -67,7 +69,7 @@ public class BasicModule : MonoBehaviour
     {
         if (_qteActive) 
         {
-            _resource.Add(_type, _addMount);
+            _building.PayOut(_type, _addMount);
             _qteActive = false;
         }
     }

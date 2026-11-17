@@ -18,7 +18,8 @@ public class SlotMachine : MonoBehaviour
             return;
         }
 
-        _data = GetComponent<BuildingInstance>().Data as Generators_SO;
+        _building = GetComponent<BuildingInstance>();
+        _data = _building.Data as Generators_SO;
         if (_data == null)
         {
             enabled = false;
@@ -33,12 +34,11 @@ public class SlotMachine : MonoBehaviour
             _timer -= _data.GeneratePeriod;
             if(Random.value < _chance)
             {
-                foreach (var p in _data.Production)
-                    _building.PayOut(_data.Production); 
+                _building.PayOut(_data.Production); 
             }
             else
             {
-                _resources.Spend(_failLoss);
+                _resources.SpendUpTo(_failLoss);
             }
         }
     }
