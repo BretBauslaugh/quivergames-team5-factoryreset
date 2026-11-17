@@ -1,3 +1,5 @@
+using Unity.Hierarchy;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public  class BuildingInstance : MonoBehaviour
@@ -6,8 +8,10 @@ public  class BuildingInstance : MonoBehaviour
     [SerializeField] private Resource _resources;
 
     public Structure Data => _data;
+    public Vector3Int Cell { get; private set; }
     private Renderer rend;
     private Color baseColor;
+    private BuildingGrid _grid;
     bool hovered, selected;
 
     protected virtual string ExtraInfo => "";
@@ -45,13 +49,43 @@ public  class BuildingInstance : MonoBehaviour
         rend.material.color = selected ? Color.green : hovered ? Color.yellow : baseColor;
     }
 
-    public void OnClicked()
+    public void Init(BuildingGrid grid, Vector3Int cell)
     {
-        foreach(var r in _data.ClickReward)
+        _grid = grid;
+        Cell = cell;
+        grid.Register(this, Cell);
+    }
+
+    private void OnDestroy()
+    {
+        if(_grid != null)
         {
-            _resources.Add(r.Type, r.Amount);
+            _grid.Unregister(this);
         }
     }
+
+    public float ProductionMultiplier()
+    {
+        float mult = 1f;
+        if (_grid != null) return mult;
+        foreach (var n in _grid.Neighbours(Cell))
+        {
+            if (n.TryGetComponent(out IEnhancer e)) mult *= e.Multiplier;
+        }
+        return mult;
+    }
+
+    public void PayOut(ResourceType type, int amount)
+    {
+        _resources.Add(type, Mathf.RoundToInt(amount * ProductionMultiplier()));
+    }
+
+    public void PayOut(ResourceAmount[] rewards)
+    {
+        foreach (var r in rewards) PayOut(r.Type, r.Amount);
+    }
+
+    public void OnClicked() => PayOut(_data.ClickReward);
 
     //protected virtual void PrintCurrentInfo()
     //{

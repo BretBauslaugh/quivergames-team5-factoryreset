@@ -12,6 +12,7 @@ public class PlaceObject : MonoBehaviour
     [SerializeField] private int _placeRotation;
     [SerializeField] LayerMask _groundMask;
     [SerializeField] private Grid _grid;
+    [SerializeField] private BuildingGrid _buildingGrid;
     [SerializeField] private Resource _resource;
 
     [Header("FMOD")]
@@ -55,15 +56,19 @@ public class PlaceObject : MonoBehaviour
         if (_canPlace && _placeable != null)
         {
             //_resource.LogAll();
+            Vector3Int cell = _buildingGrid.ToCell(_cursorToGridPos);
+            if (!_buildingGrid.IsFree(cell)) return;
+
             if (!_resource.CanAfford(_placeableData.Cost))
             {
                 Debug.Log("Not enough resource");
                 return;
             }
-
+            
             _resource.Spend(_placeableData.Cost);
 
             var placed = Instantiate(_placeable, _cursorToGridPos.Flatten(), _previewObject.transform.rotation);
+            placed.GetComponent<BuildingInstance>().Init(_buildingGrid, cell);
             SetLayer(placed, LayerMask.NameToLayer("Placeable"));
             _canPlace = false;
             PlaySFX(_placeItemSFX);

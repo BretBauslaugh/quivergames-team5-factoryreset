@@ -6,6 +6,7 @@ public class SlotMachine : MonoBehaviour
     [SerializeField] private ResourceAmount[] _failLoss;
     [SerializeField, Range(0f, 1f)] private float _chance = 0.1f;
 
+    private BuildingInstance _building;
     private Generators_SO _data;
     private float _timer;
 
@@ -20,7 +21,6 @@ public class SlotMachine : MonoBehaviour
         _data = GetComponent<BuildingInstance>().Data as Generators_SO;
         if (_data == null)
         {
-            Debug.LogWarning($"{name}:failed to get component", this);
             enabled = false;
         }
     }
@@ -34,11 +34,11 @@ public class SlotMachine : MonoBehaviour
             if(Random.value < _chance)
             {
                 foreach (var p in _data.Production)
-                    _resources.Add(p.Type, p.Amount);
+                    _building.PayOut(_data.Production); 
             }
             else
             {
-                _resources.SpendUpTo(_failLoss);
+                _resources.Spend(_failLoss);
             }
         }
     }
