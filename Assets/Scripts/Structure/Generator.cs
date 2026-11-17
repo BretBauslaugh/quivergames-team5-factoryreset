@@ -4,7 +4,7 @@ using UnityEngine;
 public class Generator : MonoBehaviour
 {
     [SerializeField] private Resource _resources;
-    //[SerializeField] private float _tickInterval = 1f;
+    
 
     private Generators_SO _data;
     private float _timer;

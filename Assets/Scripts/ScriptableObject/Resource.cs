@@ -37,6 +37,15 @@ public class Resource : ScriptableObject
         }
     }
 
+    public void SpendUpTo(ResourceAmount[] amounts)
+    {
+        foreach (var a in amounts)
+        {
+            int take = Mathf.Min(a.Amount, Get(a.Type));
+            if (take > 0) Add(a.Type, -take);
+        }
+    }
+
     public void ResetToStart()
     {
         _amounts.Clear();

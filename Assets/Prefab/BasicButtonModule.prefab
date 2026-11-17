@@ -465,7 +465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d749c98ca0c4a754bb9b3edb56036a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInstance
-  _data: {fileID: 11400000, guid: 2b279cc156007f842b6c8003ad1027a9, type: 2}
+  _data: {fileID: 11400000, guid: 7ab41bf8e5ad0d245baf4e091984387b, type: 2}
   _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
 --- !u!114 &3274804019985681272
 MonoBehaviour:
