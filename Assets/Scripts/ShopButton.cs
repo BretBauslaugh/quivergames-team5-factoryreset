@@ -9,12 +9,14 @@ public class ShopButton : MonoBehaviour
     public TextMeshProUGUI modulePriceLabel;
     public GameObject modulePrefab;
     public PlaceObject placer;
+    public int itemCost;
 
     public void UpdateModule(Sprite sprite, string name, int price, GameObject prefab)
     {
         moduleIcon.sprite = sprite;
         moduleName.text = name;
         modulePriceLabel.text = $"{price} Coins";
+        itemCost = price;
         modulePrefab = prefab;
     }
 
