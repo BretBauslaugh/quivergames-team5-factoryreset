@@ -20,3 +20,4 @@ MonoBehaviour:
   - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
     Amount: 100
   GeneratePeriod: 5
+  MaxCapacity: 9999999

@@ -14,6 +14,7 @@ public class PlaceObject : MonoBehaviour
     [SerializeField] private Grid _grid;
     [SerializeField] private BuildingGrid _buildingGrid;
     [SerializeField] private Resource _resource;
+    
 
     [Header("FMOD")]
     [SerializeField] EventReference _placeItemSFX;
@@ -28,6 +29,7 @@ public class PlaceObject : MonoBehaviour
     private Vector3 _cursorToGridPos;
     private Vector3 _currentHoverPosition; //this is to prevent a bug for the hover SFX
     private bool _canPlace = false;
+    private bool _validSpot = true;
     public bool IsPlacing => _previewObject != null;
 
     void Start()
@@ -47,6 +49,8 @@ public class PlaceObject : MonoBehaviour
         _previewObject = Instantiate(_placeable);
         foreach (var c in _previewObject.GetComponentsInChildren<Collider>()) c.enabled = false;
         MakePreviewMaterial(_previewObject, _previewMat);
+        SetPreviewColor(_previewObject, Color.green);
+        _validSpot = true;
         SetLayer(_previewObject, LayerMask.NameToLayer("Preview"));
         StartCoroutine(PlacementDelay(_placeDelay));
     }
@@ -104,9 +108,20 @@ public class PlaceObject : MonoBehaviour
                     Play3DSFX(_hoverItemSFX);
                     _currentHoverPosition = _previewObject.transform.position;
                 }
+
+                Vector3Int cell = _buildingGrid.ToCell(_cursorToGridPos);
+                bool valid = _buildingGrid.IsFree(cell) && _resource.CanAfford(_placeableData.Cost);
+
+                if (valid != _validSpot)
+                {
+                    _validSpot = valid;
+                    SetPreviewColor(_previewObject, valid ? Color.green : Color.red);
+                }
             }
 
         }
+
+        
     }
 
     private void SetLayer(GameObject obj, int newLayer)
@@ -123,6 +138,16 @@ public class PlaceObject : MonoBehaviour
         foreach (Renderer renderer in obj.GetComponentsInChildren<Renderer>())
         {
             renderer.material = mat;
+        }
+    }
+
+    private void SetPreviewColor(GameObject obj, Color color)
+    {
+        foreach(Renderer r in obj.GetComponentsInChildren<Renderer>())
+        {
+            Color c = color;
+            c.a = r.material.color.a;
+            r.material.color = c;
         }
     }
 

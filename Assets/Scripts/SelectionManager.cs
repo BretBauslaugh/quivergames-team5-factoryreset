@@ -54,6 +54,20 @@ public class SelectionManager : MonoBehaviour
         {
             selected.SetSelected(true);
             selected.OnClicked();
+
+            if(selected.TryGetComponent(out Generator gen))
+            {
+                gen.Collect();
+            }
         }
+    }
+
+    public void RemoveSelected()
+    {
+        if (selected == null) return;
+        if (placeObject.IsPlacing) return;
+        if (hovered == selected) hovered = null;
+        Destroy(selected.gameObject);
+        selected = null;
     }
 }

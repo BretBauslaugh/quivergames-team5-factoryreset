@@ -18,5 +18,6 @@ MonoBehaviour:
   ClickReward: []
   Production:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
-    Amount: 1
-  GeneratePeriod: 20
+    Amount: 20
+  GeneratePeriod: 1
+  MaxCapacity: 9999999
