@@ -73,11 +73,11 @@ public class QuotaManager : MonoBehaviour
         if(_timerText)
         {
             int t = Mathf.CeilToInt(Mathf.Max(_timeLeft, 0f));
-            _timerText.text = $"<i>Time Remaining:</i> <b>{t / 60}:{t % 60:00}</b>";
+            _timerText.text = $"<b>{t / 60}:{t % 60:00}</b>";
         }
         if (_quotaText)
         {
-            _quotaText.text = $"<i>Round #{_round}:</i> <b>{_resource.Get(_canister)} / {_quota}</b> Steam Canisters";
+            _quotaText.text = $"<b>Round #{_round}: </b>{_resource.Get(_canister)} / {_quota}";
         }
     }
 }

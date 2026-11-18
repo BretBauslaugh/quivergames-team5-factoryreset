@@ -1,12 +1,25 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class Hovertext : MonoBehaviour
 {
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
+
+    public void OnEnable()
+    {
+        HideHoverSystem();
+    }
+
+    private void HideHoverSystem()
+    {
+        this.GetComponent<Image>().enabled = false;
+        descriptionText.text = "";
+        nameText.text = "";
+    }
 
     public void SetDescriptionText(string s){
         ToggleBG(s);
