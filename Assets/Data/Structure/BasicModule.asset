@@ -17,3 +17,4 @@ MonoBehaviour:
   structureIcon: {fileID: 21300000, guid: 39dd75e9f9a70e24a8593f7e34846d43, type: 3}
   Cost: []
   ClickReward: []
+  prefab: {fileID: 7551068447394674275, guid: 764067b075d9e2f49808d8eac22f1eff, type: 3}

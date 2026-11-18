@@ -231,10 +231,74 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 27005560}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 185777785}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetPlacerPriority
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GrabShopPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlaceObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5605125871633463714, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
       propertyPath: m_Name
       value: ShopButton (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5997887274731204715, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: _grid
+      value: 
+      objectReference: {fileID: 45728441}
+    - target: {fileID: 5997887274731204715, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: _buildingGrid
+      value: 
+      objectReference: {fileID: 2049048624}
+    - target: {fileID: 8396785684870570073, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: placer
+      value: 
+      objectReference: {fileID: 185777785}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -250,6 +314,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5605125871633463714, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
   m_PrefabInstance: {fileID: 27005556}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &27005560 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8396785684870570073, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+  m_PrefabInstance: {fileID: 27005556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27005558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ef5e7057e71046a7643e757aafe2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShopButton
 --- !u!1001 &45728440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1753,10 +1828,74 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1014088905}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 185777785}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetPlacerPriority
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GrabShopPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlaceObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5605125871633463714, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
       propertyPath: m_Name
       value: ShopButton (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5997887274731204715, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: _grid
+      value: 
+      objectReference: {fileID: 45728441}
+    - target: {fileID: 5997887274731204715, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: _buildingGrid
+      value: 
+      objectReference: {fileID: 2049048624}
+    - target: {fileID: 8396785684870570073, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: placer
+      value: 
+      objectReference: {fileID: 185777785}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1772,6 +1911,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5605125871633463714, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
   m_PrefabInstance: {fileID: 1014088901}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1014088905 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8396785684870570073, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+  m_PrefabInstance: {fileID: 1014088901}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014088903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ef5e7057e71046a7643e757aafe2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShopButton
 --- !u!1001 &1112171143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1884,10 +2034,74 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1112171147}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 185777785}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetPlacerPriority
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GrabShopPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlaceObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5605125871633463714, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
       propertyPath: m_Name
       value: ShopButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5997887274731204715, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: _grid
+      value: 
+      objectReference: {fileID: 45728441}
+    - target: {fileID: 5997887274731204715, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: _buildingGrid
+      value: 
+      objectReference: {fileID: 2049048624}
+    - target: {fileID: 8396785684870570073, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: placer
+      value: 
+      objectReference: {fileID: 185777785}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1903,6 +2117,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5605125871633463714, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
   m_PrefabInstance: {fileID: 1112171143}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1112171147 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8396785684870570073, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+  m_PrefabInstance: {fileID: 1112171143}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112171145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ef5e7057e71046a7643e757aafe2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShopButton
 --- !u!1 &1146071781
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,8 +2487,8 @@ Camera:
   m_GameObject: {fileID: 1239018916}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.38679248, g: 0.35442758, b: 0.29374334, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2425,11 +2650,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 932530354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 667, y: 362}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -33}
   m_SizeDelta: {x: 400, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1497034635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2484,7 +2709,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2666,7 +2891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6211331394207591020, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6247823109443411580, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3397,10 +3622,74 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2144166065}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 185777785}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetPlacerPriority
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GrabShopPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlaceObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5605125871633463714, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
       propertyPath: m_Name
       value: ShopButton (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5997887274731204715, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: _grid
+      value: 
+      objectReference: {fileID: 45728441}
+    - target: {fileID: 5997887274731204715, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: _buildingGrid
+      value: 
+      objectReference: {fileID: 2049048624}
+    - target: {fileID: 8396785684870570073, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: placer
+      value: 
+      objectReference: {fileID: 185777785}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3416,6 +3705,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5605125871633463714, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
   m_PrefabInstance: {fileID: 2144166061}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2144166065 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8396785684870570073, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+  m_PrefabInstance: {fileID: 2144166061}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144166063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ef5e7057e71046a7643e757aafe2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShopButton
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
