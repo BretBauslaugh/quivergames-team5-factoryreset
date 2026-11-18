@@ -26,8 +26,7 @@ public class CounterModule : MonoBehaviour
         while (_timer >= _payPeriod)
         {
             _timer -= _payPeriod;
-            int total = CollectSideCounts();
-            Debug.Log(total);
+            int total = CollectSideCounts();            
             if (total > 0) _building.PayOut(_type, _amountPerCount * total);
         }
     }
