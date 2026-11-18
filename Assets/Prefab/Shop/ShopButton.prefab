@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 5889174004424948871}
   - component: {fileID: 66773883780598981}
   - component: {fileID: 8396785684870570073}
+  - component: {fileID: -4071535141355047543}
   m_Layer: 5
   m_Name: ShopButton
   m_TagString: Untagged
@@ -313,6 +314,23 @@ MonoBehaviour:
   moduleIcon: {fileID: 7445521050663220691}
   moduleName: {fileID: 1040280315686411285}
   modulePriceLabel: {fileID: 46443661567410603}
+  modulePrefab: {fileID: 0}
+  placer: {fileID: 0}
+  itemCost: 0
+--- !u!114 &-4071535141355047543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5605125871633463714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9086e0bcac5e7e4b909bf75b746e9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverDescriptionObject
+  moduleName: Shop Item
+  moduleDescription: Its in the shop
 --- !u!1 &5935502791810377759
 GameObject:
   m_ObjectHideFlags: 0

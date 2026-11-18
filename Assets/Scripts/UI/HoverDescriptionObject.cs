@@ -29,5 +29,10 @@ public class HoverDescriptionObject : MonoBehaviour, IPointerEnterHandler, IPoin
         }
     }
 
+    public void SetInfo(string s1, string s2){
+        moduleName = s1;
+        moduleDescription = s2;
+    }
+
 
 }

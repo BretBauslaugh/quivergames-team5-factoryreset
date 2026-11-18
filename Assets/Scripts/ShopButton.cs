@@ -18,10 +18,15 @@ public class ShopButton : MonoBehaviour
         modulePriceLabel.text = $"{price} Coins";
         itemCost = price;
         modulePrefab = prefab;
+        HoverInfo(name, name);
     }
 
     public void SetPlacerPriority()
     {
         placer.shopButton = this;
+    }
+
+    private void HoverInfo(string moduleName, string moduleDescription){
+        this.GetComponent<HoverDescriptionObject>().SetInfo(moduleName,moduleDescription);
     }
 }
