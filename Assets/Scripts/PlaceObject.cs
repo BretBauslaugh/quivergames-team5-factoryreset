@@ -32,6 +32,8 @@ public class PlaceObject : MonoBehaviour
     private bool _validSpot = true;
     public bool IsPlacing => _previewObject != null;
 
+    public ShopButton shopButton;
+
     void Start()
     {
         _camera = Camera.main;    
@@ -53,6 +55,11 @@ public class PlaceObject : MonoBehaviour
         _validSpot = true;
         SetLayer(_previewObject, LayerMask.NameToLayer("Preview"));
         StartCoroutine(PlacementDelay(_placeDelay));
+    }
+
+    public void GrabShopPrefab()
+    {
+        SelectPlaceable(shopButton.modulePrefab);
     }
 
     public void TryPlace()
