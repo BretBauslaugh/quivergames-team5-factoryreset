@@ -9,6 +9,7 @@ public class QuotaManager : MonoBehaviour
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private TMP_Text _quotaText;
     [SerializeField] private GameObject _gameOverPanel;
+    [SerializeField] private GameObject _victoryPanel;
     [SerializeField] private float _roundTime = 120f;
     [SerializeField] private int _startQuota = 1000;
     [SerializeField, Range(0f, 1f)] private float _baseGrowth = 0.10f;
@@ -27,6 +28,7 @@ public class QuotaManager : MonoBehaviour
         _timeLeft = _roundTime;
         _running = true;
         if (_gameOverPanel) _gameOverPanel.SetActive(false);
+        if (_victoryPanel) _victoryPanel.SetActive(false);
         RefreshUI();
     }
 
@@ -35,6 +37,7 @@ public class QuotaManager : MonoBehaviour
         if (!_running) return;
         _timeLeft -= Time.deltaTime;
         if (_timeLeft <= 0f) Resolve();
+        if (_resource.Get(_canister) >= _quota) Resolve();
         RefreshUI();
     }
 
