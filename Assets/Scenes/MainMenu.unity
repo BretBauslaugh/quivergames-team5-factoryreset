@@ -450,7 +450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 801607980757813559, guid: 5bb6c84033ce3ee41afae56a3e2b61f5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Miles
+      value: Gameplay
       objectReference: {fileID: 0}
     - target: {fileID: 801607982298596936, guid: 5bb6c84033ce3ee41afae56a3e2b61f5, type: 3}
       propertyPath: m_fontAsset

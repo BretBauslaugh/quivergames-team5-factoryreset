@@ -14,6 +14,7 @@ public class QuotaManager : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float _baseGrowth = 0.10f;
     [SerializeField] private float _overshootWeight = 0.5f;
     [SerializeField] private float _maxGrowth = 1.0f;
+
     private float _timeLeft;
     private int _quota;
     private int _round = 1;
@@ -69,11 +70,11 @@ public class QuotaManager : MonoBehaviour
         if(_timerText)
         {
             int t = Mathf.CeilToInt(Mathf.Max(_timeLeft, 0f));
-            _timerText.text = $"Time Remaining: {t / 60}:{t % 60:00}";
+            _timerText.text = $"<i>Time Remaining:</i> <b>{t / 60}:{t % 60:00}</b>";
         }
         if (_quotaText)
         {
-            _quotaText.text = $"Quota #{_round}: {_resource.Get(_canister)} / {_quota}";
+            _quotaText.text = $"<i>Round #{_round}:</i> <b>{_resource.Get(_canister)} / {_quota}</b> Steam Canisters";
         }
     }
 }
