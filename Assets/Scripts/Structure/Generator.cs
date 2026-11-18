@@ -57,6 +57,7 @@ public class Generator : MonoBehaviour
             int space = _data.MaxCapacity - stored;
             if (space <= 0) continue;
             _stored[p.Type] = stored + Mathf.Min(p.Amount, space);
+            _building.CountProduction();
             RefreshDisplay();
         }
     }

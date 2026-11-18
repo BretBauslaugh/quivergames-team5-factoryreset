@@ -1,0 +1,45 @@
+using UnityEngine;
+
+public class CounterModule : MonoBehaviour
+{
+    [SerializeField] private ResourceType _type;
+    [SerializeField] private int _amountPerCount = 10;
+    [SerializeField] private float _payPeriod = 10f;
+
+    private BuildingInstance _building;
+    private float _timer;
+    void Start()
+    {
+        if (gameObject.layer == LayerMask.NameToLayer("Preview"))
+        {
+            enabled = false;
+            return;
+        }
+        _building = GetComponent<BuildingInstance>();
+    }
+
+    void Update()
+    {
+        if (_building.Grid == null) return;
+
+        _timer += Time.deltaTime;
+        while (_timer >= _payPeriod)
+        {
+            _timer -= _payPeriod;
+            int total = CollectSideCounts();
+            Debug.Log(total);
+            if (total > 0) _building.PayOut(_type, _amountPerCount * total);
+        }
+    }
+
+    private int CollectSideCounts()
+    {
+        int total = 0;
+        foreach (var n in _building.Grid.Neighbours(_building.Cell))
+        {
+            if(n.Cell.z != _building.Cell.z) continue;
+            total += n.AddProduceCount();
+        }
+        return total;
+    }
+}

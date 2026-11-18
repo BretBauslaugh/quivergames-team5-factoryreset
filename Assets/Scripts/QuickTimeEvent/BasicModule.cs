@@ -70,6 +70,7 @@ public class BasicModule : MonoBehaviour
         if (_qteActive) 
         {
             _building.PayOut(_type, _addMount);
+            _building.CountProduction();
             _qteActive = false;
         }
     }

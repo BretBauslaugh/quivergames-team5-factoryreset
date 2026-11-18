@@ -53,16 +53,16 @@ public class SelectionManager : MonoBehaviour
         if (selected != null)
         {
             selected.SetSelected(true);
-            selected.OnClicked();
+            //selected.OnClicked();
 
-            if(selected.TryGetComponent(out Generator gen))
+            if(selected.TryGetComponent(out Generator gen)) //Click to Collect
             {
                 gen.Collect();
             }
         }
     }
 
-    public void RemoveSelected()
+    public void RemoveSelected()    //delete function
     {
         if (selected == null) return;
         if (placeObject.IsPlacing) return;

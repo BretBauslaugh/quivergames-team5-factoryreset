@@ -82,6 +82,7 @@ public class ReactionModule : MonoBehaviour
         {
             _success = true;
             _building.PayOut(_type, _addMount);
+            _building.CountProduction();
             _qteActive = false;
         }
     }

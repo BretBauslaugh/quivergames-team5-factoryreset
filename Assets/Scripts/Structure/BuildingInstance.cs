@@ -1,5 +1,3 @@
-using Unity.Hierarchy;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public  class BuildingInstance : MonoBehaviour
@@ -8,11 +6,14 @@ public  class BuildingInstance : MonoBehaviour
     [SerializeField] private Resource _resources;
 
     public Structure Data => _data;
+    public BuildingGrid Grid => _grid;
     public Vector3Int Cell { get; private set; }
     private Renderer rend;
     private Color baseColor;
     private BuildingGrid _grid;
     bool hovered, selected;
+
+    private int _produceCount;
 
     protected virtual string ExtraInfo => "";
     protected virtual void Start()
@@ -85,7 +86,22 @@ public  class BuildingInstance : MonoBehaviour
         foreach (var r in rewards) PayOut(r.Type, r.Amount);
     }
 
-    public void OnClicked() => PayOut(_data.ClickReward);
+    public void CountProduction() => _produceCount++;
+
+    //public void CountProduction()
+    //{
+    //    _produceCount++;
+    //    Debug.Log($"Production Count: {_produceCount}");
+    //}
+
+
+    //public void OnClicked() => PayOut(_data.ClickReward);
+
+    public int AddProduceCount()
+    {
+        int c = _produceCount;
+        return c;
+    }
 
     //protected virtual void PrintCurrentInfo()
     //{

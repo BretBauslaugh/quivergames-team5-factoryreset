@@ -34,7 +34,8 @@ public class SlotMachine : MonoBehaviour
             _timer -= _data.GeneratePeriod;
             if(Random.value < _chance)
             {
-                _building.PayOut(_data.Production); 
+                _building.PayOut(_data.Production);
+                _building.CountProduction();
             }
             else
             {
