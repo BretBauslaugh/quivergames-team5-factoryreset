@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 6551526561678820756}
   - component: {fileID: 5602603309397129526}
   - component: {fileID: 3274804019985681272}
+  - component: {fileID: -6048804827065658339}
   m_Layer: 7
   m_Name: BasicButtonModule
   m_TagString: Untagged
@@ -487,6 +488,20 @@ MonoBehaviour:
   _labelText: {fileID: 293684405582343096}
   _image: {fileID: 7579003822764186682}
   _screenOffset: {x: 0, y: 200}
+--- !u!114 &-6048804827065658339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7551068447394674275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9086e0bcac5e7e4b909bf75b746e9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverDescriptionObject
+  moduleName: Basic Button
+  moduleDescription: 'Press the button when it lights up: 100 Canisters'
 --- !u!1 &8765085897870547501
 GameObject:
   m_ObjectHideFlags: 0
