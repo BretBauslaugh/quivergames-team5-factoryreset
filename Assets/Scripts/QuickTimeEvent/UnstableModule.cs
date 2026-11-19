@@ -29,12 +29,11 @@ public class UnstableModule : MonoBehaviour
             return;
         }
 
+        _building = GetComponent<BuildingInstance>();
         _ui.SetActive(false);
         _cam = Camera.main;
         _image.color = Color.white;
         StartCoroutine(RandomTrigger());
-
-        _building = GetComponent<BuildingInstance>();
     }
 
     private IEnumerator RandomTrigger()
@@ -80,6 +79,7 @@ public class UnstableModule : MonoBehaviour
 
     public void OnPress()
     {
+        if (Time.timeScale == 0f) return;
         if (_qteActive) _pressed++;
     }
 
