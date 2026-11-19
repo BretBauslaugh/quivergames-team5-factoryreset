@@ -525,7 +525,7 @@ MonoBehaviour:
   _minTime: 5
   _maxTime: 10
   _timeLimit: 2
-  _addMount: 200
+  _addMount: 150
   _ui: {fileID: 2814425271318083943}
   _labelText: {fileID: 2430872029336768648}
   _timeText: {fileID: 5825839262065824404}
