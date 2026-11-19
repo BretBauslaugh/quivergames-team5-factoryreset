@@ -9,6 +9,7 @@ public class PauseController : MonoBehaviour
     private bool _gamePaused;
     public void OnPause(InputValue value)
     {
+        if(!value.isPressed) return;
         TryPause();
     }
 
@@ -16,13 +17,11 @@ public class PauseController : MonoBehaviour
     {
         if (_gamePaused)
         {
-            onResume?.Invoke();
-            _gamePaused = false;
+            Resume();
         }
-        if (!_gamePaused)
+        else
         {
-            onPaused?.Invoke();
-            _gamePaused = true;
+            Pause();
         }
     }
 
