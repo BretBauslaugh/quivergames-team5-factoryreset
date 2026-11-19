@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 7969932325474750338}
   - component: {fileID: 6202103797706594371}
   - component: {fileID: 242551290907809707}
+  - component: {fileID: 8125146731024827384}
   m_Layer: 5
   m_Name: PauseController
   m_TagString: Untagged
@@ -141,6 +142,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 7575579345216309840}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onResume:
     m_PersistentCalls:
       m_Calls:
@@ -180,6 +193,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7575579345216309840}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &242551290907809707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +217,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e305cd48a22344cbfa14de1e4c33b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UIComponents.Runtime::UIComponents.TimeControl
+--- !u!114 &8125146731024827384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3533660318706380621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c551701dcf77ce4e92ec710741b3ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputActionListener
+  _action: {fileID: 1172950494304775845, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  _activateButton: {fileID: 0}
+  OnPerformed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6202103797706594371}
+        m_TargetAssemblyTypeName: PauseController, Assembly-CSharp
+        m_MethodName: TryPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5463877014765737806
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5250811371608822077
 RectTransform:
   m_ObjectHideFlags: 0
@@ -722,43 +776,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1380895302090759063, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1380895302090759063, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1380895302090759063, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 580
       objectReference: {fileID: 0}
     - target: {fileID: 1380895302090759063, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1380895302090759063, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -312.12997
       objectReference: {fileID: 0}
     - target: {fileID: 1569335786844471116, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1569335786844471116, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1569335786844471116, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 580
       objectReference: {fileID: 0}
     - target: {fileID: 1569335786844471116, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1569335786844471116, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -533.61
       objectReference: {fileID: 0}
     - target: {fileID: 1569335786844471119, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -814,23 +868,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2621817018114616583, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2621817018114616583, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2621817018114616583, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 580
       objectReference: {fileID: 0}
     - target: {fileID: 2621817018114616583, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2621817018114616583, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -168.88998
       objectReference: {fileID: 0}
     - target: {fileID: 4367941560495232087, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_Pivot.x
@@ -938,27 +992,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6142248947037966421, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7027436699251689592, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7027436699251689592, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7027436699251689592, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 580
       objectReference: {fileID: 0}
     - target: {fileID: 7027436699251689592, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 7027436699251689592, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -422.86996
       objectReference: {fileID: 0}
     - target: {fileID: 7027436699251689595, guid: 70ccd3b4c4f534b409a846f5cf5e3dd2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
