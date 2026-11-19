@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public  class BuildingInstance : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public  class BuildingInstance : MonoBehaviour
     {
         if(gameObject.layer == LayerMask.NameToLayer("Preview")) return;
         //PrintCurrentInfo();
+
     }
 
     void Update()
@@ -120,4 +122,23 @@ public  class BuildingInstance : MonoBehaviour
     //    Debug.Log($"Id = {StrucData.Id}, " + $"Name = {StrucData.DisplayName}, " +  
     //        $"{ExtraInfo}", this);
     //}
+
+    public void OnPointerEnter(PointerEventData eventData){
+        Debug.Log("mouseOver");
+        GameObject[] textBoxes = GameObject.FindGameObjectsWithTag("ModuleInfoUI");
+        if(textBoxes[0]!=null){
+            textBoxes[0].GetComponent<Hovertext>().SetDescriptionText(_data.Description);
+            textBoxes[0].GetComponent<Hovertext>().SetNameText(_data.DisplayName);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData){
+        Debug.Log("mouseOut");
+        GameObject[] textBoxes = GameObject.FindGameObjectsWithTag("ModuleInfoUI");
+        if(textBoxes[0]!=null){
+            textBoxes[0].GetComponent<Hovertext>().SetDescriptionText("");
+            textBoxes[0].GetComponent<Hovertext>().SetNameText("");
+        }
+    }
+
 }
