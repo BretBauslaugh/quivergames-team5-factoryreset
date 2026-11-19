@@ -10,15 +10,17 @@ public class ShopButton : MonoBehaviour
     public GameObject modulePrefab;
     public PlaceObject placer;
     public int itemCost;
+    private string modDescription;
 
-    public void UpdateModule(Sprite sprite, string name, int price, GameObject prefab)
+    public void UpdateModule(Sprite sprite, string name, int price, GameObject prefab, string mDescription)
     {
         moduleIcon.sprite = sprite;
         moduleName.text = name;
         modulePriceLabel.text = $"{price} Coins";
         itemCost = price;
         modulePrefab = prefab;
-        HoverInfo(name, name);
+        modDescription = mDescription;
+        HoverInfo(name, mDescription);
     }
 
     public void SetPlacerPriority()

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: ReactionModule
   m_EditorClassIdentifier: Assembly-CSharp::Structure
   Id: 07
-  DisplayName: Reaction Button Module
+  DisplayName: Reaction Button
+  Description: Press the button within 3 seconds of it appearing to generate 150
+    Canisters
   structureIcon: {fileID: 21300000, guid: 7ac9924dc8ba4b94983267bfcebcc4e8, type: 3}
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}

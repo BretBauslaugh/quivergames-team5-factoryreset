@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Generators_SO
   Id: 05
   DisplayName: Money Printer
-  Description: 
+  Description: Every 20 seconds, produce 1 coin
   structureIcon: {fileID: 21300000, guid: 835eccb2b4dcbe947b5513b6ca20a5bb, type: 3}
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
-    Amount: 4
+    Amount: 5
   ClickReward: []
   prefab: {fileID: 4529259735476588752, guid: d180b995d65540b45b83772a4c3b5451, type: 3}
   Production:

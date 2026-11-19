@@ -23,10 +23,11 @@ public class Shop : MonoBehaviour
             int randomMax = shopItems.Length + 1;
             int item = Random.Range(0, shopItems.Length);
             string name = shopItems[item].DisplayName;
+            string description = shopItems[item].Description;
             Sprite icon = shopItems[item].structureIcon;
             int price = GetItemCost(shopItems[item],_coin);
             GameObject prefab = shopItems[item].prefab;
-            button.UpdateModule(icon, name, price, prefab);
+            button.UpdateModule(icon, name, price, prefab, description);
         }
     }
 

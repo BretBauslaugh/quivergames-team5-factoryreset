@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: CounterModule
   m_EditorClassIdentifier: Assembly-CSharp::Structure
   Id: 08
-  DisplayName: Counter Module
+  DisplayName: Counter
+  Description: Whenever an module left or right of this one makes Canisters, increase
+    this module's counter by 1. Every 10 seconds, produce 10 Canisters X Counter
+    amount
   structureIcon: {fileID: 0}
   Cost: []
   ClickReward: []
   prefab: {fileID: 0}
-  currencyCost: 0

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: DoublerModule
   m_EditorClassIdentifier: Assembly-CSharp::Structure
   Id: 06
-  DisplayName: Doubler Module
+  DisplayName: Multiplier Module
+  Description: Adjacent Modules produce 25% more Canisters
   structureIcon: {fileID: 21300000, guid: 5f4bb8f505c4c4a4b969f75d46901c57, type: 3}
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
-    Amount: 5
+    Amount: 4
   ClickReward: []
   prefab: {fileID: 6656758709929076083, guid: 2bc9cd8e3fd23794f998a4e1fc967687, type: 3}

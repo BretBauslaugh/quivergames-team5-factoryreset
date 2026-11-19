@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: BasicModule
   m_EditorClassIdentifier: Assembly-CSharp::Structure
   Id: 06
-  DisplayName: Basic Button Module
+  DisplayName: Basic Button
+  Description: Press Button when it appears to produce 100 Canisters
   structureIcon: {fileID: 21300000, guid: 39dd75e9f9a70e24a8593f7e34846d43, type: 3}
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
