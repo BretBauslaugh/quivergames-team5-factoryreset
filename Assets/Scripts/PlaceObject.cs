@@ -59,12 +59,17 @@ public class PlaceObject : MonoBehaviour
 
     public void GrabShopPrefab()//update to check for cost
     {
-        SelectPlaceable(shopButton.modulePrefab);
-        if (_resource.TryGetMissing(_placeableData.Cost , out var missing))
+        GameObject prefab = shopButton.modulePrefab;
+        Structure data = prefab.GetComponent<BuildingInstance>().Data;
+        
+        if (_resource.TryGetMissing(data.Cost , out var missing))
         {
             ErrorText.Show($"Not enough {missing.DisplayName}");
+            CancelPlacement();
             return;
         }
+
+        SelectPlaceable(prefab);
 
     }
 
