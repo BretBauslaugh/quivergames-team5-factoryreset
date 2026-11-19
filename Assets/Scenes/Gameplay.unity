@@ -2953,6 +2953,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 932530354}
     m_Modifications:
+    - target: {fileID: 47491787100936328, guid: 3fe6c06eeac7d584db15f82e648d6c74, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 47491787100936328, guid: 3fe6c06eeac7d584db15f82e648d6c74, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 47491787100936328, guid: 3fe6c06eeac7d584db15f82e648d6c74, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1166028183189438945, guid: 3fe6c06eeac7d584db15f82e648d6c74, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3036,6 +3048,10 @@ PrefabInstance:
     - target: {fileID: 5749648688400426052, guid: 3fe6c06eeac7d584db15f82e648d6c74, type: 3}
       propertyPath: m_Name
       value: ErrorTextManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652980931439486538, guid: 3fe6c06eeac7d584db15f82e648d6c74, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
