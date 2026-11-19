@@ -7,6 +7,7 @@ public class Structure : ScriptableObject
 {
     public string Id;
     public string DisplayName;
+    public string Description;
     public Sprite structureIcon;
     public ResourceAmount[] Cost;
     public ResourceAmount[] ClickReward;

@@ -57,9 +57,15 @@ public class PlaceObject : MonoBehaviour
         StartCoroutine(PlacementDelay(_placeDelay));
     }
 
-    public void GrabShopPrefab()
+    public void GrabShopPrefab()//update to check for cost
     {
         SelectPlaceable(shopButton.modulePrefab);
+        if (_resource.TryGetMissing(_placeableData.Cost , out var missing))
+        {
+            ErrorText.Show($"Not enough {missing.DisplayName}");
+            return;
+        }
+
     }
 
     public void TryPlace()

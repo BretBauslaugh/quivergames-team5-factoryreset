@@ -16,7 +16,7 @@ public class Shop : MonoBehaviour
         RefreshShop();
     }
 
-    private void RefreshShop()
+    public void RefreshShop()//Changed to public to gain access from ShopRefreshButton
     {
         foreach (ShopButton button in shopButtons)
         {

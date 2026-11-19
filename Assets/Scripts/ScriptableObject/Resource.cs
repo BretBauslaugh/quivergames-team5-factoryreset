@@ -22,6 +22,7 @@ public class Resource : ScriptableObject
         _amounts[t] = Get(t) + amount;
         RaiseChanged();
     }
+
     public bool CanAfford(ResourceAmount[] cost)
     {
         foreach(var c  in cost)
@@ -29,6 +30,20 @@ public class Resource : ScriptableObject
             if(Get(c.Type) < c.Amount) return false;
         }
         return true;
+    }
+
+    public bool TryGetMissing(ResourceAmount[] cost, out ResourceType missing)
+    {
+        foreach(var c in cost)
+        {
+            if(Get(c.Type) < c.Amount)
+            {
+                missing = c.Type;
+                return true;
+            }
+        }
+        missing = null;
+        return false;
     }
 
     public void Spend(ResourceAmount[] cost)
