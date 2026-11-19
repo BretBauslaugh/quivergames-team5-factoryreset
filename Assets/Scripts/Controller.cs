@@ -61,10 +61,4 @@ public class Controller : MonoBehaviour
     {
         _selection.RemoveSelected();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
