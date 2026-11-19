@@ -76,6 +76,18 @@ public  class BuildingInstance : MonoBehaviour
         return mult;
     }
 
+    public float PeriodMultiplier()
+    {
+        float mult = 1f;
+        if (_grid == null) return mult;
+        foreach (var n in _grid.Neighbours(Cell))
+        {
+            if(n.Cell.z != Cell.z) continue;
+            if (n.TryGetComponent(out ITimeSkip t)) mult *= t.TimeMultiplier;
+        }
+        return mult;
+    }
+
     public void PayOut(ResourceType type, int amount)
     {
         _resources.Add(type, Mathf.RoundToInt(amount * ProductionMultiplier()));
