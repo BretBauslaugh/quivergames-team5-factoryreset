@@ -40,10 +40,11 @@ public class Generator : MonoBehaviour
 
     private void Update()
     {
+        float period = _data.GeneratePeriod * _building.PeriodMultiplier();
         _timer += Time.deltaTime;
-        while (_timer >= _data.GeneratePeriod)
+        while (_timer >= period)
         {
-            _timer -= _data.GeneratePeriod;
+            _timer -= period;
             Store();
             
         }

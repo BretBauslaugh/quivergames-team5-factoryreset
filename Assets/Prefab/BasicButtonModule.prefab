@@ -482,7 +482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BasicModule
   _resource: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
   _type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
-  _time: 5
+  _time: 2
   _addMount: 100
   _ui: {fileID: 845670705824409518}
   _labelText: {fileID: 293684405582343096}

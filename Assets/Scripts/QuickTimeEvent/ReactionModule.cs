@@ -42,7 +42,7 @@ public class ReactionModule : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(_minTime, _maxTime));
+            yield return new WaitForSeconds(Random.Range(_minTime, _maxTime) * _building.PeriodMultiplier());
             yield return RunQTE();
         }
     }

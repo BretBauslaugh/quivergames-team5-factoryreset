@@ -22,10 +22,11 @@ public class CounterModule : MonoBehaviour
     {
         if (_building.Grid == null) return;
 
+        float period = _payPeriod * _building.PeriodMultiplier();
         _timer += Time.deltaTime;
-        while (_timer >= _payPeriod)
+        while (_timer >= period)
         {
-            _timer -= _payPeriod;
+            _timer -= period;
             int total = CollectSideCounts();            
             if (total > 0) _building.PayOut(_type, _amountPerCount * total);
         }

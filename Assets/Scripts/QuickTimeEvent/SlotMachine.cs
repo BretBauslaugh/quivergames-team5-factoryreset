@@ -28,10 +28,12 @@ public class SlotMachine : MonoBehaviour
 
     private void Update()
     {
+        float period = _data.GeneratePeriod * _building.PeriodMultiplier();
+
         _timer += Time.deltaTime;
-        while (_timer >= _data.GeneratePeriod)
+        while (_timer >= period)
         {
-            _timer -= _data.GeneratePeriod;
+            _timer -= period;
             if(Random.value < _chance)
             {
                 _building.PayOut(_data.Production);

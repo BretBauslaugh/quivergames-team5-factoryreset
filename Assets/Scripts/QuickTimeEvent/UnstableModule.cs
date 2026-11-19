@@ -19,6 +19,7 @@ public class UnstableModule : MonoBehaviour
     private int _pressed = 0;
     private bool _qteActive = false;
     private Camera _cam;
+    private BuildingInstance _building;
 
     private void Start()
     {
@@ -32,6 +33,8 @@ public class UnstableModule : MonoBehaviour
         _cam = Camera.main;
         _image.color = Color.white;
         StartCoroutine(RandomTrigger());
+
+        _building = GetComponent<BuildingInstance>();
     }
 
     private IEnumerator RandomTrigger()
@@ -39,7 +42,7 @@ public class UnstableModule : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(_minTime, _maxTime));
+            yield return new WaitForSeconds(Random.Range(_minTime, _maxTime) * _building.PeriodMultiplier());
             yield return RunQTE();
         }
     }

@@ -764,6 +764,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507370266104337187, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1193656632}
     - target: {fileID: 2526206162851559529, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -859,10 +863,6 @@ PrefabInstance:
     - target: {fileID: 5433282286212903093, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5469658443999061138, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
-      propertyPath: m_text
-      value: Counter Module
       objectReference: {fileID: 0}
     - target: {fileID: 6211331394207591020, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_IsActive

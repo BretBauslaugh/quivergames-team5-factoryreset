@@ -38,7 +38,7 @@ public class BasicModule : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(_time);
+            yield return new WaitForSeconds(_time * _building.PeriodMultiplier());
             _qteActive = true;
             yield return RunQTE();
         }
