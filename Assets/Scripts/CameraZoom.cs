@@ -46,17 +46,29 @@ public class CameraZoom : MonoBehaviour
         float raw = mouse.scroll.ReadValue().y;
         if (raw != 0f)
         {
-            Vector3 step = cam.ScreenPointToRay(mousePos).direction * Mathf.Sign(raw) * zoomSpeed;
-
-            float minY = groundY + minHeight, maxY = groundY + maxHeight;
-            float newY = transform.position.y + step.y;
-
-            if (newY < minY || newY > maxY)
+            if (cam.orthographic)
             {
-                float clampedY = Mathf.Clamp(newY, minY, maxY);
-                step = Mathf.Abs(step.y) > 0.0001f ? step * ((clampedY - transform.position.y) / step.y) : Vector3.zero;
+                if (!GroundPoint(mousePos, out Vector3 before)) return;
+                cam.orthographicSize = Mathf.Clamp(cam.orthographicSize - Mathf.Sign(raw) * zoomSpeed, minHeight, maxHeight);
+                if(GroundPoint(mousePos, out Vector3 after))
+                {
+                    transform.position += before - after;
+                }
             }
-            transform.position += step;
+            else
+            {
+                Vector3 step = cam.ScreenPointToRay(mousePos).direction * Mathf.Sign(raw) * zoomSpeed;
+
+                float minY = groundY + minHeight, maxY = groundY + maxHeight;
+                float newY = transform.position.y + step.y;
+
+                if (newY < minY || newY > maxY)
+                {
+                    float clampedY = Mathf.Clamp(newY, minY, maxY);
+                    step = Mathf.Abs(step.y) > 0.0001f ? step * ((clampedY - transform.position.y) / step.y) : Vector3.zero;
+                }
+                transform.position += step;
+            }
         }
     }
 }
