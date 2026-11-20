@@ -5,16 +5,19 @@ using UnityEngine.UI;
 
 public class UnstableModule : MonoBehaviour
 {
+    [Header("Properties")]
     [SerializeField] private float _minTime = 10f;
     [SerializeField] private float _maxTime = 20f;
     [SerializeField] private float _timeLimit = 5f;
     [SerializeField] private int _buttonPress = 3;
 
+    [Header("UI")]
     [SerializeField] GameObject _ui;
     [SerializeField] private TMP_Text _labelText;
     [SerializeField] private TMP_Text _timeText;
     [SerializeField] private Image _image;
     [SerializeField] private Vector2 _screenOffset = new Vector2(0f, 200f);
+    [SerializeField] private float _uiLastTime;
 
     private int _pressed = 0;
     private bool _qteActive = false;
@@ -73,7 +76,7 @@ public class UnstableModule : MonoBehaviour
         _image.color = success ? Color.green : Color.red;
         if (!success) OnFailed();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_uiLastTime);
         _ui.SetActive(false); 
     }
 

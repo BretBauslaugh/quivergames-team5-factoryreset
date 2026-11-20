@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 public class BasicModule : MonoBehaviour
 {
+    [Header("Properties")]
     [SerializeField] private Resource _resource;
     [SerializeField] private ResourceType _type;
     [SerializeField] private float _time;
     [SerializeField] private int _addMount;
 
+    [Header ("UI")]
     [SerializeField] GameObject _ui;
     [SerializeField] private TMP_Text _labelText;
     [SerializeField] private Image _image;
     [SerializeField] private Vector2 _screenOffset = new Vector2(0f, 200f);
+    [SerializeField] private float _uiLastTime;
 
     private bool _qteActive = false;
     private Camera _cam;
@@ -61,7 +64,7 @@ public class BasicModule : MonoBehaviour
         }              
         
         _image.color = Color.green;        
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_uiLastTime);
         _ui.SetActive(false);
     }
 

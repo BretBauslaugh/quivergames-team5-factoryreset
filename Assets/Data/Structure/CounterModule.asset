@@ -20,4 +20,4 @@ MonoBehaviour:
   structureIcon: {fileID: 0}
   Cost: []
   ClickReward: []
-  prefab: {fileID: 0}
+  prefab: {fileID: 8997791274236418592, guid: 4308298adaf6f4a4f970a6c85830ec52, type: 3}
