@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ReactionModule : MonoBehaviour
 {
+    [Header("Properties")]
     [SerializeField] private Resource _resource;
     [SerializeField] private ResourceType _type;
     [SerializeField] private float _minTime = 10f;
@@ -12,11 +13,13 @@ public class ReactionModule : MonoBehaviour
     [SerializeField] private float _timeLimit = 5f;
     [SerializeField] private int _addMount;
 
+    [Header("UI")]
     [SerializeField] GameObject _ui;
     [SerializeField] private TMP_Text _labelText;
     [SerializeField] private TMP_Text _timeText;
     [SerializeField] private Image _image;
     [SerializeField] private Vector2 _screenOffset = new Vector2(0f, 200f);
+    [SerializeField] private float _uiLastTime;
 
     private bool _qteActive = false;
     private Camera _cam;
@@ -72,7 +75,7 @@ public class ReactionModule : MonoBehaviour
         _image.color = _success ? Color.green : Color.red;
         if (!_success) OnFailed();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_uiLastTime);
         _ui.SetActive(false);
     }
 

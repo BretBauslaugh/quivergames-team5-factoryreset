@@ -61,4 +61,9 @@ public class Controller : MonoBehaviour
     {
         _selection.RemoveSelected();
     }
+
+    public void OnAddCoin()
+    {
+        _placeObject.AddCoinDebug();
+    }
 }
