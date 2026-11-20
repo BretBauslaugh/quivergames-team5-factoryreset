@@ -89,7 +89,7 @@ public class PlaceObject : MonoBehaviour
                 return;
             }
             
-            _resource.Spend(_placeableData.Cost);
+            if (!_shopReference.freebie) _resource.Spend(_placeableData.Cost);
 
             var placed = Instantiate(_placeable, _cursorToGridPos.Flatten(), _previewObject.transform.rotation);
             placed.GetComponent<BuildingInstance>().Init(_buildingGrid, cell);
