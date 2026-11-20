@@ -14,6 +14,7 @@ public class PlaceObject : MonoBehaviour
     [SerializeField] private Grid _grid;
     [SerializeField] private BuildingGrid _buildingGrid;
     [SerializeField] private Resource _resource;
+    [SerializeField] private ResourceType _coin;
     
 
     [Header("FMOD")]
@@ -97,6 +98,11 @@ public class PlaceObject : MonoBehaviour
             Destroy(_previewObject);
             _previewObject = null;
         }
+    }
+
+    public void AddCoinDebug()      // for testing
+    {
+        _resource.Add(_coin, 10);
     }
 
     private IEnumerator PlacementDelay(float delay)

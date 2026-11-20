@@ -487,6 +487,7 @@ MonoBehaviour:
   _labelText: {fileID: 293684405582343096}
   _image: {fileID: 7579003822764186682}
   _screenOffset: {x: 0, y: 200}
+  _uiLastTime: 0.5
 --- !u!1 &8765085897870547501
 GameObject:
   m_ObjectHideFlags: 0
