@@ -888,6 +888,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6493953686401419147, guid: ee1293c9fb66e5543b43dedec7e22598, type: 3}
+      propertyPath: _coin
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
+    - target: {fileID: 6493953686401419147, guid: ee1293c9fb66e5543b43dedec7e22598, type: 3}
       propertyPath: _grid
       value: 
       objectReference: {fileID: 45728441}

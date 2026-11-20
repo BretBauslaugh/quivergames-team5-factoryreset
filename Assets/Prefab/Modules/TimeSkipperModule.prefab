@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &125711113443891216
+--- !u!1 &8997791274236418592
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8078439213480845745}
-  - component: {fileID: 4520434663982429311}
-  - component: {fileID: 8830083182208869911}
-  - component: {fileID: 3789202040833462991}
-  - component: {fileID: 3907123789754149356}
-  - component: {fileID: 6219963640004418006}
+  - component: {fileID: 3929914913874921640}
+  - component: {fileID: 8055649243818480653}
+  - component: {fileID: 353032111788159977}
+  - component: {fileID: 7340280885159009177}
+  - component: {fileID: 2480262058199120300}
+  - component: {fileID: 8815106153572790871}
   m_Layer: 7
-  m_Name: SlotMachine
+  m_Name: TimeSkipperModule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8078439213480845745
+--- !u!4 &3929914913874921640
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125711113443891216}
+  m_GameObject: {fileID: 8997791274236418592}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 755.5871, y: 696.563, z: 0}
-  m_LocalScale: {x: 5, y: 2, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4520434663982429311
+--- !u!33 &8055649243818480653
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125711113443891216}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8830083182208869911
+  m_GameObject: {fileID: 8997791274236418592}
+  m_Mesh: {fileID: -880302320090656469, guid: 1797f44bbed0240f4954181e8a9396fa, type: 3}
+--- !u!23 &353032111788159977
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125711113443891216}
+  m_GameObject: {fileID: 8997791274236418592}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -69,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7358d9b1df9da8747ab3b26ee6838f76, type: 2}
+  - {fileID: 2100000, guid: ae56cace9bf7c445fbe1fe934e752052, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,13 +93,13 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3789202040833462991
-BoxCollider:
+--- !u!135 &7340280885159009177
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125711113443891216}
+  m_GameObject: {fileID: 8997791274236418592}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -112,36 +112,32 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3907123789754149356
+--- !u!114 &2480262058199120300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125711113443891216}
+  m_GameObject: {fileID: 8997791274236418592}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d749c98ca0c4a754bb9b3edb56036a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInstance
-  _data: {fileID: 11400000, guid: 15e2859f707d87c4baf5ef1ff81d66ac, type: 2}
+  _data: {fileID: 11400000, guid: 36b12eeb59a20564280b9bdd2607c4d2, type: 2}
   _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
---- !u!114 &6219963640004418006
+--- !u!114 &8815106153572790871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125711113443891216}
+  m_GameObject: {fileID: 8997791274236418592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f824dea52c4cb4696e9cb2e88f6a91, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e743b3810771ff46a50826f8e87d6fa, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine
-  _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
-  _failLoss:
-  - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
-    Amount: 50
-  _chance: 0.1
+  m_EditorClassIdentifier: Assembly-CSharp::TimeSkipper
+  _timeMuliplier: 0.25

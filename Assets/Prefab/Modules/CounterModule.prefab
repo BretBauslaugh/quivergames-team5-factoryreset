@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 3120524935484378457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 573.1139, y: 391.42395, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 120, y: 120, z: 120}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,7 +110,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d749c98ca0c4a754bb9b3edb56036a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInstance
-  _data: {fileID: 11400000, guid: 7ab41bf8e5ad0d245baf4e091984387b, type: 2}
+  _data: {fileID: 11400000, guid: e496b92f7b8ca9f4096c462d53fc7aed, type: 2}
   _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
 --- !u!114 &2018643158842648675
 MonoBehaviour:

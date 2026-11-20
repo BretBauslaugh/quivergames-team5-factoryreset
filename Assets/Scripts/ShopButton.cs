@@ -28,6 +28,8 @@ public class ShopButton : MonoBehaviour
         placer.shopButton = this;
     }
 
+
+
     private void HoverInfo(string moduleName, string moduleDescription){
         this.GetComponent<HoverDescriptionObject>().SetInfo(moduleName,moduleDescription);
     }

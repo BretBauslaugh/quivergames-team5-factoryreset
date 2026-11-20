@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95edc24e2b77ada46b4c053552cc8f16, type: 3}
+  m_Name: TimeSkipper
+  m_EditorClassIdentifier: Assembly-CSharp::Structure
+  Id: 
+  DisplayName: Time Skipper
+  Description: 
+  structureIcon: {fileID: 0}
+  Cost:
+  - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
+    Amount: 4
+  ClickReward: []
+  prefab: {fileID: 8997791274236418592, guid: 4308298adaf6f4a4f970a6c85830ec52, type: 3}
