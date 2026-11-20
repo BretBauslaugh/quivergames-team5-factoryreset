@@ -15,6 +15,7 @@ public class PlaceObject : MonoBehaviour
     [SerializeField] private BuildingGrid _buildingGrid;
     [SerializeField] private Resource _resource;
     [SerializeField] private ResourceType _coin;
+    [SerializeField] private Shop _shopReference; //reference needed so we can detect if its freebie mode and disable it
     
 
     [Header("FMOD")]
@@ -33,7 +34,7 @@ public class PlaceObject : MonoBehaviour
     private bool _validSpot = true;
     public bool IsPlacing => _previewObject != null;
 
-    public ShopButton shopButton;
+    public ShopButton shopButton; //reference needed so selected shop button would reference itself to this script to grab the correct prefab
 
     void Start()
     {
@@ -65,7 +66,7 @@ public class PlaceObject : MonoBehaviour
         
         if (_resource.TryGetMissing(data.Cost , out var missing))
         {
-            ErrorText.Show($"Not enough {missing.DisplayName}");
+            ErrorText.Show($"Not enough {missing.DisplayName}s!");
             CancelPlacement();
             return;
         }
@@ -84,7 +85,7 @@ public class PlaceObject : MonoBehaviour
 
             if (!_resource.CanAfford(_placeableData.Cost))
             {
-                Debug.Log("Not enough resource");
+                Debug.Log("Not enough resources");
                 return;
             }
             
@@ -95,6 +96,7 @@ public class PlaceObject : MonoBehaviour
             SetLayer(placed, LayerMask.NameToLayer("Placeable"));
             _canPlace = false;
             PlaySFX(_placeItemSFX);
+            if (_shopReference.freebie) _shopReference.TurnOffFreebieMode(); // if item placed was the free item, the shop will go back to the regular priced shop and also reset
             Destroy(_previewObject);
             _previewObject = null;
         }
