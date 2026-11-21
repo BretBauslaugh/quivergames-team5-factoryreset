@@ -1,15 +1,24 @@
+using PrimeTween;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class QuotaManager : MonoBehaviour
 {
+    [Header("Data")]
     [SerializeField] private Resource _resource;
     [SerializeField] private ResourceType _canister;
+    [Header("Labels")]
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private TMP_Text _quotaText;
+    [Header("Label Animations")]
+    [SerializeField] private ShakeSettings _timerAnimation;
+    [SerializeField] private ShakeSettings _quotaAnimation;
+    [Header("Panels")]
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private GameObject _victoryPanel;
+    [Header("Values")]
     [SerializeField] private float _roundTime = 120f;
     [SerializeField] private int _startQuota = 1000;
     [SerializeField, Range(0f, 1f)] private float _baseGrowth = 0.10f;
@@ -17,6 +26,7 @@ public class QuotaManager : MonoBehaviour
     [SerializeField] private float _maxGrowth = 1.0f;
 
     private float _timeLeft;
+    private float _timeChanged;
     private int _quota;
     private int _round = 1;
     private bool _running;
@@ -34,10 +44,17 @@ public class QuotaManager : MonoBehaviour
 
     void Update()
     {
+        // time
         if (!_running) return;
+        //_timeLeft = _timeChanged;
         _timeLeft -= Time.deltaTime;
+        //Tween.PunchScale(_timerText.transform, _timerAnimation);
         if (_timeLeft <= 0f) Resolve();
+        //
+
+        // canisters quota
         if (_resource.Get(_canister) >= _quota) Resolve();
+        //
         RefreshUI();
     }
 
