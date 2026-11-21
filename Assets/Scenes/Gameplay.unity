@@ -4283,9 +4283,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraZoom
   zoomSpeed: 2
+  keyPanSpeed: 2
   minHeight: 3
   maxHeight: 40
   groundY: 0
+  mapCenter: {x: 0, y: 0}
+  mapHalfSize: {x: 24, y: 24}
 --- !u!114 &1239018922
 MonoBehaviour:
   m_ObjectHideFlags: 0
