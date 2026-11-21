@@ -21,6 +21,8 @@ public class PlaceObject : MonoBehaviour
     [Header("FMOD")]
     [SerializeField] EventReference _placeItemSFX;
     [SerializeField] EventReference _hoverItemSFX;
+    [SerializeField] EventReference _buyItemSFX;
+    [SerializeField] EventReference _cannotBuyItemSFX;
 
     private GameObject _placeable;
     private GameObject _previewObject;
@@ -68,9 +70,10 @@ public class PlaceObject : MonoBehaviour
         {
             ErrorText.Show($"Not enough {missing.DisplayName}s!");
             CancelPlacement();
+            PlaySFX(_cannotBuyItemSFX);
             return;
         }
-
+        PlaySFX(_buyItemSFX);
         SelectPlaceable(prefab);
 
     }
