@@ -1,22 +1,40 @@
+using PrimeTween;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class QuotaManager : MonoBehaviour
 {
+    [Header("Data")]
     [SerializeField] private Resource _resource;
     [SerializeField] private ResourceType _canister;
+    [Header("Labels")]
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private TMP_Text _quotaText;
+    [Header("Label Animations")]
+    [SerializeField] private ShakeSettings _timerAnimation;
+    [SerializeField] private ShakeSettings _quotaAnimation;
+    [Header("Panels")]
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private GameObject _victoryPanel;
+    [Header("Values")]
     [SerializeField] private float _roundTime = 120f;
     [SerializeField] private int _startQuota = 1000;
     [SerializeField, Range(0f, 1f)] private float _baseGrowth = 0.10f;
     [SerializeField] private float _overshootWeight = 0.5f;
     [SerializeField] private float _maxGrowth = 1.0f;
+    [SerializeField] private GameObject _nextRoundPanel;
+    [SerializeField] private TMP_Text _nextRoundText;
+    [SerializeField] private float _intermissionTime = 3f;
+    [SerializeField] private ResourceType _coin;
+    [SerializeField] private int _coinBase = 10;
+    [SerializeField] private int _coinPerRound = 5;
+    [SerializeField] private float _coinOvershootWeight = 1f;
+    [SerializeField] private float _maxCoinMultiplier = 3f;
 
     private float _timeLeft;
+    private float _timeChanged;
     private int _quota;
     private int _round = 1;
     private bool _running;
@@ -34,10 +52,25 @@ public class QuotaManager : MonoBehaviour
 
     void Update()
     {
+        // time
         if (!_running) return;
+        //_timeLeft = _timeChanged;
         _timeLeft -= Time.deltaTime;
-        if (_timeLeft <= 0f) Resolve();
-        if (_resource.Get(_canister) >= _quota) Resolve();
+        //Tween.PunchScale(_timerText.transform, _timerAnimation);
+        if (_timeLeft <= 0f) 
+        { 
+            Resolve();
+            return;
+        }
+        //
+
+        // canisters quota
+        //if (_resource.Get(_canister) >= _quota)
+        //{
+        //   Resolve();
+        //    return;
+        //}
+        //
         RefreshUI();
     }
 
@@ -48,9 +81,13 @@ public class QuotaManager : MonoBehaviour
         {
             float overshoot = (total - _quota) / (float)_quota;
             float growth = Mathf.Min(_baseGrowth + _overshootWeight * overshoot, _maxGrowth);
+            float coinMult = Mathf.Min(1f + overshoot * _coinOvershootWeight, _maxCoinMultiplier);
+            int reward = Mathf.RoundToInt((_coinBase + _coinPerRound * (_round - 1)) * coinMult);
+            _resource.Add(_coin, reward);
+            _resource.Add(_canister, -total);
             _quota = Mathf.RoundToInt(total * (1f + growth));
             _round++;
-            _timeLeft = _roundTime;
+            StartCoroutine(Intermission(reward));
         }
         else
         {
@@ -79,5 +116,20 @@ public class QuotaManager : MonoBehaviour
         {
             _quotaText.text = $"<b>Round #{_round}: </b>{_resource.Get(_canister)} / {_quota}";
         }
+    }
+
+    private IEnumerator Intermission(int reward)
+    {
+        _running = false;
+        Time.timeScale = 0f;
+        if (_nextRoundPanel) _nextRoundPanel.SetActive(true);
+        if (_nextRoundText) _nextRoundText.text = $"Quota Met!\n+{reward} Coins\nNext quota: {_quota}";
+
+        yield return new WaitForSecondsRealtime(_intermissionTime);
+
+        if (_nextRoundPanel) _nextRoundPanel.SetActive(false);
+        Time.timeScale = 1f;
+        _timeLeft = _roundTime;
+        _running = true;
     }
 }

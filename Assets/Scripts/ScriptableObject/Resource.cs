@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [CreateAssetMenu]
 public class Resource : ScriptableObject
 {
-    [SerializeField] private ResourceAmount[] _startingAmount;
+    public ResourceAmount[] _startingAmount;
     [SerializeField] private GameEvent _onChanged;
 
     private readonly Dictionary<ResourceType, int> _amounts = new();

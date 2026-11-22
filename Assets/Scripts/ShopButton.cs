@@ -16,7 +16,8 @@ public class ShopButton : MonoBehaviour
     {
         moduleIcon.sprite = sprite;
         moduleName.text = name;
-        modulePriceLabel.text = $"{price} Coins";
+        if (price != 0) modulePriceLabel.text = $"{price} Coins";
+        else modulePriceLabel.text = "Free";
         itemCost = price;
         modulePrefab = prefab;
         modDescription = mDescription;
@@ -27,8 +28,6 @@ public class ShopButton : MonoBehaviour
     {
         placer.shopButton = this;
     }
-
-
 
     private void HoverInfo(string moduleName, string moduleDescription){
         this.GetComponent<HoverDescriptionObject>().SetInfo(moduleName,moduleDescription);
