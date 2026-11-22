@@ -405,17 +405,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2940926119674536617, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
   m_PrefabInstance: {fileID: 27005556}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &27005558 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5605125871633463714, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
-  m_PrefabInstance: {fileID: 27005556}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &27005560 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8396785684870570073, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
   m_PrefabInstance: {fileID: 27005556}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27005558}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 148ef5e7057e71046a7643e757aafe2f, type: 3}
@@ -2048,11 +2043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6345bb7bc62802d4eb8fb56cb6445e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shop
-  shopButtons:
-  - {fileID: 1112171145}
-  - {fileID: 2144166063}
-  - {fileID: 27005558}
-  - {fileID: 1014088903}
+  shopButtons: []
   shopItems:
   - {fileID: 11400000, guid: 7ab41bf8e5ad0d245baf4e091984387b, type: 2}
   - {fileID: 11400000, guid: 0747af1d0b12846479fedb21884d0d05, type: 2}
@@ -3572,17 +3563,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2940926119674536617, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
   m_PrefabInstance: {fileID: 1014088901}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1014088903 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5605125871633463714, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
-  m_PrefabInstance: {fileID: 1014088901}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1014088905 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8396785684870570073, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
   m_PrefabInstance: {fileID: 1014088901}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1014088903}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 148ef5e7057e71046a7643e757aafe2f, type: 3}
@@ -3911,17 +3897,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2940926119674536617, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
   m_PrefabInstance: {fileID: 1112171143}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1112171145 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5605125871633463714, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
-  m_PrefabInstance: {fileID: 1112171143}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1112171147 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8396785684870570073, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
   m_PrefabInstance: {fileID: 1112171143}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112171145}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 148ef5e7057e71046a7643e757aafe2f, type: 3}
@@ -4925,6 +4906,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_ActionId: dad70c86-b58c-4b17-88ad-f5e53adf419e
+--- !u!1 &1416661393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8130319658283632067, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+  m_PrefabInstance: {fileID: 1592704511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1416661395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416661393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1df52940953eb745bfa91c7442f1b3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RollingNumberEffect
+  _duration: 0.5
+  _numberFormat: N0
+  _prefix: 
+  _scoreAdd:
+    Guid:
+      Data1: -1205800318
+      Data2: 1289217639
+      Data3: 1754144167
+      Data4: -1910277191
+    Path: event:/SFX/SFX_Coin_Collect
+  _scoreRemove:
+    Guid:
+      Data1: 1444871221
+      Data2: 1094617559
+      Data3: -967384132
+      Data4: 114367287
+    Path: event:/SFX/SFX_Coin_Collect_Counting
+  _disableSFX: 0
 --- !u!1 &1455849280 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a9a558e8cc63548c8a52143cecb78e56, type: 3}
@@ -5524,8 +5540,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7084456905784122825, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      propertyPath: _displayType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084456905784122825, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: _showDisplayName
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084456905784122825, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      propertyPath: _rollingNumberEffect
+      value: 
+      objectReference: {fileID: 1416661395}
+    - target: {fileID: 7084456905784122825, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      propertyPath: _resourceCollectSFX.Path
+      value: event:/SFX/SFX_Coin_Collect
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084456905784122825, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      propertyPath: _resourceCollectSFX.Guid.Data1
+      value: -1205800318
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084456905784122825, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      propertyPath: _resourceCollectSFX.Guid.Data2
+      value: 1289217639
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084456905784122825, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      propertyPath: _resourceCollectSFX.Guid.Data3
+      value: 1754144167
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084456905784122825, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      propertyPath: _resourceCollectSFX.Guid.Data4
+      value: -1910277191
       objectReference: {fileID: 0}
     - target: {fileID: 7231478536031386252, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_UiScaleMode
@@ -5642,6 +5686,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3433533989283804186, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1549356003}
+    - targetCorrespondingSourceObject: {fileID: 8130319658283632067, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1416661395}
   m_SourcePrefab: {fileID: 100100000, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
 --- !u!1 &1608788039 stripped
 GameObject:
@@ -6409,8 +6456,8 @@ MonoBehaviour:
   _gameOverPanel: {fileID: 1721409134}
   _victoryPanel: {fileID: 0}
   _nextRoundPanel: {fileID: 1062154472}
-  _roundTime: 120
-  _startQuota: 1000
+  _roundTime: 60
+  _startQuota: 500
   _baseGrowth: 0.1
   _overshootWeight: 0.5
   _maxGrowth: 1
@@ -7005,17 +7052,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2940926119674536617, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
   m_PrefabInstance: {fileID: 2144166061}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2144166063 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5605125871633463714, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
-  m_PrefabInstance: {fileID: 2144166061}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2144166065 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8396785684870570073, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
   m_PrefabInstance: {fileID: 2144166061}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144166063}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 148ef5e7057e71046a7643e757aafe2f, type: 3}

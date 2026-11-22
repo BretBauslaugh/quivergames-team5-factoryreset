@@ -51,7 +51,7 @@ public class Shop : MonoBehaviour
 
     public void RefreshShop()//Changed to public to gain access from ShopRefreshButton
     {
-        if (freebie)
+        if (freebie && shopButtons != null)
         {
         foreach (ShopButton button in shopButtons)
         {
@@ -65,7 +65,7 @@ public class Shop : MonoBehaviour
             button.UpdateModule(icon, name, price, prefab, description);
         }
         }
-        else
+        if (!freebie && shopButtons != null)
         {
             foreach (ShopButton button in shopButtons)
             {
