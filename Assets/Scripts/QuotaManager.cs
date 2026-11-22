@@ -9,25 +9,25 @@ public class QuotaManager : MonoBehaviour
     [Header("Data")]
     [SerializeField] private Resource _resource;
     [SerializeField] private ResourceType _canister;
+    [SerializeField] private ResourceType _coin;
     [Header("Labels")]
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private TMP_Text _quotaText;
+    [SerializeField] private TMP_Text _nextRoundText;
     [Header("Label Animations")]
     [SerializeField] private ShakeSettings _timerAnimation;
     [SerializeField] private ShakeSettings _quotaAnimation;
     [Header("Panels")]
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private GameObject _victoryPanel;
+    [SerializeField] private GameObject _nextRoundPanel;
     [Header("Values")]
     [SerializeField] private float _roundTime = 120f;
     [SerializeField] private int _startQuota = 1000;
     [SerializeField, Range(0f, 1f)] private float _baseGrowth = 0.10f;
     [SerializeField] private float _overshootWeight = 0.5f;
     [SerializeField] private float _maxGrowth = 1.0f;
-    [SerializeField] private GameObject _nextRoundPanel;
-    [SerializeField] private TMP_Text _nextRoundText;
     [SerializeField] private float _intermissionTime = 3f;
-    [SerializeField] private ResourceType _coin;
     [SerializeField] private int _coinBase = 10;
     [SerializeField] private int _coinPerRound = 5;
     [SerializeField] private float _coinOvershootWeight = 1f;
@@ -47,6 +47,7 @@ public class QuotaManager : MonoBehaviour
         _running = true;
         if (_gameOverPanel) _gameOverPanel.SetActive(false);
         if (_victoryPanel) _victoryPanel.SetActive(false);
+        if (_nextRoundPanel) _nextRoundPanel.SetActive(false);
         RefreshUI();
     }
 
