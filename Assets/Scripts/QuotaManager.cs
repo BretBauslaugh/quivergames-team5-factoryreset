@@ -66,11 +66,11 @@ public class QuotaManager : MonoBehaviour
         //
 
         // canisters quota
-        //if (_resource.Get(_canister) >= _quota)
-        //{
-        //   Resolve();
-        //    return;
-        //}
+        if (_resource.Get(_canister) >= _quota)
+        {
+            Resolve();
+            return;
+        }
         //
         RefreshUI();
     }
@@ -124,7 +124,7 @@ public class QuotaManager : MonoBehaviour
         _running = false;
         Time.timeScale = 0f;
         if (_nextRoundPanel) _nextRoundPanel.SetActive(true);
-        if (_nextRoundText) _nextRoundText.text = $"Quota Met!\n+{reward} Coins\nNext quota: {_quota}";
+        if (_nextRoundText) _nextRoundText.text = $"<size=90>Quota Met!</size>\n+{reward} Coins\nNext quota: {_quota}";
 
         yield return new WaitForSecondsRealtime(_intermissionTime);
 
