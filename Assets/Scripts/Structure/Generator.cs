@@ -7,22 +7,22 @@ using UnityEngine.UI;
 public class Generator : MonoBehaviour
 {
     [SerializeField] private Resource _resources;
-    [SerializeField] private TMP_Text _storedDisplay;
-    [SerializeField] private GameObject _ui;
-    [SerializeField] private Vector2 _screenOffset = new Vector2(0f, -80);
+    //[SerializeField] private TMP_Text _storedDisplay;
+    //[SerializeField] private GameObject _ui;
+    //[SerializeField] private Vector2 _screenOffset = new Vector2(0f, -80);
 
     private Generators_SO _data;
     private float _timer;
     private BuildingInstance _building;
-    private readonly Dictionary<ResourceType, int> _stored = new();
-    private Camera _cam;
+    //private readonly Dictionary<ResourceType, int> _stored = new();
+    //private Camera _cam;
 
     private void Start()
     {
         if (gameObject.layer == LayerMask.NameToLayer("Preview"))
         {
             enabled = false;
-            _ui.SetActive(false);
+            //_ui.SetActive(false);
             return;
         }
 
@@ -34,8 +34,8 @@ public class Generator : MonoBehaviour
             enabled = false;
         }
 
-        _cam = Camera.main;
-        _ui.transform.position = _cam.WorldToScreenPoint(transform.position) + (Vector3)_screenOffset;
+        //_cam = Camera.main;
+        //_ui.transform.position = _cam.WorldToScreenPoint(transform.position) + (Vector3)_screenOffset;
     }
 
     private void Update()
@@ -45,45 +45,50 @@ public class Generator : MonoBehaviour
         while (_timer >= period)
         {
             _timer -= period;
-            Store();
-            
+            //Store();
+            foreach (var r in _data.Production)
+            {
+                _building.PayOut(r.Type, r.Amount);
+                _building.CountProduction();
+            }
+
         }
     }
 
-    private void Store()
-    {
-        foreach(var p in _data.Production)
-        {
-            int stored = GetStored(p.Type);
-            int space = _data.MaxCapacity - stored;
-            if (space <= 0) continue;
-            _stored[p.Type] = stored + Mathf.Min(p.Amount, space);
-            _building.CountProduction();
-            RefreshDisplay();
-        }
-    }
+    //private void Store()
+    //{
+    //    foreach(var p in _data.Production)
+    //    {
+    //        int stored = GetStored(p.Type);
+    //        int space = _data.MaxCapacity - stored;
+    //        if (space <= 0) continue;
+    //        _stored[p.Type] = stored + Mathf.Min(p.Amount, space);
+    //        _building.CountProduction();
+    //        RefreshDisplay();
+    //    }
+    //}
 
-    public int GetStored(ResourceType type) => _stored.TryGetValue(type, out var v) ? v :0;
+    //public int GetStored(ResourceType type) => _stored.TryGetValue(type, out var v) ? v :0;
 
-    public void Collect()
-    {
-        foreach(var r in _stored)
-        {
-            _building.PayOut(r.Key, r.Value);
-        }
-        _stored.Clear();
-        RefreshDisplay();
-    }
+    //public void Collect()
+    //{
+    //    foreach(var r in _stored)
+    //    {
+    //        _building.PayOut(r.Key, r.Value);
+    //    }
+    //    _stored.Clear();
+    //    RefreshDisplay();
+    //}
 
-    private void RefreshDisplay()
-    {
-        var sb = new System.Text.StringBuilder();
-        foreach(var r in _stored)
-        {
-            sb.AppendLine($"{r.Key.DisplayName} : {r.Value}");
-        }
-        _storedDisplay.text = sb.ToString();
-    }
+    //private void RefreshDisplay()
+    //{
+    //    var sb = new System.Text.StringBuilder();
+    //    foreach(var r in _stored)
+    //    {
+    //        sb.AppendLine($"{r.Key.DisplayName} : {r.Value}");
+    //    }
+    //    _storedDisplay.text = sb.ToString();
+    //}
 
 
 }

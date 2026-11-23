@@ -55,10 +55,10 @@ public class SelectionManager : MonoBehaviour
             selected.SetSelected(true);
             //selected.OnClicked();
 
-            if(selected.TryGetComponent(out Generator gen)) //Click to Collect
-            {
-                gen.Collect();
-            }
+            //if(selected.TryGetComponent(out Generator gen)) //Click to Collect
+            //{
+            //    gen.Collect();
+            //}
         }
     }
 
