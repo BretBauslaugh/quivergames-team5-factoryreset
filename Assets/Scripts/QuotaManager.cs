@@ -32,8 +32,11 @@ public class QuotaManager : MonoBehaviour
     [SerializeField] private int _coinPerRound = 5;
     [SerializeField] private float _coinOvershootWeight = 1f;
     [SerializeField] private float _maxCoinMultiplier = 3f;
+    [SerializeField] private float _timePerRound = 15f;
+    [SerializeField] private float _maxRoundTime = 300f;
 
     private float _timeLeft;
+    private float _currentRoundTime;
     private float _timeChanged;
     private int _quota;
     private int _round = 1;
@@ -43,7 +46,8 @@ public class QuotaManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         _quota = _startQuota;
-        _timeLeft = _roundTime;
+        _currentRoundTime = _roundTime;
+        _timeLeft = _currentRoundTime;
         _running = true;
         if (_gameOverPanel) _gameOverPanel.SetActive(false);
         if (_victoryPanel) _victoryPanel.SetActive(false);
@@ -88,6 +92,7 @@ public class QuotaManager : MonoBehaviour
             _resource.Add(_canister, -total);
             _quota = Mathf.RoundToInt(total * (1f + growth));
             _round++;
+            _currentRoundTime = Mathf.Min(_currentRoundTime + _timePerRound, _maxRoundTime);
             StartCoroutine(Intermission(reward));
         }
         else
@@ -130,7 +135,7 @@ public class QuotaManager : MonoBehaviour
 
         if (_nextRoundPanel) _nextRoundPanel.SetActive(false);
         Time.timeScale = 1f;
-        _timeLeft = _roundTime;
+        _timeLeft = _currentRoundTime;
         _running = true;
     }
 }
