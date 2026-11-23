@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine.UI;
 
 public class ReactionModule : MonoBehaviour
@@ -20,6 +22,12 @@ public class ReactionModule : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private Vector2 _screenOffset = new Vector2(0f, 200f);
     [SerializeField] private float _uiLastTime;
+    
+    [Header("FMOD")]
+    [SerializeField] private EventReference _appearSFX;
+    [SerializeField] private EventReference _completeSFX;
+    [SerializeField] private EventReference _failSFX;
+    [SerializeField] private EventReference _onPressSFX;
 
     private bool _qteActive = false;
     private Camera _cam;
@@ -39,6 +47,19 @@ public class ReactionModule : MonoBehaviour
         _image.color = Color.white;
         StartCoroutine(RandomTrigger());
     }
+    
+    public void Playsfx(EventReference sfx)
+    {
+        if (sfx.IsNull)
+        {
+            Debug.LogError("ERROR: [FMOD] Event not found.");
+            return;
+        }
+        EventInstance instance = RuntimeManager.CreateInstance(sfx);
+        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); //added to prevent warnings
+        RuntimeManager.PlayOneShot(sfx, transform.position);
+    }
+    
 
     private IEnumerator RandomTrigger()
     {
@@ -55,6 +76,7 @@ public class ReactionModule : MonoBehaviour
         _image.color = Color.white;
         _qteActive = true;
         _ui.SetActive(true);
+        Playsfx(_appearSFX);
         _success = false;
 
         float time = _timeLimit;
@@ -74,7 +96,7 @@ public class ReactionModule : MonoBehaviour
         _timeText.text = _success ? "Success" : "Failed";
         _image.color = _success ? Color.green : Color.red;
         if (!_success) OnFailed();
-
+        if (_success) Playsfx(_completeSFX);
         yield return new WaitForSeconds(_uiLastTime);
         _ui.SetActive(false);
     }
@@ -87,11 +109,12 @@ public class ReactionModule : MonoBehaviour
             _building.PayOut(_type, _addMount);
             _building.CountProduction();
             _qteActive = false;
+            Playsfx(_onPressSFX);
         }
     }
 
     private void OnFailed()
     {
-        
+        Playsfx(_failSFX);
     }
 }

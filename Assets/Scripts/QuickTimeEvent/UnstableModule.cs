@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine.UI;
 
 public class UnstableModule : MonoBehaviour
@@ -18,12 +20,30 @@ public class UnstableModule : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private Vector2 _screenOffset = new Vector2(0f, 200f);
     [SerializeField] private float _uiLastTime;
+    
+    [Header("FMOD")]
+    [SerializeField] private EventReference _appearSFX;
+    [SerializeField] private EventReference _completeSFX;
+    [SerializeField] private EventReference _failSFX;
+    [SerializeField] private EventReference _onPressSFX;
 
     private int _pressed = 0;
     private bool _qteActive = false;
     private Camera _cam;
     private BuildingInstance _building;
 
+    public void Playsfx(EventReference sfx)
+    {
+        if (sfx.IsNull)
+        {
+            Debug.LogError("ERROR: [FMOD] Event not found.");
+            return;
+        }
+        EventInstance instance = RuntimeManager.CreateInstance(sfx);
+        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); //added to prevent warnings
+        RuntimeManager.PlayOneShot(sfx, transform.position);
+    }
+    
     private void Start()
     {
         if(gameObject.layer == LayerMask.NameToLayer("Preview"))
@@ -54,6 +74,7 @@ public class UnstableModule : MonoBehaviour
         _image.color = Color.white;
         _pressed = 0;
         _qteActive = true;
+        Playsfx(_appearSFX);
         _ui.SetActive(true);
 
         float time = _timeLimit;
@@ -75,13 +96,14 @@ public class UnstableModule : MonoBehaviour
         _timeText.text = success ? "Success" : "Failed";
         _image.color = success ? Color.green : Color.red;
         if (!success) OnFailed();
-
+        if (success) Playsfx(_completeSFX);
         yield return new WaitForSeconds(_uiLastTime);
         _ui.SetActive(false); 
     }
 
     public void OnPress()
     {
+        Playsfx(_onPressSFX);
         if (Time.timeScale == 0f) return;
         if (_qteActive) _pressed++;
     }
@@ -89,6 +111,7 @@ public class UnstableModule : MonoBehaviour
     private void OnFailed()
     {
         //Explosion
+        Playsfx(_failSFX);
         Destroy(gameObject, 1f);
     }
 

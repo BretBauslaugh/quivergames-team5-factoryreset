@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using FMOD.Studio;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,14 +16,34 @@ public class QTE_PressTheButton : MonoBehaviour
     [SerializeField] private GameObject _parentObject;
     [Header("Debug Only")]
     [SerializeField] private GameObject _InputListener;
+    [Header("FMOD")]
+    [SerializeField] private EventReference _appearSFX;
+    [SerializeField] private EventReference _completeSFX;
+    [SerializeField] private EventReference _failSFX;
+    [SerializeField] private EventReference _onPressSFX;
+
     private Image _image;
     private float _timeLeft;
+    
+    public void Playsfx(EventReference sfx)
+    {
+        if (sfx.IsNull)
+        {
+            Debug.LogError("ERROR: [FMOD] Event not found.");
+            return;
+        }
+        EventInstance instance = RuntimeManager.CreateInstance(sfx);
+        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); //added to prevent warnings
+        RuntimeManager.PlayOneShot(sfx, transform.position);
+    }
+    
     void OnEnable()
     {
         _timeLeft = _secondsLeft; //_secondsLeft must be unmodified so the GUI can be reused when re-enabled
         _image = GetComponent<Image>();
         _image.color = Color.white;
         _buttonPressed = false;
+        Playsfx(_appearSFX);
     }
 
     private void Update()
@@ -38,12 +60,14 @@ public class QTE_PressTheButton : MonoBehaviour
         _secondsLeftLabel.text = "FAILED!";
         _image.color = Color.red;
         StartCoroutine(QuickTimeFailed());
+        Playsfx(_failSFX);
         }
         else if (_timeLeft >= .5 && _buttonPressed)
         {
         _secondsLeftLabel.text = "SUCCESS!";
         _image.color = Color.green;
         StartCoroutine(CloseEvent());
+        Playsfx(_completeSFX);
         }
     }
 
@@ -64,6 +88,7 @@ public class QTE_PressTheButton : MonoBehaviour
 
     public void OnPress()
     {
+        Playsfx(_onPressSFX);
         _buttonPressed = true;
     }
 }

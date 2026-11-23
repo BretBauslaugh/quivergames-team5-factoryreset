@@ -123,6 +123,34 @@ MonoBehaviour:
   _secondsLeftLabel: {fileID: 7294240052811234008}
   _parentObject: {fileID: 0}
   _InputListener: {fileID: 0}
+  _appearSFX:
+    Guid:
+      Data1: -734805050
+      Data2: 1089375714
+      Data3: 526011033
+      Data4: -659514977
+    Path: event:/UI/UI_EventPopup_Appear
+  _completeSFX:
+    Guid:
+      Data1: -1593705703
+      Data2: 1113138777
+      Data3: 1539253651
+      Data4: 175843175
+    Path: event:/UI/UI_EventPopup_Complete
+  _failSFX:
+    Guid:
+      Data1: 154401420
+      Data2: 1296996049
+      Data3: -299968640
+      Data4: -1379443165
+    Path: event:/UI/UI_EventPopup_Fail
+  _onPressSFX:
+    Guid:
+      Data1: -1628506887
+      Data2: 1334301241
+      Data3: -1477818437
+      Data4: -889147246
+    Path: event:/UI/UI_EventPopup_OnPress
 --- !u!1 &1555915708083059358
 GameObject:
   m_ObjectHideFlags: 0
