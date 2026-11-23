@@ -4935,11 +4935,11 @@ MonoBehaviour:
     Path: event:/SFX/SFX_Coin_Collect
   _scoreRemove:
     Guid:
-      Data1: 1444871221
-      Data2: 1094617559
-      Data3: -967384132
-      Data4: 114367287
-    Path: event:/SFX/SFX_Coin_Collect_Counting
+      Data1: -35316585
+      Data2: 1133202453
+      Data3: -1737046372
+      Data4: -775961586
+    Path: event:/SFX/SFX_Coin_Spend
   _disableSFX: 0
 --- !u!1 &1455849280 stripped
 GameObject:

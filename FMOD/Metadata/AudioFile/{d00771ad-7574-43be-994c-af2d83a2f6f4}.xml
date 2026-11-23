@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{d00771ad-7574-43be-994c-af2d83a2f6f4}">
+		<property name="assetPath">
+			<value>UI/UI_Time_Ticking_4.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.26984374999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f5ddca47-0379-4900-9c0f-61802bcb9b96}</destination>
+		</relationship>
+	</object>
+</objects>
