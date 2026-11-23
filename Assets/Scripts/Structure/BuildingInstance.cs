@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public  class BuildingInstance : MonoBehaviour
 {
@@ -9,8 +10,7 @@ public  class BuildingInstance : MonoBehaviour
     public Structure Data => _data;
     public BuildingGrid Grid => _grid;
     public Vector3Int Cell { get; private set; }
-    private Renderer rend;
-    private Color baseColor;
+    private Outline _outline;
     private BuildingGrid _grid;
     bool hovered, selected;
 
@@ -31,8 +31,10 @@ public  class BuildingInstance : MonoBehaviour
 
     void Awake()
     {
-        rend = GetComponentInChildren<Renderer>();
-        baseColor = rend.material.color;
+        _outline = gameObject.AddComponent<Outline>();
+        _outline.OutlineMode = Outline.Mode.OutlineAll;
+        _outline.OutlineWidth = 4f;
+        _outline.enabled = false;
     }
 
     public void SetHovered(bool v)
@@ -49,7 +51,9 @@ public  class BuildingInstance : MonoBehaviour
 
     void Refresh()
     {
-        rend.material.color = selected ? Color.green : hovered ? Color.yellow : baseColor;
+        if (_outline == null) return;
+        _outline.enabled = selected || hovered;
+        _outline.OutlineColor = selected ? Color.green : Color.yellow;
     }
 
     public void Init(BuildingGrid grid, Vector3Int cell)
