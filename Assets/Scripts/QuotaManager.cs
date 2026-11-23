@@ -41,6 +41,7 @@ public class QuotaManager : MonoBehaviour
     [SerializeField] private float _maxRoundTime = 300f;
     [Header("FMOD")]
     [SerializeField] private EventReference canisterCollectSfx;
+    [SerializeField] private EventReference quotaMetSfx;
 
     private float _timeLeft;
     private float _currentRoundTime;
@@ -146,7 +147,11 @@ public class QuotaManager : MonoBehaviour
         _running = false;
         Time.timeScale = 0f;
         if (_nextRoundPanel) _nextRoundPanel.SetActive(true);
-        if (_nextRoundText) _nextRoundText.text = $"<size=90>Quota Met!</size>\n+{reward} Coins\nNext quota: {_quota}";
+        if (_nextRoundText)
+        {
+            _nextRoundText.text = $"<size=90>Quota Met!</size>\n+{reward} Coins\nNext quota: {_quota}";
+            Playsfx(quotaMetSfx);
+        }
 
         yield return new WaitForSecondsRealtime(_intermissionTime);
 
@@ -158,6 +163,11 @@ public class QuotaManager : MonoBehaviour
 
     public void Playsfx(EventReference sfx)
     {
+        if (sfx.IsNull)
+        {
+            Debug.LogError("ERROR: [FMOD] Event not found.");
+            return;
+        }
         EventInstance instance = RuntimeManager.CreateInstance(sfx);
         instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); //added to prevent warnings
         RuntimeManager.PlayOneShot(sfx, transform.position);
