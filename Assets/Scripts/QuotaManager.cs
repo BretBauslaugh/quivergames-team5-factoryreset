@@ -1,8 +1,11 @@
 using PrimeTween;
 using System.Collections;
+using FMOD.Studio;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class QuotaManager : MonoBehaviour
 {
@@ -13,6 +16,8 @@ public class QuotaManager : MonoBehaviour
     [Header("Labels")]
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private TMP_Text _quotaText;
+    [SerializeField] private TMP_Text _roundText;
+    [SerializeField] private TMP_Text _canisterText;
     [SerializeField] private TMP_Text _nextRoundText;
     [Header("Label Animations")]
     [SerializeField] private ShakeSettings _timerAnimation;
@@ -34,6 +39,8 @@ public class QuotaManager : MonoBehaviour
     [SerializeField] private float _maxCoinMultiplier = 3f;
     [SerializeField] private float _timePerRound = 15f;
     [SerializeField] private float _maxRoundTime = 300f;
+    [Header("FMOD")]
+    [SerializeField] private EventReference canisterCollectSfx;
 
     private float _timeLeft;
     private float _currentRoundTime;
@@ -41,6 +48,7 @@ public class QuotaManager : MonoBehaviour
     private int _quota;
     private int _round = 1;
     private bool _running;
+    private string _previousCanister;
 
     void Start()
     {
@@ -52,6 +60,7 @@ public class QuotaManager : MonoBehaviour
         if (_gameOverPanel) _gameOverPanel.SetActive(false);
         if (_victoryPanel) _victoryPanel.SetActive(false);
         if (_nextRoundPanel) _nextRoundPanel.SetActive(false);
+        _previousCanister = $"{_resource.Get(_canister)}";
         RefreshUI();
     }
 
@@ -118,10 +127,18 @@ public class QuotaManager : MonoBehaviour
             int t = Mathf.CeilToInt(Mathf.Max(_timeLeft, 0f));
             _timerText.text = $"<b>{t / 60}:{t % 60:00}</b>";
         }
-        if (_quotaText)
+        if (_roundText) _roundText.text = $"<b>Round #{_round}:</b>";
+        if (_canisterText)
         {
-            _quotaText.text = $"<b>Round #{_round}: </b>{_resource.Get(_canister)} / {_quota}";
+            _canisterText.text = $"{_resource.Get(_canister)}";
+            if (_previousCanister != _canisterText.text)
+            {
+                Tween.PunchScale(_canisterText.transform, _quotaAnimation);
+                Playsfx(canisterCollectSfx);
+            }
+            _previousCanister = _canisterText.text;
         }
+        if (_quotaText) _quotaText.text = $"/ {_quota}";
     }
 
     private IEnumerator Intermission(int reward)
@@ -137,5 +154,12 @@ public class QuotaManager : MonoBehaviour
         Time.timeScale = 1f;
         _timeLeft = _currentRoundTime;
         _running = true;
+    }
+
+    public void Playsfx(EventReference sfx)
+    {
+        EventInstance instance = RuntimeManager.CreateInstance(sfx);
+        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); //added to prevent warnings
+        RuntimeManager.PlayOneShot(sfx, transform.position);
     }
 }
