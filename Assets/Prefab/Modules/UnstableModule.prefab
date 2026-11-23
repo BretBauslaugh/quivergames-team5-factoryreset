@@ -483,9 +483,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Generator
   _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
-  _storedDisplay: {fileID: 952059071851096661}
-  _ui: {fileID: 7662398158545420129}
-  _screenOffset: {x: 0, y: -80}
 --- !u!114 &8439689023678706971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,8 +495,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735249769ea8f7c45962f4e009014a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnstableModule
-  _minTime: 1
-  _maxTime: 2
+  _minTime: 10
+  _maxTime: 10
   _timeLimit: 5
   _buttonPress: 3
   _ui: {fileID: 4449401944258441662}

@@ -6740,11 +6740,11 @@ MonoBehaviour:
   _overshootWeight: 0.5
   _maxGrowth: 1
   _intermissionTime: 3
-  _coinBase: 10
+  _coinBase: 12
   _coinPerRound: 5
   _coinOvershootWeight: 1
   _maxCoinMultiplier: 3
-  _timePerRound: 15
+  _timePerRound: 0
   _maxRoundTime: 300
   canisterCollectSfx:
     Guid:

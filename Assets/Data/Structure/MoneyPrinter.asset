@@ -12,17 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183a7dbc8cbf992408f4c117b0d6b523, type: 3}
   m_Name: MoneyPrinter
   m_EditorClassIdentifier: Assembly-CSharp::Generators_SO
-  Id: 05
   DisplayName: Money Printer
-  Description: Every 20 seconds, produce 1 coin
+  Description: Every 15 seconds, produce 1 coin
   structureIcon: {fileID: 21300000, guid: 835eccb2b4dcbe947b5513b6ca20a5bb, type: 3}
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
-    Amount: 5
+    Amount: 4
   ClickReward: []
   prefab: {fileID: 4529259735476588752, guid: d180b995d65540b45b83772a4c3b5451, type: 3}
   Production:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
     Amount: 1
-  GeneratePeriod: 2
+  GeneratePeriod: 15
   MaxCapacity: 9999999
