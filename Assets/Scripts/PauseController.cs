@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PauseController : MonoBehaviour
 {
+    [SerializeField] private PlaceObject _placeObject;
+
     [SerializeField] private UnityEvent onPaused;
     [SerializeField] private UnityEvent onResume;
     private bool _gamePaused;
@@ -21,6 +23,7 @@ public class PauseController : MonoBehaviour
         }
         else
         {
+            if (_placeObject != null &&(_placeObject.IsPlacing || _placeObject.LastCancelFrame == Time.frameCount)) return;
             Pause();
         }
     }

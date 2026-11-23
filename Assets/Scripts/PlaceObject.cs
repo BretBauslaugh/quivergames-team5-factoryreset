@@ -1,6 +1,7 @@
 using FMOD.Studio;
 using FMODUnity;
 using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,6 +36,7 @@ public class PlaceObject : MonoBehaviour
     private bool _canPlace = false;
     private bool _validSpot = true;
     public bool IsPlacing => _previewObject != null;
+    public int LastCancelFrame { get; private set; } =-1;
 
     public ShopButton shopButton; //reference needed so selected shop button would reference itself to this script to grab the correct prefab
 
@@ -118,6 +120,7 @@ public class PlaceObject : MonoBehaviour
 
     void Update()
     {
+
         if (Mouse.current == null) return;
         Ray ray = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (_previewObject == null) return;
@@ -198,6 +201,8 @@ public class PlaceObject : MonoBehaviour
 
     public void CancelPlacement()
     {
+        if(_previewObject != null) LastCancelFrame = Time.frameCount;
+
         _canPlace = false;
         _placeable = null;
         if (_previewObject != null)
