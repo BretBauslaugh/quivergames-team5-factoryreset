@@ -21,12 +21,13 @@ MonoBehaviour:
     Amount: 3
   prefab: {fileID: 5842111772823241907, guid: f4cce29c5f513954e854be289a6ff299, type: 3}
   Event:
-    Enabled: 23
+    Enabled: 7
     Time: 4
     MinTime: 10
     MaxTime: 20
     PressNeeded: 3
     Reward: []
+    FailLost: []
     DestroyOnFail: 1
   UI:
     Prompt: ' '
