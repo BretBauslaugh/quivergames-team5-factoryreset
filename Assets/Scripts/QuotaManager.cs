@@ -13,6 +13,7 @@ public class QuotaManager : MonoBehaviour
     [SerializeField] private Resource _resource;
     [SerializeField] private ResourceType _canister;
     [SerializeField] private ResourceType _coin;
+    [SerializeField] private Animator _scrappyAnimator;
     [Header("Labels")]
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private TMP_Text _quotaText;
@@ -63,6 +64,7 @@ public class QuotaManager : MonoBehaviour
         if (_nextRoundPanel) _nextRoundPanel.SetActive(false);
         _previousCanister = $"{_resource.Get(_canister)}";
         RefreshUI();
+        _scrappyAnimator.SetBool("Happy", false);
     }
 
     void Update()
@@ -149,6 +151,7 @@ public class QuotaManager : MonoBehaviour
         if (_nextRoundPanel) _nextRoundPanel.SetActive(true);
         if (_nextRoundText)
         {
+            _scrappyAnimator.SetBool("Happy", true);
             _nextRoundText.text = $"<size=90>Quota Met!</size>\n+{reward} Coins\nNext quota: {_quota}";
             Playsfx(quotaMetSfx);
         }
@@ -157,6 +160,7 @@ public class QuotaManager : MonoBehaviour
 
         if (_nextRoundPanel) _nextRoundPanel.SetActive(false);
         Time.timeScale = 1f;
+        _scrappyAnimator.SetBool("Happy", false);
         _timeLeft = _currentRoundTime;
         _running = true;
     }
