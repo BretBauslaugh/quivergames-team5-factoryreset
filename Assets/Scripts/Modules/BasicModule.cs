@@ -13,12 +13,6 @@ public class BasicModule : MonoBehaviour
     [SerializeField] private TMP_Text _labelText;
     [SerializeField] private Image _image;
 
-    
-    [Header("FMOD")]
-    [SerializeField] private EventReference _appearSFX;
-    [SerializeField] private EventReference _completeSFX;
-    [SerializeField] private EventReference _failSFX;
-    [SerializeField] private EventReference _onPressSFX;
 
     private EventSettings _event;
     private UISettings _uiData;
@@ -74,7 +68,7 @@ public class BasicModule : MonoBehaviour
         _image.color = Color.white;
         
         _ui.SetActive(true);
-        Playsfx(_appearSFX);
+        Playsfx(_sfx.Appear);
 
         
         while (_qteActive)
@@ -85,7 +79,7 @@ public class BasicModule : MonoBehaviour
             yield return null;
 
         }              
-        Playsfx(_completeSFX);
+        Playsfx(_sfx.Complete);
         _image.color = Color.green;        
         yield return new WaitForSeconds(_uiData.UIShowTime);
         _ui.SetActive(false);
@@ -93,7 +87,7 @@ public class BasicModule : MonoBehaviour
 
     public void OnPress()
     {
-        Playsfx(_onPressSFX);
+        Playsfx(_sfx.Press);
         if (_qteActive) 
         {
             _building.PayOut(_event.Reward);

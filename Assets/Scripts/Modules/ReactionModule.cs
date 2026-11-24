@@ -14,11 +14,6 @@ public class ReactionModule : MonoBehaviour
     [SerializeField] private TMP_Text _timeText;
     [SerializeField] private Image _image;
     
-    [Header("FMOD")]
-    [SerializeField] private EventReference _appearSFX;
-    [SerializeField] private EventReference _completeSFX;
-    [SerializeField] private EventReference _failSFX;
-    [SerializeField] private EventReference _onPressSFX;
 
     private EventSettings _event;
     private UISettings _uiData;
@@ -75,7 +70,7 @@ public class ReactionModule : MonoBehaviour
         _image.color = Color.white;
         _qteActive = true;
         _ui.SetActive(true);
-        Playsfx(_appearSFX);
+        Playsfx(_sfx.Appear);
         _success = false;
 
         float time = _event.Time;
@@ -94,7 +89,7 @@ public class ReactionModule : MonoBehaviour
         _timeText.text = _success ? "Success" : "Failed";
         _image.color = _success ? Color.green : Color.red;
         if (!_success) OnFailed();
-        if (_success) Playsfx(_completeSFX);
+        if (_success) Playsfx(_sfx.Complete);
         yield return new WaitForSeconds(_uiData.UIShowTime);
         _ui.SetActive(false);
     }
@@ -107,12 +102,12 @@ public class ReactionModule : MonoBehaviour
             _building.PayOut(_event.Reward);
             _building.CountProduction();
             _qteActive = false;
-            Playsfx(_onPressSFX);
+            Playsfx(_sfx.Press);
         }
     }
 
     private void OnFailed()
     {
-        Playsfx(_failSFX);        
+        Playsfx(_sfx.Fail);        
     }
 }

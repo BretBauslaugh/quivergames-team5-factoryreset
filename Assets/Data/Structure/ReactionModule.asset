@@ -29,6 +29,7 @@ MonoBehaviour:
     Reward:
     - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
       Amount: 150
+    FailLost: []
     DestroyOnFail: 0
   UI:
     Prompt: 'PRESS THE BUTTON! '
@@ -37,29 +38,29 @@ MonoBehaviour:
   Sfx:
     Appear:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: -734805050
+        Data2: 1089375714
+        Data3: 526011033
+        Data4: -659514977
+      Path: event:/UI/UI_EventPopup_Appear
     Complete:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: -1593705703
+        Data2: 1113138777
+        Data3: 1539253651
+        Data4: 175843175
+      Path: event:/UI/UI_EventPopup_Complete
     Fail:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: 154401420
+        Data2: 1296996049
+        Data3: -299968640
+        Data4: -1379443165
+      Path: event:/UI/UI_EventPopup_Fail
     Press:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: -1628506887
+        Data2: 1334301241
+        Data3: -1477818437
+        Data4: -889147246
+      Path: event:/UI/UI_EventPopup_OnPress
