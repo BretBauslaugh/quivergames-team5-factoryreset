@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95edc24e2b77ada46b4c053552cc8f16, type: 3}
   m_Name: ReactionModule
   m_EditorClassIdentifier: Assembly-CSharp::Structure
-  Id: 07
   DisplayName: Reaction Button
   Description: Press the button within 3 seconds of it appearing to generate 150
     Canisters. Failing results in no canisters
@@ -20,5 +19,47 @@ MonoBehaviour:
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
     Amount: 3
-  ClickReward: []
   prefab: {fileID: 6656758709929076083, guid: d1d6296e6d4fbe94a8e82eafd831ed1d, type: 3}
+  Event:
+    Enabled: 11
+    Time: 3
+    MinTime: 5
+    MaxTime: 12
+    PressNeeded: 1
+    Reward:
+    - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
+      Amount: 150
+    DestroyOnFail: 0
+  UI:
+    Prompt: 'PRESS THE BUTTON! '
+    ScreenOffset: {x: 0, y: 200}
+    UIShowTime: 0.5
+  Sfx:
+    Appear:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Complete:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Fail:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Press:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 

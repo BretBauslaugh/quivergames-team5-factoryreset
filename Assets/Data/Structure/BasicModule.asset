@@ -12,12 +12,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95edc24e2b77ada46b4c053552cc8f16, type: 3}
   m_Name: BasicModule
   m_EditorClassIdentifier: Assembly-CSharp::Structure
-  Id: 06
   DisplayName: Basic Button
   Description: Press Button when it appears to produce 100 Canisters
   structureIcon: {fileID: 21300000, guid: 39dd75e9f9a70e24a8593f7e34846d43, type: 3}
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
     Amount: 2
-  ClickReward: []
   prefab: {fileID: 7551068447394674275, guid: 764067b075d9e2f49808d8eac22f1eff, type: 3}
+  Event:
+    Enabled: 10
+    Time: 10
+    MinTime: 0
+    MaxTime: 0
+    PressNeeded: 1
+    Reward:
+    - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
+      Amount: 100
+    FailLost: []
+    DestroyOnFail: 0
+  UI:
+    Prompt: PRESS THE BUTTON
+    ScreenOffset: {x: 0, y: 200}
+    UIShowTime: 0.5
+  Sfx:
+    Appear:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Complete:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Fail:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Press:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
