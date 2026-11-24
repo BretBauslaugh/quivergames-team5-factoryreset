@@ -5,31 +5,24 @@ using FMOD.Studio;
 using FMODUnity;
 using UnityEngine.UI;
 
-public class BasicModule : MonoBehaviour
+public class ReactionModule : MonoBehaviour
 {
-    [Header("Properties")]
-    [SerializeField] private Resource _resource;
-    [SerializeField] private ResourceType _type;
-    [SerializeField] private float _time;
-    [SerializeField] private int _addMount;
 
-    [Header ("UI")]
+    [Header("UI")]
     [SerializeField] GameObject _ui;
     [SerializeField] private TMP_Text _labelText;
+    [SerializeField] private TMP_Text _timeText;
     [SerializeField] private Image _image;
-    [SerializeField] private Vector2 _screenOffset = new Vector2(0f, 200f);
-    [SerializeField] private float _uiLastTime;
     
-    [Header("FMOD")]
-    [SerializeField] private EventReference _appearSFX;
-    [SerializeField] private EventReference _completeSFX;
-    [SerializeField] private EventReference _failSFX;
-    [SerializeField] private EventReference _onPressSFX;
+
+    private EventSettings _event;
+    private UISettings _uiData;
+    private SfxSettings _sfx;
 
     private bool _qteActive = false;
     private Camera _cam;
     private BuildingInstance _building;
-
+    private bool _success;
     void Start()
     {
         if (gameObject.layer == LayerMask.NameToLayer("Preview"))
@@ -39,10 +32,14 @@ public class BasicModule : MonoBehaviour
         }
 
         _building = GetComponent<BuildingInstance>();
+        _event = _building.Data.Event;
+        _uiData = _building.Data.UI;
+        _sfx = _building.Data.Sfx;
+
         _ui.SetActive(false);
         _cam = Camera.main;
         _image.color = Color.white;
-        StartCoroutine(StartTimer());
+        StartCoroutine(RandomTrigger());
     }
     
     public void Playsfx(EventReference sfx)
@@ -56,13 +53,14 @@ public class BasicModule : MonoBehaviour
         instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); //added to prevent warnings
         RuntimeManager.PlayOneShot(sfx, transform.position);
     }
+    
 
-    private IEnumerator StartTimer()
+    private IEnumerator RandomTrigger()
     {
+
         while (true)
         {
-            yield return new WaitForSeconds(_time * _building.PeriodMultiplier());
-            _qteActive = true;
+            yield return new WaitForSeconds(Random.Range(_event.MinTime, _event.MaxTime) * _building.PeriodMultiplier());
             yield return RunQTE();
         }
     }
@@ -70,34 +68,46 @@ public class BasicModule : MonoBehaviour
     private IEnumerator RunQTE()
     {
         _image.color = Color.white;
-        
+        _qteActive = true;
         _ui.SetActive(true);
-        Playsfx(_appearSFX);
+        Playsfx(_sfx.Appear);
+        _success = false;
 
-        
-        while (_qteActive)
+        float time = _event.Time;
+        while (time > 0f && _qteActive)
         {
+            time -= Time.deltaTime;
 
-            _ui.transform.position = _cam.WorldToScreenPoint(transform.position) + (Vector3)_screenOffset;
-            _labelText.text = $"PRESS THE BUTTON";
+            _ui.transform.position = _cam.WorldToScreenPoint(transform.position) + (Vector3)_uiData.ScreenOffset;
+
+            _labelText.text = _uiData.Prompt;
+            _timeText.text = $"({Mathf.CeilToInt(time)}s)";
             yield return null;
+        }
 
-        }              
-        Playsfx(_completeSFX);
-        _image.color = Color.green;        
-        yield return new WaitForSeconds(_uiLastTime);
+                       
+        _timeText.text = _success ? "Success" : "Failed";
+        _image.color = _success ? Color.green : Color.red;
+        if (!_success) OnFailed();
+        if (_success) Playsfx(_sfx.Complete);
+        yield return new WaitForSeconds(_uiData.UIShowTime);
         _ui.SetActive(false);
     }
 
     public void OnPress()
     {
-        Playsfx(_onPressSFX);
-        if (_qteActive) 
+        if (_qteActive)
         {
-            _building.PayOut(_type, _addMount);
+            _success = true;
+            _building.PayOut(_event.Reward);
             _building.CountProduction();
             _qteActive = false;
+            Playsfx(_sfx.Press);
         }
     }
 
+    private void OnFailed()
+    {
+        Playsfx(_sfx.Fail);        
+    }
 }

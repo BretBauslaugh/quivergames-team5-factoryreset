@@ -7,25 +7,22 @@ using UnityEngine.UI;
 
 public class UnstableModule : MonoBehaviour
 {
-    [Header("Properties")]
-    [SerializeField] private float _minTime = 10f;
-    [SerializeField] private float _maxTime = 20f;
-    [SerializeField] private float _timeLimit = 5f;
-    [SerializeField] private int _buttonPress = 3;
 
     [Header("UI")]
     [SerializeField] GameObject _ui;
     [SerializeField] private TMP_Text _labelText;
     [SerializeField] private TMP_Text _timeText;
     [SerializeField] private Image _image;
-    [SerializeField] private Vector2 _screenOffset = new Vector2(0f, 200f);
-    [SerializeField] private float _uiLastTime;
     
     [Header("FMOD")]
     [SerializeField] private EventReference _appearSFX;
     [SerializeField] private EventReference _completeSFX;
     [SerializeField] private EventReference _failSFX;
     [SerializeField] private EventReference _onPressSFX;
+
+    private EventSettings _event;
+    private UISettings _uiData;
+    private SfxSettings _sfx;
 
     private int _pressed = 0;
     private bool _qteActive = false;
@@ -53,6 +50,10 @@ public class UnstableModule : MonoBehaviour
         }
 
         _building = GetComponent<BuildingInstance>();
+        _event = _building.Data.Event;
+        _uiData = _building.Data.UI;
+        _sfx = _building.Data.Sfx;
+
         _ui.SetActive(false);
         _cam = Camera.main;
         _image.color = Color.white;
@@ -64,7 +65,7 @@ public class UnstableModule : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(_minTime, _maxTime) * _building.PeriodMultiplier());
+            yield return new WaitForSeconds(Random.Range(_event.MinTime, _event.MinTime) * _building.PeriodMultiplier());
             yield return RunQTE();
         }
     }
@@ -77,27 +78,27 @@ public class UnstableModule : MonoBehaviour
         Playsfx(_appearSFX);
         _ui.SetActive(true);
 
-        float time = _timeLimit;
-        while(time > 0f && _pressed < _buttonPress)
+        float time = _event.Time;
+        while(time > 0f && _pressed < _event.PressNeeded)
         {
             time -= Time.deltaTime;
 
-            _ui.transform.position = _cam.WorldToScreenPoint(transform.position) +  (Vector3)_screenOffset;
+            _ui.transform.position = _cam.WorldToScreenPoint(transform.position) +  (Vector3)_uiData.ScreenOffset;
 
-            _labelText.text = $"PRESS {_pressed}/{_buttonPress}";
+            _labelText.text = $"PRESS {_pressed}/{_event.PressNeeded}";
             _timeText.text = $"({Mathf.CeilToInt(time)}s)";
             yield return null;
             
         }
 
         _qteActive = false;
-        bool success = _pressed >= _buttonPress;
-        _labelText.text = $"PRESS {_pressed}/{_buttonPress}";
+        bool success = _pressed >= _event.PressNeeded;
+        _labelText.text = $"PRESS {_pressed}/{_event.PressNeeded}";
         _timeText.text = success ? "Success" : "Failed";
         _image.color = success ? Color.green : Color.red;
         if (!success) OnFailed();
         if (success) Playsfx(_completeSFX);
-        yield return new WaitForSeconds(_uiLastTime);
+        yield return new WaitForSeconds(_uiData.UIShowTime);
         _ui.SetActive(false); 
     }
 
@@ -112,7 +113,8 @@ public class UnstableModule : MonoBehaviour
     {
         //Explosion
         Playsfx(_failSFX);
-        Destroy(gameObject, 1f);
+        if(_event.DestroyOnFail) Destroy(gameObject, 1f);
+
     }
 
 }

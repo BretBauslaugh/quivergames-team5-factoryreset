@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95edc24e2b77ada46b4c053552cc8f16, type: 3}
   m_Name: ReactionModule
   m_EditorClassIdentifier: Assembly-CSharp::Structure
-  Id: 07
   DisplayName: Reaction Button
   Description: Press the button within 3 seconds of it appearing to generate 150
     Canisters. Failing results in no canisters
@@ -20,5 +19,48 @@ MonoBehaviour:
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
     Amount: 3
-  ClickReward: []
   prefab: {fileID: 6656758709929076083, guid: d1d6296e6d4fbe94a8e82eafd831ed1d, type: 3}
+  Event:
+    Enabled: 11
+    Time: 3
+    MinTime: 5
+    MaxTime: 12
+    PressNeeded: 1
+    Reward:
+    - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
+      Amount: 150
+    FailLost: []
+    DestroyOnFail: 0
+  UI:
+    Prompt: 'PRESS THE BUTTON! '
+    ScreenOffset: {x: 0, y: 200}
+    UIShowTime: 0.5
+  Sfx:
+    Appear:
+      Guid:
+        Data1: -734805050
+        Data2: 1089375714
+        Data3: 526011033
+        Data4: -659514977
+      Path: event:/UI/UI_EventPopup_Appear
+    Complete:
+      Guid:
+        Data1: -1593705703
+        Data2: 1113138777
+        Data3: 1539253651
+        Data4: 175843175
+      Path: event:/UI/UI_EventPopup_Complete
+    Fail:
+      Guid:
+        Data1: 154401420
+        Data2: 1296996049
+        Data3: -299968640
+        Data4: -1379443165
+      Path: event:/UI/UI_EventPopup_Fail
+    Press:
+      Guid:
+        Data1: -1628506887
+        Data2: 1334301241
+        Data3: -1477818437
+        Data4: -889147246
+      Path: event:/UI/UI_EventPopup_OnPress

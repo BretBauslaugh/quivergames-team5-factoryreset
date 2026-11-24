@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183a7dbc8cbf992408f4c117b0d6b523, type: 3}
   m_Name: UnstableGenerator
   m_EditorClassIdentifier: Assembly-CSharp::Generators_SO
-  Id: 03
   DisplayName: Unstable Module
   Description: Generates 100 Canisters every 8 seconds. Periodically has an event.
     Failure to beat event causes machine to EXPLODE
@@ -20,10 +19,50 @@ MonoBehaviour:
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
     Amount: 3
-  ClickReward: []
   prefab: {fileID: 5842111772823241907, guid: f4cce29c5f513954e854be289a6ff299, type: 3}
+  Event:
+    Enabled: 7
+    Time: 4
+    MinTime: 10
+    MaxTime: 20
+    PressNeeded: 3
+    Reward: []
+    FailLost: []
+    DestroyOnFail: 1
+  UI:
+    Prompt: ' '
+    ScreenOffset: {x: 0, y: 200}
+    UIShowTime: 0.5
+  Sfx:
+    Appear:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Complete:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Fail:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Press:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
   Production:
   - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
     Amount: 100
-  GeneratePeriod: 8
-  MaxCapacity: 9999999
+  GeneratePeriod: 5

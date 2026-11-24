@@ -18,10 +18,50 @@ MonoBehaviour:
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
     Amount: 4
-  ClickReward: []
   prefab: {fileID: 4529259735476588752, guid: d180b995d65540b45b83772a4c3b5451, type: 3}
+  Event:
+    Enabled: 0
+    Time: 0
+    MinTime: 0
+    MaxTime: 0
+    PressNeeded: 1
+    Reward: []
+    FailLost: []
+    DestroyOnFail: 0
+  UI:
+    Prompt: ' '
+    ScreenOffset: {x: 0, y: 200}
+    UIShowTime: 0.5
+  Sfx:
+    Appear:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Complete:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Fail:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Press:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
   Production:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
     Amount: 1
-  GeneratePeriod: 15
-  MaxCapacity: 9999999
+  GeneratePeriod: 20
