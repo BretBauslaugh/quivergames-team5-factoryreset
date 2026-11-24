@@ -6922,6 +6922,7 @@ MonoBehaviour:
   _resource: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
   _canister: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
   _coin: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
+  _scrappyAnimator: {fileID: 1896168581}
   _timerText: {fileID: 219273103}
   _quotaText: {fileID: 1497034635}
   _roundText: {fileID: 1341977772}
