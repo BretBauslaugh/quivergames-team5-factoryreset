@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine.UI;
 
 public class BasicModule : MonoBehaviour
@@ -17,6 +19,12 @@ public class BasicModule : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private Vector2 _screenOffset = new Vector2(0f, 200f);
     [SerializeField] private float _uiLastTime;
+    
+    [Header("FMOD")]
+    [SerializeField] private EventReference _appearSFX;
+    [SerializeField] private EventReference _completeSFX;
+    [SerializeField] private EventReference _failSFX;
+    [SerializeField] private EventReference _onPressSFX;
 
     private bool _qteActive = false;
     private Camera _cam;
@@ -36,6 +44,18 @@ public class BasicModule : MonoBehaviour
         _image.color = Color.white;
         StartCoroutine(StartTimer());
     }
+    
+    public void Playsfx(EventReference sfx)
+    {
+        if (sfx.IsNull)
+        {
+            Debug.LogError("ERROR: [FMOD] Event not found.");
+            return;
+        }
+        EventInstance instance = RuntimeManager.CreateInstance(sfx);
+        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); //added to prevent warnings
+        RuntimeManager.PlayOneShot(sfx, transform.position);
+    }
 
     private IEnumerator StartTimer()
     {
@@ -52,6 +72,7 @@ public class BasicModule : MonoBehaviour
         _image.color = Color.white;
         
         _ui.SetActive(true);
+        Playsfx(_appearSFX);
 
         
         while (_qteActive)
@@ -62,7 +83,7 @@ public class BasicModule : MonoBehaviour
             yield return null;
 
         }              
-        
+        Playsfx(_completeSFX);
         _image.color = Color.green;        
         yield return new WaitForSeconds(_uiLastTime);
         _ui.SetActive(false);
@@ -70,6 +91,7 @@ public class BasicModule : MonoBehaviour
 
     public void OnPress()
     {
+        Playsfx(_onPressSFX);
         if (_qteActive) 
         {
             _building.PayOut(_type, _addMount);
