@@ -10,8 +10,6 @@ public class BasicModule : MonoBehaviour
     [SerializeField] GameObject _ui;
     [SerializeField] private TMP_Text _labelText;
     [SerializeField] private Image _image;
-    [SerializeField] private Vector2 _screenOffset = new Vector2(0f, 200f);
-    [SerializeField] private float _uiLastTime;
 
     private EventSettings _event;
     private UISettings _uiData;
@@ -60,14 +58,14 @@ public class BasicModule : MonoBehaviour
         while (_qteActive)
         {
 
-            _ui.transform.position = _cam.WorldToScreenPoint(transform.position) + (Vector3)_screenOffset;
+            _ui.transform.position = _cam.WorldToScreenPoint(transform.position) + (Vector3)_uiData.ScreenOffset;
             _labelText.text = $"PRESS THE BUTTON";
             yield return null;
 
         }              
         
         _image.color = Color.green;        
-        yield return new WaitForSeconds(_uiLastTime);
+        yield return new WaitForSeconds(_uiData.UIShowTime);
         _ui.SetActive(false);
     }
 
