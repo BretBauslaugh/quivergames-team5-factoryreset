@@ -15,6 +15,7 @@ public  class BuildingInstance : MonoBehaviour
     bool hovered, selected;
 
     private int _produceCount;
+    private static FloatingText _popupPrefab;
 
     protected virtual string ExtraInfo => "";
     protected virtual void Start()
@@ -96,7 +97,9 @@ public  class BuildingInstance : MonoBehaviour
 
     public void PayOut(ResourceType type, int amount)
     {
-        _resources.Add(type, Mathf.RoundToInt(amount * ProductionMultiplier()));
+        int paid = Mathf.RoundToInt(amount * ProductionMultiplier());
+        _resources.Add(type, paid);
+        ShowPopup(type, paid);
     }
 
     public void PayOut(ResourceAmount[] rewards)
@@ -104,9 +107,15 @@ public  class BuildingInstance : MonoBehaviour
         foreach (var r in rewards) PayOut(r.Type, r.Amount);
     }
 
-    public void PayOut(ResourceAmount[] rewards, int times)
+    private void ShowPopup(ResourceType type, int paid)
     {
-        foreach (var r in rewards) PayOut(r.Type, r.Amount * times);
+        if (paid == 0 || type == null) return;
+        if (_popupPrefab == null) _popupPrefab = Resources.Load<FloatingText>("FloatingText");
+        if (_popupPrefab == null) return;
+
+        Vector3 pos = transform.position + Vector3.up * 1.5f + Vector3.right * Random.Range(-0.3f, 0.3f);
+        var popup = Instantiate(_popupPrefab, pos, Quaternion.identity);
+        popup.Show($"{(paid > 0 ? "+" : "")}{paid} {type.DisplayName}", type.PopupColor);
     }
 
     public void CountProduction() => _produceCount++;
