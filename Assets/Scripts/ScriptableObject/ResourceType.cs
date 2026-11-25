@@ -4,4 +4,5 @@ using UnityEngine;
 public class ResourceType : ScriptableObject
 {
     public string DisplayName;
+    public Color PopupColor = Color.green;
 }
