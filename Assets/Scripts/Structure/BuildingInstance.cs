@@ -107,6 +107,11 @@ public  class BuildingInstance : MonoBehaviour
         foreach (var r in rewards) PayOut(r.Type, r.Amount);
     }
 
+    public void PayOut(ResourceAmount[] rewards, int times)
+    {
+        foreach (var r in rewards) PayOut(r.Type, r.Amount * times);
+    }
+
     private void ShowPopup(ResourceType type, int paid)
     {
         if (paid == 0 || type == null) return;
