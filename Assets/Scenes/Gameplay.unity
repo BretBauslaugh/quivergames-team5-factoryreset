@@ -2043,21 +2043,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6345bb7bc62802d4eb8fb56cb6445e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shop
-  shopButtons: []
-  shopItems:
-  - {fileID: 11400000, guid: 7ab41bf8e5ad0d245baf4e091984387b, type: 2}
-  - {fileID: 11400000, guid: 0747af1d0b12846479fedb21884d0d05, type: 2}
-  - {fileID: 11400000, guid: 52b08a0920e4a784587530a2c75182e4, type: 2}
-  - {fileID: 11400000, guid: a717d240cf1bec241b96d8161651e095, type: 2}
-  - {fileID: 11400000, guid: 15e2859f707d87c4baf5ef1ff81d66ac, type: 2}
-  - {fileID: 11400000, guid: 2b279cc156007f842b6c8003ad1027a9, type: 2}
-  - {fileID: 11400000, guid: e496b92f7b8ca9f4096c462d53fc7aed, type: 2}
-  freeItems:
-  - {fileID: 11400000, guid: 7ab41bf8e5ad0d245baf4e091984387b, type: 2}
-  - {fileID: 11400000, guid: a717d240cf1bec241b96d8161651e095, type: 2}
-  - {fileID: 11400000, guid: 2b279cc156007f842b6c8003ad1027a9, type: 2}
+  shopItems: []
   PlayerResource: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
   _coin: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
+  currentPool: 0
+  pool0:
+  - {fileID: 11400000, guid: 7ab41bf8e5ad0d245baf4e091984387b, type: 2}
+  - {fileID: 11400000, guid: a717d240cf1bec241b96d8161651e095, type: 2}
+  - {fileID: 11400000, guid: 998292d378bdb784b83ff7879bc8f298, type: 2}
+  - {fileID: 11400000, guid: 2b279cc156007f842b6c8003ad1027a9, type: 2}
+  pool1:
+  - {fileID: 11400000, guid: 36b12eeb59a20564280b9bdd2607c4d2, type: 2}
+  - {fileID: 11400000, guid: 588cab73acd4cbb4e8e2d2d818f36ed0, type: 2}
+  - {fileID: 11400000, guid: e496b92f7b8ca9f4096c462d53fc7aed, type: 2}
+  - {fileID: 11400000, guid: 0747af1d0b12846479fedb21884d0d05, type: 2}
+  pool2:
+  - {fileID: 11400000, guid: 4a008359b80122f45a41c50774d9c0b0, type: 2}
+  - {fileID: 11400000, guid: 15e2859f707d87c4baf5ef1ff81d66ac, type: 2}
+  pool3: []
   freebie: 0
   _refreshShopButtonImage: {fileID: 289497639}
   _refreshShopButtonButton: {fileID: 289497638}
@@ -6923,6 +6926,7 @@ MonoBehaviour:
   _canister: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
   _coin: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
   _scrappyAnimator: {fileID: 1896168581}
+  _shop: {fileID: 444395350}
   _timerText: {fileID: 219273103}
   _quotaText: {fileID: 1497034635}
   _roundText: {fileID: 1341977772}

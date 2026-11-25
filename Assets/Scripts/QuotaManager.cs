@@ -124,12 +124,12 @@ public class QuotaManager : MonoBehaviour
         switch (_round)
         {
             case 3:
-                _shop.poolKey = 2;
+                _shop.currentPool = 2;
                 _shop.UpdateShopPool();
                 _extra = "\nMore items unlocked!";
                 break;
             case 6:
-                _shop.poolKey = 3;
+                _shop.currentPool = 3;
                 _shop.UpdateShopPool();
                 _extra = "\nMore items unlocked!";
                 break;
@@ -138,8 +138,8 @@ public class QuotaManager : MonoBehaviour
                 break;
         }
             
-        if (_round == 3) _shop.poolKey = 2;
-        if (_round == 6) _shop.poolKey = 3;
+        if (_round == 3) _shop.currentPool = 2;
+        if (_round == 6) _shop.currentPool = 3;
         
     }
 
