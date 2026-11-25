@@ -101,7 +101,7 @@ public class PlaceObject : MonoBehaviour
             SetLayer(placed, LayerMask.NameToLayer("Placeable"));
             _canPlace = false;
             PlaySFX(_placeItemSFX);
-            if (_shopReference.freebie) _shopReference.TurnOffFreebieMode(); // if item placed was the free item, the shop will go back to the regular priced shop and also reset
+            if (_shopReference.freebie) _shopReference.TurnOffFreebieMode(); // if item placed was the free item, the shop will go back to the regular priced shop and also reset   
             Destroy(_previewObject);
             _previewObject = null;
         }
