@@ -21,13 +21,18 @@ MonoBehaviour:
     Amount: 3
   prefab: {fileID: 5842111772823241907, guid: f4cce29c5f513954e854be289a6ff299, type: 3}
   Event:
-    Enabled: 7
+    Enabled: 11
+    LookAtResource: {fileID: 0}
     Time: 4
     MinTime: 10
     MaxTime: 20
+    MinValue: 0
+    MaxValue: 0
     PressNeeded: 3
     Reward: []
     FailLost: []
+    Chance: 0.1
+    Divider: 1
     DestroyOnFail: 1
   UI:
     Prompt: ' '

@@ -14,6 +14,7 @@ public class QuotaManager : MonoBehaviour
     [SerializeField] private ResourceType _canister;
     [SerializeField] private ResourceType _coin;
     [SerializeField] private Animator _scrappyAnimator;
+    [SerializeField] private Shop _shop;
     [Header("Labels")]
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private TMP_Text _quotaText;
@@ -51,6 +52,7 @@ public class QuotaManager : MonoBehaviour
     private int _round = 1;
     private bool _running;
     private string _previousCanister;
+    private string _extra;
 
     void Start()
     {
@@ -82,12 +84,12 @@ public class QuotaManager : MonoBehaviour
         //
 
         // canisters quota
-        if (_resource.Get(_canister) >= _quota)
+        /*if (_resource.Get(_canister) >= _quota)
         {
             Resolve();
             return;
         }
-        //
+        //*/
         RefreshUI();
     }
 
@@ -104,6 +106,7 @@ public class QuotaManager : MonoBehaviour
             _resource.Add(_canister, -total);
             _quota = Mathf.RoundToInt(total * (1f + growth));
             _round++;
+            CheckRoundPoolChanges();
             _currentRoundTime = Mathf.Min(_currentRoundTime + _timePerRound, _maxRoundTime);
             StartCoroutine(Intermission(reward));
         }
@@ -114,6 +117,30 @@ public class QuotaManager : MonoBehaviour
             Time.timeScale = 0f;
             if (_gameOverPanel) _gameOverPanel.SetActive(true);
         }
+    }
+
+    private void CheckRoundPoolChanges()
+    {
+        switch (_round)
+        {
+            case 3:
+                _shop.currentPool = 2;
+                _shop.UpdateShopPool();
+                _extra = "\nMore items unlocked!";
+                break;
+            case 6:
+                _shop.currentPool = 3;
+                _shop.UpdateShopPool();
+                _extra = "\nMore items unlocked!";
+                break;
+            default:
+                _extra = "";
+                break;
+        }
+            
+        if (_round == 3) _shop.currentPool = 2;
+        if (_round == 6) _shop.currentPool = 3;
+        
     }
 
     public void Restart()
@@ -152,7 +179,7 @@ public class QuotaManager : MonoBehaviour
         if (_nextRoundText)
         {
             _scrappyAnimator.SetBool("Happy", true);
-            _nextRoundText.text = $"<size=90>Quota Met!</size>\n+{reward} Coins\nNext quota: {_quota}";
+            _nextRoundText.text = $"<size=90>Quota Met!</size>\n+{reward} Coins\nNext quota: {_quota}{_extra}";
             Playsfx(quotaMetSfx);
         }
 
@@ -175,5 +202,9 @@ public class QuotaManager : MonoBehaviour
         EventInstance instance = RuntimeManager.CreateInstance(sfx);
         instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); //added to prevent warnings
         RuntimeManager.PlayOneShot(sfx, transform.position);
+    }
+
+    public void AddCoins(int i){
+        _resource.Add(_coin, i);
     }
 }

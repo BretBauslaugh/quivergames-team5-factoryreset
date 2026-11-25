@@ -6,6 +6,7 @@ public class SelectionManager : MonoBehaviour
 {
     public LayerMask placeableMask;
     public PlaceObject placeObject;
+    public QuotaManager quotaM;
     Camera cam;
     BuildingInstance hovered, selected;
 
@@ -67,7 +68,17 @@ public class SelectionManager : MonoBehaviour
         if (selected == null) return;
         if (placeObject.IsPlacing) return;
         if (hovered == selected) hovered = null;
+        //Sell items for half price back
+        SendCoins(selected.GetPrice()/2);
         Destroy(selected.gameObject);
         selected = null;
+    }
+
+    public void SendCoins(int i){
+        Debug.Log("Selling for:" + i);
+        GameObject[] quotaM = GameObject.FindGameObjectsWithTag("QuotaManager");
+        if(quotaM[0]!=null){
+            quotaM[0].GetComponent<QuotaManager>().AddCoins(i);
+        }
     }
 }

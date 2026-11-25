@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -5,17 +6,42 @@ using UnityEngine;
 public class EventSettingsDrawer : PropertyDrawer
 {
     private const float Spacing = 2f;
-
-    // flag, label shown to designers, field names it reveals
+    
     private static readonly (EventProp flag, string label, string[] fields)[] Rows =
     {
         (EventProp.Delay,         "Delay (Min / Max Time)", new[] { "MinTime", "MaxTime" }),
-        (EventProp.TimeLimit,     "Time",             new[] { "Time" }),
-        (EventProp.PressNeeded,   "Multiple Press Needed",           new[] { "PressNeeded" }),
+        (EventProp.Time,          "Time",                   new[] { "Time" }),
+        (EventProp.MinMaxValue,   "MinMaxValue",            new[] { "MinValue", "MaxValue" }),
+        (EventProp.PressNeeded,   "Press Needed",           new[] { "PressNeeded" }),
         (EventProp.Reward,        "Reward",                 new[] { "Reward" }),
-        (EventProp.FailLost,        "FailLost",                 new[] { "FailLost" }),
-        (EventProp.DestroyOnFail, "Destroy On Fail",        new[] { "DestroyOnFail" }),
+        (EventProp.FailLost,      "FailLost",               new[] { "FailLost" }),
+        (EventProp.Chance,        "Chance",                 new[] { "Chance" }),
+        (EventProp.LookAtResource,"LookAtResource",         new[] { "LookAtResource" }),
+        (EventProp.Divider,       "Divider",                new[] { "Divider" }),
+        (EventProp.DestroyOnFail, "Destroy On Fail",        new[] { "DestroyOnFail" }),        
+        
     };
+    
+    private static bool IsManaged(string name)
+    {
+        if (name == "Enabled") return true;
+        foreach (var row in Rows)
+            foreach (var f in row.fields)
+                if (f == name) return true;
+        return false;
+    }
+    
+    private static IEnumerable<SerializedProperty> UnlistedFields(SerializedProperty prop)
+    {
+        var it = prop.Copy();
+        var end = prop.GetEndProperty();
+        bool enter = true;
+        while (it.NextVisible(enter) && !SerializedProperty.EqualContents(it, end))
+        {
+            enter = false;
+            if (!IsManaged(it.name)) yield return it.Copy();
+        }
+    }
 
     public override float GetPropertyHeight(SerializedProperty prop, GUIContent label)
     {
@@ -31,6 +57,10 @@ public class EventSettingsDrawer : PropertyDrawer
             foreach (var f in row.fields)
                 h += EditorGUI.GetPropertyHeight(prop.FindPropertyRelative(f), true) + Spacing;
         }
+
+        foreach (var other in UnlistedFields(prop))
+            h += EditorGUI.GetPropertyHeight(other, true) + Spacing;
+
         return h + Spacing;
     }
 
@@ -64,6 +94,14 @@ public class EventSettingsDrawer : PropertyDrawer
                     EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, h), child, true);
                     y += h + Spacing;
                 }
+            }
+
+            // fields with no tick row yet: always visible
+            foreach (var other in UnlistedFields(prop))
+            {
+                float h = EditorGUI.GetPropertyHeight(other, true);
+                EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, h), other, true);
+                y += h + Spacing;
             }
 
             mask.intValue = flags;

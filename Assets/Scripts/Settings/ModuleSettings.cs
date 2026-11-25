@@ -6,11 +6,15 @@ public enum EventProp
 {
     None = 0,
     Delay =1,
-    TimeLimit = 2,
-    PressNeeded = 4,
-    Reward = 8,
-    FailLost = 16,
-    DestroyOnFail = 32,
+    Time = 2,
+    MinMaxValue = 4,
+    PressNeeded = 8,
+    Reward = 16,
+    FailLost = 32,
+    Chance = 64,
+    LookAtResource = 128,
+    Divider = 256,
+    DestroyOnFail = 512,
 }
 
 [System.Serializable]
@@ -18,17 +22,23 @@ public class EventSettings
 {
     [HideInInspector] public EventProp Enabled;
 
+    public ResourceType LookAtResource;
     public float Time = 0f;
     public float MinTime = 0f;
     public float MaxTime = 0f;
+    public int MinValue = 0;
+    public int MaxValue = 0;
     public int PressNeeded = 1;
     public ResourceAmount[] Reward;
     public ResourceAmount[] FailLost;
+    [Range(0f, 1f)] public float Chance = 0.1f;
+    //public float Multiplier = 1f;
+    public float Divider = 1;
     public bool DestroyOnFail;
 
     public bool Uses(EventProp p) => (Enabled & p) == p;
 
-    public float EffectiveTimeLimit => Uses(EventProp.TimeLimit) ? Time : 0f;
+    public float EffectiveTimeLimit => Uses(EventProp.Time) ? Time : 0f;
     public int EffectivePresses => Uses(EventProp.PressNeeded) ? PressNeeded : 1;
 }
 

@@ -21,15 +21,20 @@ MonoBehaviour:
     Amount: 3
   prefab: {fileID: 6656758709929076083, guid: d1d6296e6d4fbe94a8e82eafd831ed1d, type: 3}
   Event:
-    Enabled: 11
+    Enabled: 3
+    LookAtResource: {fileID: 0}
     Time: 3
     MinTime: 5
     MaxTime: 12
+    MinValue: 0
+    MaxValue: 0
     PressNeeded: 1
     Reward:
     - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
       Amount: 150
     FailLost: []
+    Chance: 0.1
+    Divider: 1
     DestroyOnFail: 0
   UI:
     Prompt: 'PRESS THE BUTTON! '

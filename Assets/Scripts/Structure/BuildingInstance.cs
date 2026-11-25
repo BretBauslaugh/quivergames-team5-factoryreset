@@ -6,6 +6,7 @@ public  class BuildingInstance : MonoBehaviour
 {
     [SerializeField] private Structure _data;
     [SerializeField] private Resource _resources;
+    [SerializeField] private ResourceType _coinResource;
 
     public Structure Data => _data;
     public BuildingGrid Grid => _grid;
@@ -15,6 +16,7 @@ public  class BuildingInstance : MonoBehaviour
     bool hovered, selected;
 
     private int _produceCount;
+    private static FloatingText _popupPrefab;
 
     protected virtual string ExtraInfo => "";
     protected virtual void Start()
@@ -39,6 +41,8 @@ public  class BuildingInstance : MonoBehaviour
 
     public void SetHovered(bool v)
     {
+        if(v){DisplayDescription();}
+        else{HideDescription();}
         hovered = v;
         Refresh();
     }
@@ -96,12 +100,30 @@ public  class BuildingInstance : MonoBehaviour
 
     public void PayOut(ResourceType type, int amount)
     {
-        _resources.Add(type, Mathf.RoundToInt(amount * ProductionMultiplier()));
+        int paid = Mathf.RoundToInt(amount * ProductionMultiplier());
+        _resources.Add(type, paid);
+        ShowPopup(type, paid);
     }
 
     public void PayOut(ResourceAmount[] rewards)
     {
         foreach (var r in rewards) PayOut(r.Type, r.Amount);
+    }
+
+    public void PayOut(ResourceAmount[] rewards, int times)
+    {
+        foreach (var r in rewards) PayOut(r.Type, r.Amount * times);
+    }
+
+    private void ShowPopup(ResourceType type, int paid)
+    {
+        if (paid == 0 || type == null) return;
+        if (_popupPrefab == null) _popupPrefab = Resources.Load<FloatingText>("FloatingText");
+        if (_popupPrefab == null) return;
+
+        Vector3 pos = transform.position + Vector3.up * 1.5f + Vector3.right * Random.Range(-0.3f, 0.3f);
+        var popup = Instantiate(_popupPrefab, pos, Quaternion.identity);
+        popup.Show($"{(paid > 0 ? "+" : "")}{paid} {type.DisplayName}", type.PopupColor);
     }
 
     public void CountProduction() => _produceCount++;
@@ -127,8 +149,7 @@ public  class BuildingInstance : MonoBehaviour
     //        $"{ExtraInfo}", this);
     //}
 
-    public void OnPointerEnter(PointerEventData eventData){
-        Debug.Log("mouseOver");
+    public void DisplayDescription(){
         GameObject[] textBoxes = GameObject.FindGameObjectsWithTag("ModuleInfoUI");
         if(textBoxes[0]!=null){
             textBoxes[0].GetComponent<Hovertext>().SetDescriptionText(_data.Description);
@@ -136,13 +157,19 @@ public  class BuildingInstance : MonoBehaviour
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData){
-        Debug.Log("mouseOut");
+    public void HideDescription(){
         GameObject[] textBoxes = GameObject.FindGameObjectsWithTag("ModuleInfoUI");
         if(textBoxes[0]!=null){
             textBoxes[0].GetComponent<Hovertext>().SetDescriptionText("");
             textBoxes[0].GetComponent<Hovertext>().SetNameText("");
         }
+    }
+
+    public int GetPrice(){
+        foreach (var cost in _data.Cost){
+                return cost.Amount;
+        }
+        return 0;
     }
 
 }

@@ -2043,21 +2043,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6345bb7bc62802d4eb8fb56cb6445e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shop
-  shopButtons: []
-  shopItems:
-  - {fileID: 11400000, guid: 7ab41bf8e5ad0d245baf4e091984387b, type: 2}
-  - {fileID: 11400000, guid: 0747af1d0b12846479fedb21884d0d05, type: 2}
-  - {fileID: 11400000, guid: 52b08a0920e4a784587530a2c75182e4, type: 2}
-  - {fileID: 11400000, guid: a717d240cf1bec241b96d8161651e095, type: 2}
-  - {fileID: 11400000, guid: 15e2859f707d87c4baf5ef1ff81d66ac, type: 2}
-  - {fileID: 11400000, guid: 2b279cc156007f842b6c8003ad1027a9, type: 2}
-  - {fileID: 11400000, guid: e496b92f7b8ca9f4096c462d53fc7aed, type: 2}
-  freeItems:
-  - {fileID: 11400000, guid: 7ab41bf8e5ad0d245baf4e091984387b, type: 2}
-  - {fileID: 11400000, guid: a717d240cf1bec241b96d8161651e095, type: 2}
-  - {fileID: 11400000, guid: 2b279cc156007f842b6c8003ad1027a9, type: 2}
+  shopItems: []
   PlayerResource: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
   _coin: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
+  currentPool: 0
+  pool0:
+  - {fileID: 11400000, guid: 7ab41bf8e5ad0d245baf4e091984387b, type: 2}
+  - {fileID: 11400000, guid: a717d240cf1bec241b96d8161651e095, type: 2}
+  - {fileID: 11400000, guid: 998292d378bdb784b83ff7879bc8f298, type: 2}
+  - {fileID: 11400000, guid: 2b279cc156007f842b6c8003ad1027a9, type: 2}
+  pool1:
+  - {fileID: 11400000, guid: 36b12eeb59a20564280b9bdd2607c4d2, type: 2}
+  - {fileID: 11400000, guid: 588cab73acd4cbb4e8e2d2d818f36ed0, type: 2}
+  - {fileID: 11400000, guid: e496b92f7b8ca9f4096c462d53fc7aed, type: 2}
+  - {fileID: 11400000, guid: 0747af1d0b12846479fedb21884d0d05, type: 2}
+  pool2:
+  - {fileID: 11400000, guid: 4a008359b80122f45a41c50774d9c0b0, type: 2}
+  - {fileID: 11400000, guid: 15e2859f707d87c4baf5ef1ff81d66ac, type: 2}
+  pool3: []
   freebie: 0
   _refreshShopButtonImage: {fileID: 289497639}
   _refreshShopButtonButton: {fileID: 289497638}
@@ -4317,6 +4320,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   placeObject: {fileID: 185777785}
+  quotaM: {fileID: 2055186731}
 --- !u!1 &1148529625
 GameObject:
   m_ObjectHideFlags: 0
@@ -5771,7 +5775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1694739349471710050, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_text
-      value: Press G to delete selected module | [DEBUG] Press M to add 10 Coins
+      value: Press G to sell selected for 50% value | [DEBUG] Press M to add 10 Coins
       objectReference: {fileID: 0}
     - target: {fileID: 1694739349471710050, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_fontSize
@@ -6115,7 +6119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8340909213585479010, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 8340909213585479010, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6902,7 +6906,7 @@ GameObject:
   - component: {fileID: 2055186731}
   m_Layer: 0
   m_Name: QuotaManager
-  m_TagString: Untagged
+  m_TagString: QuotaManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6923,6 +6927,7 @@ MonoBehaviour:
   _canister: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
   _coin: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
   _scrappyAnimator: {fileID: 1896168581}
+  _shop: {fileID: 444395350}
   _timerText: {fileID: 219273103}
   _quotaText: {fileID: 1497034635}
   _roundText: {fileID: 1341977772}
@@ -6973,8 +6978,8 @@ MonoBehaviour:
   _nextRoundPanel: {fileID: 1062154472}
   _roundTime: 60
   _startQuota: 500
-  _baseGrowth: 0.1
-  _overshootWeight: 0.5
+  _baseGrowth: 0.5
+  _overshootWeight: 0
   _maxGrowth: 1
   _intermissionTime: 3
   _coinBase: 12
