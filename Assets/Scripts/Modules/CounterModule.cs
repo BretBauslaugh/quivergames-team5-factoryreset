@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class CounterModule : MonoBehaviour
 {
-    [SerializeField] private ResourceType _type;
-    [SerializeField] private int _amountPerCount = 10;
-    [SerializeField] private float _payPeriod = 10f;
+
+
+    private EventSettings _event;
+    private UISettings _uiData;
+    private SfxSettings _sfx;
 
     private BuildingInstance _building;
+
     private float _timer;
     void Start()
     {
@@ -16,19 +19,22 @@ public class CounterModule : MonoBehaviour
             return;
         }
         _building = GetComponent<BuildingInstance>();
+        _event = _building.Data.Event;
+        _uiData = _building.Data.UI;
+        _sfx = _building.Data.Sfx;
     }
 
     void Update()
     {
         if (_building.Grid == null) return;
 
-        float period = _payPeriod * _building.PeriodMultiplier();
+        float period = _event.Time * _building.PeriodMultiplier();
         _timer += Time.deltaTime;
         while (_timer >= period)
         {
             _timer -= period;
             int total = CollectSideCounts();            
-            if (total > 0) _building.PayOut(_type, _amountPerCount * total);
+            if (total > 0) _building.PayOut(_event.Reward, total);
         }
     }
 

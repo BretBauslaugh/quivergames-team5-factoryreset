@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183a7dbc8cbf992408f4c117b0d6b523, type: 3}
   m_Name: SlotMachine
   m_EditorClassIdentifier: Assembly-CSharp::Generators_SO
-  Id: 04
   DisplayName: Slot Machine
   Description: Every 10 seconds, 10% chance to generate 1000 canisters and 90% chance
     to DESTROY 50 Canisters
@@ -20,10 +19,53 @@ MonoBehaviour:
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
     Amount: 4
-  ClickReward: []
   prefab: {fileID: 125711113443891216, guid: 417efb257a8b208479f983a8f87fccc8, type: 3}
+  Event:
+    Enabled: 48
+    Time: 0
+    MinTime: 0
+    MaxTime: 0
+    PressNeeded: 1
+    Reward: []
+    FailLost:
+    - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
+      Amount: 50
+    Chance: 0.1
+    DestroyOnFail: 0
+  UI:
+    Prompt: ' '
+    ScreenOffset: {x: 0, y: 200}
+    UIShowTime: 0.5
+  Sfx:
+    Appear:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Complete:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Fail:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Press:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
   Production:
   - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
     Amount: 1000
   GeneratePeriod: 10
-  MaxCapacity: 9999999

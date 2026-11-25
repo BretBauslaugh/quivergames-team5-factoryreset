@@ -10,7 +10,8 @@ public enum EventProp
     PressNeeded = 4,
     Reward = 8,
     FailLost = 16,
-    DestroyOnFail = 32,
+    Chance = 32,
+    DestroyOnFail = 64,
 }
 
 [System.Serializable]
@@ -24,6 +25,7 @@ public class EventSettings
     public int PressNeeded = 1;
     public ResourceAmount[] Reward;
     public ResourceAmount[] FailLost;
+    [Range(0f, 1f)] public float Chance = 0.1f;
     public bool DestroyOnFail;
 
     public bool Uses(EventProp p) => (Enabled & p) == p;
