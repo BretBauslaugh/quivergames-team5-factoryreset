@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95edc24e2b77ada46b4c053552cc8f16, type: 3}
+  m_Name: AnnoyingButtonModule
+  m_EditorClassIdentifier: Assembly-CSharp::Structure
+  DisplayName: Annoying Button
+  Description: 
+  structureIcon: {fileID: 0}
+  Cost: []
+  prefab: {fileID: 2589483517643626316, guid: 8d4d3782559defe4c80bfd8a1c00db09, type: 3}
+  Event:
+    Enabled: 19
+    LookAtResource: {fileID: 0}
+    Time: 2
+    MinTime: 4
+    MaxTime: 4
+    MinValue: 0
+    MaxValue: 0
+    PressNeeded: 1
+    Reward:
+    - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
+      Amount: 75
+    FailLost: []
+    Chance: 0.1
+    Divider: 1
+    DestroyOnFail: 0
+  UI:
+    Prompt: PRESS THE BUTTON!
+    ScreenOffset: {x: 0, y: 200}
+    UIShowTime: 0.5
+  Sfx:
+    Appear:
+      Guid:
+        Data1: -734805050
+        Data2: 1089375714
+        Data3: 526011033
+        Data4: -659514977
+      Path: event:/UI/UI_EventPopup_Appear
+    Complete:
+      Guid:
+        Data1: -1593705703
+        Data2: 1113138777
+        Data3: 1539253651
+        Data4: 175843175
+      Path: event:/UI/UI_EventPopup_Complete
+    Fail:
+      Guid:
+        Data1: 154401420
+        Data2: 1296996049
+        Data3: -299968640
+        Data4: -1379443165
+      Path: event:/UI/UI_EventPopup_Fail
+    Press:
+      Guid:
+        Data1: -1628506887
+        Data2: 1334301241
+        Data3: -1477818437
+        Data4: -889147246
+      Path: event:/UI/UI_EventPopup_OnPress
