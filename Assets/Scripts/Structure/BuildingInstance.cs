@@ -150,7 +150,6 @@ public  class BuildingInstance : MonoBehaviour
     //}
 
     public void DisplayDescription(){
-        Debug.Log(GetPrice());
         GameObject[] textBoxes = GameObject.FindGameObjectsWithTag("ModuleInfoUI");
         if(textBoxes[0]!=null){
             textBoxes[0].GetComponent<Hovertext>().SetDescriptionText(_data.Description);

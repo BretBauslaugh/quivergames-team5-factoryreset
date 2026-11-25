@@ -1,2 +1,17 @@
 fileFormatVersion: 2
 guid: 148ef5e7057e71046a7643e757aafe2f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - moduleIcon: {instanceID: 0}
+  - moduleName: {instanceID: 0}
+  - modulePriceLabel: {instanceID: 0}
+  - modulePrefab: {instanceID: 0}
+  - placer: {instanceID: 0}
+  - lockedIcon: {fileID: 4219653477858246905, guid: 999426e780c4fab428c9214e23902be8, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
