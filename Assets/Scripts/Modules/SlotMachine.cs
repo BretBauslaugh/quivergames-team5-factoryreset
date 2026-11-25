@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SlotMachine : MonoBehaviour
+public class SlotMachine : TimeModule
 {
     [SerializeField] private Resource _resources;
 
@@ -8,47 +8,26 @@ public class SlotMachine : MonoBehaviour
     private UISettings _uiData;
     private SfxSettings _sfx;
 
-    private BuildingInstance _building;
-    private Generators_SO _data;
-    private float _timer;
 
-    private void Start()
+    protected override void Start()
     {
-        if (gameObject.layer == LayerMask.NameToLayer("Preview"))
-        {
-            enabled = false;
-            return;
-        }
-
-        _building = GetComponent<BuildingInstance>();
-        _event = _building.Data.Event;
-        _uiData = _building.Data.UI;
-        _sfx = _building.Data.Sfx;
-
-        _data = _building.Data as Generators_SO;
-        if (_data == null)
-        {
-            enabled = false;
-        }
+        base.Start();
+        if (!enabled) return;
+        _event = Building.Data.Event;
+        _uiData = Building.Data.UI;
+        _sfx = Building.Data.Sfx;
     }
 
-    private void Update()
+    protected override void OnTick()
     {
-        float period = _data.GeneratePeriod * _building.PeriodMultiplier();
-
-        _timer += Time.deltaTime;
-        while (_timer >= period)
+        if (Random.value < _event.Chance)
         {
-            _timer -= period;
-            if(Random.value < _event.Chance)
-            {
-                _building.PayOut(_data.Production);
-                _building.CountProduction();
-            }
-            else
-            {
-                _resources.SpendUpTo(_event.FailLost);
-            }
+            Building.PayOut(Data.Production);
+            Building.CountProduction();
+        }
+        else
+        {
+            _resources.SpendUpTo(_event.FailLost);
         }
     }
 }

@@ -10,11 +10,14 @@ public class EventSettingsDrawer : PropertyDrawer
     private static readonly (EventProp flag, string label, string[] fields)[] Rows =
     {
         (EventProp.Delay,         "Delay (Min / Max Time)", new[] { "MinTime", "MaxTime" }),
-        (EventProp.TimeLimit,     "Time",                   new[] { "Time" }),
+        (EventProp.Time,          "Time",                   new[] { "Time" }),
+        (EventProp.MinMaxValue,   "MinMaxValue",            new[] { "MinValue", "MaxValue" }),
         (EventProp.PressNeeded,   "Press Needed",           new[] { "PressNeeded" }),
         (EventProp.Reward,        "Reward",                 new[] { "Reward" }),
         (EventProp.FailLost,      "FailLost",               new[] { "FailLost" }),
         (EventProp.Chance,        "Chance",                 new[] { "Chance" }),
+        (EventProp.LookAtResource,"LookAtResource",         new[] { "LookAtResource" }),
+        (EventProp.Divider,       "Divider",                new[] { "Divider" }),
         (EventProp.DestroyOnFail, "Destroy On Fail",        new[] { "DestroyOnFail" }),        
         
     };

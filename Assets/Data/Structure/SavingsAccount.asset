@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183a7dbc8cbf992408f4c117b0d6b523, type: 3}
+  m_Name: SavingsAccount
+  m_EditorClassIdentifier: Assembly-CSharp::Generators_SO
+  DisplayName: Savings Account
+  Description: 
+  structureIcon: {fileID: 0}
+  Cost: []
+  prefab: {fileID: 1560091533256440074, guid: 25bb770bc98a94f4ea45c079360bdf5e, type: 3}
+  Event:
+    Enabled: 388
+    LookAtResource: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
+    Time: 0
+    MinTime: 0
+    MaxTime: 0
+    MinValue: 0
+    MaxValue: 10
+    PressNeeded: 1
+    Reward: []
+    FailLost: []
+    Chance: 0.1
+    Divider: 10
+    DestroyOnFail: 0
+  UI:
+    Prompt: ' '
+    ScreenOffset: {x: 0, y: 200}
+    UIShowTime: 0.5
+  Sfx:
+    Appear:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Complete:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Fail:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Press:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+  Production:
+  - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
+    Amount: 5
+  - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
+    Amount: 1
+  GeneratePeriod: 45
