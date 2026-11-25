@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183a7dbc8cbf992408f4c117b0d6b523, type: 3}
+  m_Name: Wreckage
+  m_EditorClassIdentifier: Assembly-CSharp::Generators_SO
+  DisplayName: Wreckage
+  Description: Does Nothing. (COSTS 1 Coin to sell)
+  structureIcon: {fileID: 21300000, guid: 5c41147aaa23e0c43b0da2a175200a16, type: 3}
+  Cost:
+  - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
+    Amount: -2
+  prefab: {fileID: 125711113443891216, guid: 78bd0e055f0177e48af326116ea177ae, type: 3}
+  Event:
+    Enabled: 48
+    LookAtResource: {fileID: 0}
+    Time: 0
+    MinTime: 0
+    MaxTime: 0
+    MinValue: 0
+    MaxValue: 0
+    PressNeeded: 1
+    Reward: []
+    FailLost:
+    - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
+      Amount: 50
+    Chance: 0.1
+    Divider: 1
+    DestroyOnFail: 0
+  UI:
+    Prompt: ' '
+    ScreenOffset: {x: 0, y: 200}
+    UIShowTime: 0.5
+  Sfx:
+    Appear:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Complete:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Fail:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Press:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+  Production:
+  - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
+    Amount: 1000
+  GeneratePeriod: 10
