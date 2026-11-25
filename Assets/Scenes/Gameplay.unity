@@ -2052,6 +2052,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a717d240cf1bec241b96d8161651e095, type: 2}
   - {fileID: 11400000, guid: 998292d378bdb784b83ff7879bc8f298, type: 2}
   - {fileID: 11400000, guid: 2b279cc156007f842b6c8003ad1027a9, type: 2}
+  - {fileID: 11400000, guid: e496b92f7b8ca9f4096c462d53fc7aed, type: 2}
   pool1:
   - {fileID: 11400000, guid: 36b12eeb59a20564280b9bdd2607c4d2, type: 2}
   - {fileID: 11400000, guid: 588cab73acd4cbb4e8e2d2d818f36ed0, type: 2}
@@ -6977,8 +6978,8 @@ MonoBehaviour:
   _nextRoundPanel: {fileID: 1062154472}
   _roundTime: 60
   _startQuota: 500
-  _baseGrowth: 0.1
-  _overshootWeight: 0.5
+  _baseGrowth: 0.5
+  _overshootWeight: 0
   _maxGrowth: 1
   _intermissionTime: 3
   _coinBase: 12

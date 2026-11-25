@@ -84,12 +84,12 @@ public class QuotaManager : MonoBehaviour
         //
 
         // canisters quota
-        if (_resource.Get(_canister) >= _quota)
+        /*if (_resource.Get(_canister) >= _quota)
         {
             Resolve();
             return;
         }
-        //
+        //*/
         RefreshUI();
     }
 
