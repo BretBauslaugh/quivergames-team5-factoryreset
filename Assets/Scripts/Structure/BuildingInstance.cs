@@ -6,6 +6,7 @@ public  class BuildingInstance : MonoBehaviour
 {
     [SerializeField] private Structure _data;
     [SerializeField] private Resource _resources;
+    [SerializeField] private ResourceType _coinResource;
 
     public Structure Data => _data;
     public BuildingGrid Grid => _grid;
@@ -149,6 +150,7 @@ public  class BuildingInstance : MonoBehaviour
     //}
 
     public void DisplayDescription(){
+        Debug.Log(GetPrice());
         GameObject[] textBoxes = GameObject.FindGameObjectsWithTag("ModuleInfoUI");
         if(textBoxes[0]!=null){
             textBoxes[0].GetComponent<Hovertext>().SetDescriptionText(_data.Description);
@@ -162,6 +164,13 @@ public  class BuildingInstance : MonoBehaviour
             textBoxes[0].GetComponent<Hovertext>().SetDescriptionText("");
             textBoxes[0].GetComponent<Hovertext>().SetNameText("");
         }
+    }
+
+    public int GetPrice(){
+        foreach (var cost in _data.Cost){
+                return cost.Amount;
+        }
+        return 0;
     }
 
 }

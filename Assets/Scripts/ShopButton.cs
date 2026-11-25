@@ -11,6 +11,7 @@ public class ShopButton : MonoBehaviour
     public PlaceObject placer;
     public int itemCost;
     private string modDescription;
+    private bool itemBought;
 
     public void UpdateModule(Sprite sprite, string name, int price, GameObject prefab, string mDescription)
     {
@@ -22,6 +23,7 @@ public class ShopButton : MonoBehaviour
         modulePrefab = prefab;
         modDescription = mDescription;
         HoverInfo(name, mDescription);
+        itemBought = false;
     }
 
     public void SetPlacerPriority()
@@ -31,5 +33,13 @@ public class ShopButton : MonoBehaviour
 
     private void HoverInfo(string moduleName, string moduleDescription){
         this.GetComponent<HoverDescriptionObject>().SetInfo(moduleName,moduleDescription);
+    }
+
+    public void BuyItem(){
+        itemBought = true;
+    }
+
+    public bool GetBought(){
+        return itemBought;
     }
 }

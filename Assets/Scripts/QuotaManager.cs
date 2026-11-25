@@ -203,4 +203,8 @@ public class QuotaManager : MonoBehaviour
         instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); //added to prevent warnings
         RuntimeManager.PlayOneShot(sfx, transform.position);
     }
+
+    public void AddCoins(int i){
+        _resource.Add(_coin, i);
+    }
 }

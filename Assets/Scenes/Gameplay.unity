@@ -2052,7 +2052,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a717d240cf1bec241b96d8161651e095, type: 2}
   - {fileID: 11400000, guid: 998292d378bdb784b83ff7879bc8f298, type: 2}
   - {fileID: 11400000, guid: 2b279cc156007f842b6c8003ad1027a9, type: 2}
-  - {fileID: 11400000, guid: e496b92f7b8ca9f4096c462d53fc7aed, type: 2}
   pool1:
   - {fileID: 11400000, guid: 36b12eeb59a20564280b9bdd2607c4d2, type: 2}
   - {fileID: 11400000, guid: 588cab73acd4cbb4e8e2d2d818f36ed0, type: 2}
@@ -4321,6 +4320,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   placeObject: {fileID: 185777785}
+  quotaM: {fileID: 2055186731}
 --- !u!1 &1148529625
 GameObject:
   m_ObjectHideFlags: 0
@@ -5775,7 +5775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1694739349471710050, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_text
-      value: Press G to delete selected module | [DEBUG] Press M to add 10 Coins
+      value: Press G to sell selected module | [DEBUG] Press M to add 10 Coins
       objectReference: {fileID: 0}
     - target: {fileID: 1694739349471710050, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_fontSize
@@ -6906,7 +6906,7 @@ GameObject:
   - component: {fileID: 2055186731}
   m_Layer: 0
   m_Name: QuotaManager
-  m_TagString: Untagged
+  m_TagString: QuotaManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
