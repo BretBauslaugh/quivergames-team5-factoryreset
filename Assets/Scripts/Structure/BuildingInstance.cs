@@ -40,6 +40,8 @@ public  class BuildingInstance : MonoBehaviour
 
     public void SetHovered(bool v)
     {
+        if(v){DisplayDescription();}
+        else{HideDescription();}
         hovered = v;
         Refresh();
     }
@@ -146,8 +148,7 @@ public  class BuildingInstance : MonoBehaviour
     //        $"{ExtraInfo}", this);
     //}
 
-    public void OnPointerEnter(PointerEventData eventData){
-        Debug.Log("mouseOver");
+    public void DisplayDescription(){
         GameObject[] textBoxes = GameObject.FindGameObjectsWithTag("ModuleInfoUI");
         if(textBoxes[0]!=null){
             textBoxes[0].GetComponent<Hovertext>().SetDescriptionText(_data.Description);
@@ -155,8 +156,7 @@ public  class BuildingInstance : MonoBehaviour
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData){
-        Debug.Log("mouseOut");
+    public void HideDescription(){
         GameObject[] textBoxes = GameObject.FindGameObjectsWithTag("ModuleInfoUI");
         if(textBoxes[0]!=null){
             textBoxes[0].GetComponent<Hovertext>().SetDescriptionText("");
