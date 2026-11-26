@@ -5775,7 +5775,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1694739349471710050, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_text
-      value: Press G to sell selected for 50% value | [DEBUG] Press M to add 10 Coins
+      value: "Middle Click to move board around | Scroll Wheel to Zoom In/Out \nPress
+        G to sell selected for 50% value | [DEBUG] Press M to add 10 Coins"
       objectReference: {fileID: 0}
     - target: {fileID: 1694739349471710050, guid: d1788770317bc4a45ab851bb0fdf15fa, type: 3}
       propertyPath: m_fontSize

@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInstance
   _data: {fileID: 11400000, guid: 0747af1d0b12846479fedb21884d0d05, type: 2}
   _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
+  _coinResource: {fileID: 0}
 --- !u!114 &-6413420405624958483
 MonoBehaviour:
   m_ObjectHideFlags: 0
