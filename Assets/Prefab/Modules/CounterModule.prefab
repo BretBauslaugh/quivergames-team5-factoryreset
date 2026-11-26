@@ -112,7 +112,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.02
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4448086005273382047
 MonoBehaviour:
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInstance
   _data: {fileID: 11400000, guid: e496b92f7b8ca9f4096c462d53fc7aed, type: 2}
   _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
+  _coinResource: {fileID: 0}
 --- !u!114 &2018643158842648675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +141,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e783687b5d82d034b81a12a5f50ae8af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CounterModule
-  _type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
-  _amountPerCount: 10
-  _payPeriod: 10

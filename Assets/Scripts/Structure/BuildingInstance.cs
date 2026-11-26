@@ -41,10 +41,16 @@ public  class BuildingInstance : MonoBehaviour
 
     public void SetHovered(bool v)
     {
-        if(v){DisplayDescription();}
-        else{HideDescription();}
         hovered = v;
         Refresh();
+        if (v) 
+        { 
+            DisplayDescription();
+        }
+        else
+        {
+            HideDescription();
+        }
     }
 
     public void SetSelected(bool v)
