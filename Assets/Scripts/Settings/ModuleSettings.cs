@@ -23,11 +23,11 @@ public class EventSettings
     [HideInInspector] public EventProp Enabled;
 
     public ResourceType LookAtResource;
-    public float Time = 0f;
-    public float MinTime = 0f;
-    public float MaxTime = 0f;
-    public int MinValue = 0;
-    public int MaxValue = 0;
+    public float Time = 1f;
+    public float MinTime = 1f;
+    public float MaxTime = 1f;
+    public int MinValue = 1;
+    public int MaxValue = 1;
     public int PressNeeded = 1;
     public ResourceAmount[] Reward;
     public ResourceAmount[] FailLost;

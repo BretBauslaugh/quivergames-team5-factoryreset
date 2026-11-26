@@ -29,6 +29,7 @@ public class CounterModule : MonoBehaviour
         if (_building.Grid == null) return;
 
         float period = _event.Time * _building.PeriodMultiplier();
+        if (period <= 0) return;
         _timer += Time.deltaTime;
         while (_timer >= period)
         {
