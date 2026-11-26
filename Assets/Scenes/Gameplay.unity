@@ -7454,6 +7454,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190070492217997358, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -7561,6 +7565,10 @@ PrefabInstance:
       propertyPath: _buildingGrid
       value: 
       objectReference: {fileID: 2049048624}
+    - target: {fileID: 7379849220650731622, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8396785684870570073, guid: 0b62cf0fb7e6a6a40b41bc08019f5fb8, type: 3}
       propertyPath: placer
       value: 

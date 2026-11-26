@@ -331,6 +331,7 @@ MonoBehaviour:
   modulePrefab: {fileID: 0}
   placer: {fileID: 0}
   itemCost: 0
+  lockedIcon: {fileID: 21300000, guid: de13ba5cf58f84c4ba8e7bc52936438f, type: 3}
 --- !u!114 &-4071535141355047543
 MonoBehaviour:
   m_ObjectHideFlags: 0

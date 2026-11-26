@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ShopButton : MonoBehaviour
@@ -14,6 +16,15 @@ public class ShopButton : MonoBehaviour
     private bool itemBought;
     public Sprite lockedIcon;
 
+    private Button _button;
+    private EventTrigger _eventTrigger;
+
+    private void OnEnable()
+    {
+        _button = GetComponent<Button>();
+        _eventTrigger = GetComponent<EventTrigger>();
+    }
+
     public void UpdateModule(Sprite sprite, string name, int price, GameObject prefab, string mDescription)
     {
         moduleIcon.sprite = sprite;
@@ -25,12 +36,16 @@ public class ShopButton : MonoBehaviour
         modDescription = mDescription;
         HoverInfo(name, mDescription);
         itemBought = false;
+        _button.enabled = true; //button and event trigger get re-enabled so they can actually be clicked after a sold item was there
+        _eventTrigger.enabled = true;
         //BuyItem();
     }
 
     public void SetPlacerPriority()
-    {
-        placer.shopButton = this;
+    { //to talk to the placeobject script, I made a cheap referencing system where PlaceObject has a slot for the shop button to talk to,
+        // when this item is selected and can be bought, the shop button will grab itself and place itself in the slot of the placeobject script so PlaceObject..
+        // ..can know which prefab to instantiate.
+        if (!itemBought) placer.shopButton = this;
     }
 
     private void HoverInfo(string moduleName, string moduleDescription){
@@ -40,6 +55,8 @@ public class ShopButton : MonoBehaviour
     //Disables a time slot
     public void BuyItem(){
         itemBought = true;
+        _button.enabled = false; //button and event trigger get disabled so SFX and VFX from Button Component cannot be played
+        _eventTrigger.enabled = false;
         moduleName.text = "SOLD";
         modulePriceLabel.text = "";
         moduleIcon.sprite = lockedIcon;
