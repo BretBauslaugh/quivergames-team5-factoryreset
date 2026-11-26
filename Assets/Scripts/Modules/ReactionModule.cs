@@ -5,7 +5,7 @@ using FMOD.Studio;
 using FMODUnity;
 using UnityEngine.UI;
 
-public class ReactionModule : MonoBehaviour
+public class ReactionModule : MonoBehaviour, IAutoPressable
 {
 
     [Header("UI")]
@@ -14,6 +14,7 @@ public class ReactionModule : MonoBehaviour
     [SerializeField] private TMP_Text _timeText;
     [SerializeField] private Image _image;
     
+    public bool EventActive => _qteActive;
 
     private EventSettings _event;
     private UISettings _uiData;

@@ -5,7 +5,7 @@ using FMOD.Studio;
 using FMODUnity;
 using UnityEngine.UI;
 
-public class BasicModule : MonoBehaviour
+public class BasicModule : MonoBehaviour, IAutoPressable
 {
 
     [Header ("UI")]
@@ -13,6 +13,7 @@ public class BasicModule : MonoBehaviour
     [SerializeField] private TMP_Text _labelText;
     [SerializeField] private Image _image;
 
+    public bool EventActive => _qteActive;
 
     private EventSettings _event;
     private UISettings _uiData;

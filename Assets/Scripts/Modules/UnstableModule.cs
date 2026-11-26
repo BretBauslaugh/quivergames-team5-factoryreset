@@ -5,7 +5,7 @@ using FMOD.Studio;
 using FMODUnity;
 using UnityEngine.UI;
 
-public class UnstableModule : MonoBehaviour
+public class UnstableModule : MonoBehaviour, IAutoPressable
 {
 
     [Header("UI")]
@@ -14,11 +14,8 @@ public class UnstableModule : MonoBehaviour
     [SerializeField] private TMP_Text _timeText;
     [SerializeField] private Image _image;
     
-    [Header("FMOD")]
-    [SerializeField] private EventReference _appearSFX;
-    [SerializeField] private EventReference _completeSFX;
-    [SerializeField] private EventReference _failSFX;
-    [SerializeField] private EventReference _onPressSFX;
+
+    public bool EventActive => _qteActive;
 
     private EventSettings _event;
     private UISettings _uiData;
@@ -75,7 +72,7 @@ public class UnstableModule : MonoBehaviour
         _image.color = Color.white;
         _pressed = 0;
         _qteActive = true;
-        Playsfx(_appearSFX);
+        Playsfx(_sfx.Appear);
         _ui.SetActive(true);
 
         float time = _event.Time;
@@ -97,14 +94,14 @@ public class UnstableModule : MonoBehaviour
         _timeText.text = success ? "Success" : "Failed";
         _image.color = success ? Color.green : Color.red;
         if (!success) OnFailed();
-        if (success) Playsfx(_completeSFX);
+        if (success) Playsfx(_sfx.Complete);
         yield return new WaitForSeconds(_uiData.UIShowTime);
         _ui.SetActive(false); 
     }
 
     public void OnPress()
     {
-        Playsfx(_onPressSFX);
+        Playsfx(_sfx.Press);
         if (Time.timeScale == 0f) return;
         if (_qteActive) _pressed++;
     }
@@ -112,7 +109,7 @@ public class UnstableModule : MonoBehaviour
     private void OnFailed()
     {
         //Explosion
-        Playsfx(_failSFX);
+        Playsfx(_sfx.Fail);
         if(_event.DestroyOnFail) Destroy(gameObject, 1f);
 
     }
