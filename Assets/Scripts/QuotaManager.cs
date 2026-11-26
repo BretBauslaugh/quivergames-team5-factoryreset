@@ -84,11 +84,13 @@ public class QuotaManager : MonoBehaviour
         //
 
         // canisters quota
+        // 
+        /* Only have this if the round should end if Quotas are reached. 
         if (_resource.Get(_canister) >= _quota)
         {
             Resolve();
             return;
-        }
+        }*/
         RefreshUI();
     }
 
