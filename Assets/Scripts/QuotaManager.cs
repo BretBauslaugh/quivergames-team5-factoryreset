@@ -100,7 +100,7 @@ public class QuotaManager : MonoBehaviour
         if(total >= _quota)
         {
             float overshoot = (total - _quota) / (float)_quota;
-            float growth = 1.2f;
+            float growth = 0.8f;
             float coinMult = Mathf.Min(1f + overshoot * _coinOvershootWeight, _maxCoinMultiplier);
             int reward = Mathf.RoundToInt((_coinBase + _coinPerRound * (_round - 1)) * coinMult);
             _resource.Add(_coin, reward);
