@@ -115,6 +115,16 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
+                },
+                {
+                    "name": "CancelPlacement",
+                    "type": "Button",
+                    "id": "bfcbd4c6-9e68-4d81-9dd6-eb3085b8953f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -379,6 +389,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "AddCoin",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "874cbf82-3a47-43f0-b6c6-caa0b53033da",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "CancelPlacement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

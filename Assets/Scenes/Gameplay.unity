@@ -926,6 +926,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 104390574614580018, guid: ee1293c9fb66e5543b43dedec7e22598, type: 3}
+      propertyPath: _action
+      value: 
+      objectReference: {fileID: 4634217445040339682, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 6038168199702712513, guid: ee1293c9fb66e5543b43dedec7e22598, type: 3}
       propertyPath: m_Name
       value: ControlsContainer
@@ -3226,7 +3230,7 @@ MonoBehaviour:
   m_CancelAction: {fileID: 1945263477}
   m_LeftClickAction: {fileID: 174619780}
   m_MiddleClickAction: {fileID: 1394787219}
-  m_RightClickAction: {fileID: 1002256705}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_ScrollWheelAction: {fileID: 482130943}
   m_TrackedDevicePositionAction: {fileID: 1902448341}
   m_TrackedDeviceOrientationAction: {fileID: 2070049455}
@@ -3512,20 +3516,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999494147}
   m_CullTransparentMesh: 1
---- !u!114 &1002256705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: UI/RightClick
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
-  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_ActionId: 44b200b1-1557-4083-816c-b22cbdf77ddf
 --- !u!1 &1005098591
 GameObject:
   m_ObjectHideFlags: 0
@@ -6978,7 +6968,7 @@ MonoBehaviour:
   _nextRoundPanel: {fileID: 1062154472}
   _roundTime: 60
   _startQuota: 500
-  _baseGrowth: 0.5
+  _baseGrowth: 0.2
   _overshootWeight: 0
   _maxGrowth: 1
   _intermissionTime: 3
