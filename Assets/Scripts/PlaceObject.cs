@@ -39,6 +39,7 @@ public class PlaceObject : MonoBehaviour
     public int LastCancelFrame { get; private set; } =-1;
 
     public ShopButton shopButton; //reference needed so selected shop button would reference itself to this script to grab the correct prefab
+    private ShopButton lastButtonHit;
 
     void Start()
     {
@@ -68,7 +69,7 @@ public class PlaceObject : MonoBehaviour
         GameObject prefab = shopButton.modulePrefab;
         Structure data = prefab.GetComponent<BuildingInstance>().Data;
         
-        if (_resource.TryGetMissing(data.Cost , out var missing))
+        if (_resource.TryGetMissing(data.Cost , out var missing) && !shopButton.GetBought())
         {
             ErrorText.Show($"Not enough {missing.DisplayName}s!");
             CancelPlacement();
@@ -77,6 +78,7 @@ public class PlaceObject : MonoBehaviour
         }
         PlaySFX(_buyItemSFX);
         SelectPlaceable(prefab);
+        lastButtonHit = shopButton;
 
     }
 
@@ -101,7 +103,9 @@ public class PlaceObject : MonoBehaviour
             SetLayer(placed, LayerMask.NameToLayer("Placeable"));
             _canPlace = false;
             PlaySFX(_placeItemSFX);
-            if (_shopReference.currentPool == 0) _shopReference.currentPool = 1;  
+            //if (_shopReference.currentPool == 0) _shopReference.currentPool = 1;  
+            _shopReference.PlacedObject();
+            lastButtonHit.BuyItem();
             Destroy(_previewObject);
             _previewObject = null;
         }

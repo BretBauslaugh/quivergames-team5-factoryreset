@@ -37,6 +37,7 @@ public class ShopButton : MonoBehaviour
         this.GetComponent<HoverDescriptionObject>().SetInfo(moduleName,moduleDescription);
     }
 
+    //Disables a time slot
     public void BuyItem(){
         itemBought = true;
         moduleName.text = "SOLD";
@@ -45,6 +46,7 @@ public class ShopButton : MonoBehaviour
         HoverInfo("SOLD", "This item is sold out. Try refreshing the shop");
     }
 
+    //When a player tries to build a thing, they can't if they have already bought it
     public bool GetBought(){
         return itemBought;
     }
