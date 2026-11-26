@@ -103,7 +103,8 @@ public class PlaceObject : MonoBehaviour
             SetLayer(placed, LayerMask.NameToLayer("Placeable"));
             _canPlace = false;
             PlaySFX(_placeItemSFX);
-            if (_shopReference.currentPool == 0) _shopReference.currentPool = 1;  
+            //if (_shopReference.currentPool == 0) _shopReference.currentPool = 1;  
+            _shopReference.PlacedObject();
             lastButtonHit.BuyItem();
             Destroy(_previewObject);
             _previewObject = null;

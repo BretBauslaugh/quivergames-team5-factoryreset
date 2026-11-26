@@ -46,6 +46,7 @@ public class Shop : MonoBehaviour
     private void Start()
     {
         UpdateShopPool();
+        RefreshShop();
     }
     
     public void UpdateShopPool()
@@ -55,7 +56,6 @@ public class Shop : MonoBehaviour
             shopItems.Add(item);
         }
         UpdateRefreshButtons();
-        RefreshShop();
     }
 
     private void UpdateRefreshButtons()
@@ -107,5 +107,12 @@ public class Shop : MonoBehaviour
             if (cost.Type == type) return cost.Amount;
         }
         return 0;
+    }
+
+    public void PlacedObject(){
+        if(currentPool == 0){
+            currentPool++;
+            UpdateShopPool();
+        }
     }
 }
