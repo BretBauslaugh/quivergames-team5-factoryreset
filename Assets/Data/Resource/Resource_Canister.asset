@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Resource_Canister
   m_EditorClassIdentifier: Assembly-CSharp::ResourceType
   DisplayName: Steam Canister
+  PopupColor: {r: 0, g: 1, b: 0, a: 1}
+  Enhanceable: 1

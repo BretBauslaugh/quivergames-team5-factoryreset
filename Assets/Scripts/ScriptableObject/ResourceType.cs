@@ -5,4 +5,5 @@ public class ResourceType : ScriptableObject
 {
     public string DisplayName;
     public Color PopupColor = Color.green;
+    public bool Enhanceable = false;
 }

@@ -100,7 +100,18 @@ public  class BuildingInstance : MonoBehaviour
 
     public void PayOut(ResourceType type, int amount)
     {
-        int paid = Mathf.RoundToInt(amount * ProductionMultiplier());
+        if (type == null) return;
+        int paid = amount;
+        if (type.Enhanceable && _grid != null)
+        {
+            float flat = 0f, mult = 1f;
+            foreach (var n in _grid.Neighbours(Cell))
+            {
+                if (n.TryGetComponent(out IFlatEnhancer f)) flat += f.FlatBonus;
+                if (n.TryGetComponent(out IEnhancer e)) mult *= e.Multiplier;
+            }
+            paid = Mathf.RoundToInt((amount + flat) * mult);
+        }
         _resources.Add(type, paid);
         ShowPopup(type, paid);
     }
