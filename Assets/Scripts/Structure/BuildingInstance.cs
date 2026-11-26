@@ -108,18 +108,31 @@ public  class BuildingInstance : MonoBehaviour
     {
         if (type == null) return;
         int paid = amount;
+        System.Collections.Generic.List<IPayoutListener> boosted = null;
+
         if (type.Enhanceable && _grid != null)
         {
             float flat = 0f, mult = 1f;
             foreach (var n in _grid.Neighbours(Cell))
             {
                 if (n.TryGetComponent(out IFlatEnhancer f)) flat += f.FlatBonus;
-                if (n.TryGetComponent(out IEnhancer e)) mult *= e.Multiplier;
+                if (n.TryGetComponent(out IEnhancer e))
+                {
+                    mult *= e.Multiplier;
+                    if (n.TryGetComponent(out IPayoutListener l))
+                        (boosted ??= new()).Add(l);
+                }
             }
             paid = Mathf.RoundToInt((amount + flat) * mult);
         }
+
         _resources.Add(type, paid);
         ShowPopup(type, paid);
+
+        if (boosted != null)
+        {
+            foreach (var l in boosted) l.OnBoostedPayout();
+        }
     }
 
     public void PayOut(ResourceAmount[] rewards)
@@ -187,6 +200,20 @@ public  class BuildingInstance : MonoBehaviour
                 return cost.Amount;
         }
         return 0;
+    }
+
+    public void ReportSuccess()
+    {
+        if (_grid == null) return;
+        foreach (var n in new System.Collections.Generic.List<BuildingInstance>(_grid.Neighbours(Cell)))
+            if (n.TryGetComponent(out IOutcomeListener l)) l.OnNeighborSuccess();
+    }
+
+    public void ReportFailure()
+    {
+        if (_grid == null) return;
+        foreach (var n in new System.Collections.Generic.List<BuildingInstance>(_grid.Neighbours(Cell)))
+            if (n.TryGetComponent(out IOutcomeListener l)) l.OnNeighborFailure();
     }
 
 }

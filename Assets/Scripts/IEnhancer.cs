@@ -9,3 +9,9 @@ public interface IFlatEnhancer
 { 
     int FlatBonus { get; } 
 }
+
+public interface IOutcomeListener
+{
+    void OnNeighborSuccess();
+    void OnNeighborFailure();
+}

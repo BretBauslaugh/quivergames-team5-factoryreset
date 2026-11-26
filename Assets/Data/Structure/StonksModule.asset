@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95edc24e2b77ada46b4c053552cc8f16, type: 3}
+  m_Name: StonksModule
+  m_EditorClassIdentifier: Assembly-CSharp::Structure
+  DisplayName: Stonks Module
+  Description: Adjacent Modules produce 25% more Canisters
+  structureIcon: {fileID: 21300000, guid: 5f4bb8f505c4c4a4b969f75d46901c57, type: 3}
+  Cost:
+  - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
+    Amount: 4
+  prefab: {fileID: 6656758709929076083, guid: 86a978ae8b3c140459769751d1581e0c, type: 3}
+  Event:
+    Enabled: 0
+    LookAtResource: {fileID: 0}
+    Time: 1
+    MinTime: 1
+    MaxTime: 1
+    MinValue: 1
+    MaxValue: 1
+    PressNeeded: 1
+    Reward: []
+    FailLost: []
+    Chance: 0.1
+    Divider: 1
+    DestroyOnFail: 0
+  UI:
+    Prompt: ' '
+    ScreenOffset: {x: 0, y: 200}
+    UIShowTime: 0.5
+  Sfx:
+    Appear:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Complete:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Fail:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Press:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 

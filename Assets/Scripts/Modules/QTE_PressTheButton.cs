@@ -24,7 +24,9 @@ public class QTE_PressTheButton : MonoBehaviour
 
     private Image _image;
     private float _timeLeft;
-    
+    private BuildingInstance _building;
+    private bool _finished;
+
     public void Playsfx(EventReference sfx)
     {
         if (sfx.IsNull)
@@ -39,6 +41,8 @@ public class QTE_PressTheButton : MonoBehaviour
     
     void OnEnable()
     {
+        _finished = false;
+        if (_building == null) _building = GetComponentInParent<BuildingInstance>();
         _timeLeft = _secondsLeft; //_secondsLeft must be unmodified so the GUI can be reused when re-enabled
         _image = GetComponent<Image>();
         _image.color = Color.white;
@@ -48,26 +52,33 @@ public class QTE_PressTheButton : MonoBehaviour
 
     private void Update()
     {
+        if (_finished || Time.timeScale == 0f) return;
         if (!_buttonPressed)
         {
-        _timeLeft -= Time.deltaTime;
-        int _time_ToInt = Mathf.RoundToInt(_timeLeft);
-        if (_time_ToInt != 1) _secondsLeftLabel.text = $"{_time_ToInt.ToString()} SECONDS LEFT";
-        else _secondsLeftLabel.text = "1 SECOND LEFT";
+            _timeLeft -= Time.deltaTime;
+            int _time_ToInt = Mathf.RoundToInt(_timeLeft);
+            if (_time_ToInt != 1) _secondsLeftLabel.text = $"{_time_ToInt.ToString()} SECONDS LEFT";
+            else _secondsLeftLabel.text = "1 SECOND LEFT";
         }
         if (_timeLeft < .5 && !_buttonPressed)
         {
-        _secondsLeftLabel.text = "FAILED!";
-        _image.color = Color.red;
-        StartCoroutine(QuickTimeFailed());
-        Playsfx(_failSFX);
+            _building.ReportFailure();
+            _finished = true;
+            if (_building != null) _building.ReportFailure();
+            _secondsLeftLabel.text = "FAILED!";
+            _image.color = Color.red;
+            StartCoroutine(QuickTimeFailed());
+            Playsfx(_failSFX);
         }
         else if (_timeLeft >= .5 && _buttonPressed)
         {
-        _secondsLeftLabel.text = "SUCCESS!";
-        _image.color = Color.green;
-        StartCoroutine(CloseEvent());
-        Playsfx(_completeSFX);
+            _building.ReportSuccess();
+            _finished = true;
+            if (_building != null) _building.ReportSuccess();
+            _secondsLeftLabel.text = "SUCCESS!";
+            _image.color = Color.green;
+            StartCoroutine(CloseEvent());
+            Playsfx(_completeSFX);
         }
     }
 

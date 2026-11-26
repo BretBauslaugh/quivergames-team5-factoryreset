@@ -2062,6 +2062,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e496b92f7b8ca9f4096c462d53fc7aed, type: 2}
   - {fileID: 11400000, guid: 0747af1d0b12846479fedb21884d0d05, type: 2}
   - {fileID: 11400000, guid: eb5eefaca6a1cfe449eb511ae60a004b, type: 2}
+  - {fileID: 11400000, guid: 05a3f6b22002d5e48b71bb7954ec5a82, type: 2}
   pool2:
   - {fileID: 11400000, guid: 4a008359b80122f45a41c50774d9c0b0, type: 2}
   - {fileID: 11400000, guid: 15e2859f707d87c4baf5ef1ff81d66ac, type: 2}
