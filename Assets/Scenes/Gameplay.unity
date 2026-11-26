@@ -6969,7 +6969,7 @@ MonoBehaviour:
   _victoryPanel: {fileID: 0}
   _nextRoundPanel: {fileID: 1062154472}
   _roundTime: 60
-  _startQuota: 500
+  _startQuota: 700
   _baseGrowth: 0.2
   _overshootWeight: 0
   _maxGrowth: 1
@@ -6977,7 +6977,7 @@ MonoBehaviour:
   _coinBase: 12
   _coinPerRound: 5
   _coinOvershootWeight: 1
-  _maxCoinMultiplier: 3
+  _maxCoinMultiplier: 2
   _timePerRound: 0
   _maxRoundTime: 300
   canisterCollectSfx:
