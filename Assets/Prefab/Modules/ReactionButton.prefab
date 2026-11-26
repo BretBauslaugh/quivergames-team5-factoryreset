@@ -408,14 +408,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6656758709929076083}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7542518311564035868}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &5133572702895152197
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -423,7 +423,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6656758709929076083}
-  m_Mesh: {fileID: -6910759351139126824, guid: 3887bf7496757904490607cbd6c2a460, type: 3}
+  m_Mesh: {fileID: -8796822912557845303, guid: 63e77bda64e314352902f7f0d0316392, type: 3}
 --- !u!23 &8628547993725337172
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -449,7 +449,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 123720860027e0042b2aa24fc8e3c27c, type: 2}
+  - {fileID: 2100000, guid: 7a356ef8d9ae745238bb6526adc51f88, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -508,6 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInstance
   _data: {fileID: 11400000, guid: a717d240cf1bec241b96d8161651e095, type: 2}
   _resources: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
+  _coinResource: {fileID: 0}
 --- !u!114 &3015299226892294633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,46 +521,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43f72dd9bc75df459742c6141165e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReactionModule
-  _resource: {fileID: 11400000, guid: ff5d5703e3f67aa4886368787cbc2d70, type: 2}
-  _type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
-  _minTime: 5
-  _maxTime: 10
-  _timeLimit: 2
-  _addMount: 150
   _ui: {fileID: 2814425271318083943}
   _labelText: {fileID: 2430872029336768648}
   _timeText: {fileID: 5825839262065824404}
   _image: {fileID: 5523438531836938945}
-  _screenOffset: {x: 0, y: 200}
-  _uiLastTime: 0.5
-  _appearSFX:
-    Guid:
-      Data1: -734805050
-      Data2: 1089375714
-      Data3: 526011033
-      Data4: -659514977
-    Path: event:/UI/UI_EventPopup_Appear
-  _completeSFX:
-    Guid:
-      Data1: -1593705703
-      Data2: 1113138777
-      Data3: 1539253651
-      Data4: 175843175
-    Path: event:/UI/UI_EventPopup_Complete
-  _failSFX:
-    Guid:
-      Data1: 154401420
-      Data2: 1296996049
-      Data3: -299968640
-      Data4: -1379443165
-    Path: event:/UI/UI_EventPopup_Fail
-  _onPressSFX:
-    Guid:
-      Data1: -1628506887
-      Data2: 1334301241
-      Data3: -1477818437
-      Data4: -889147246
-    Path: event:/UI/UI_EventPopup_OnPress
 --- !u!1 &7316928643449078946
 GameObject:
   m_ObjectHideFlags: 0
