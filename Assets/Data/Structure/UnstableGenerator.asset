@@ -19,7 +19,7 @@ MonoBehaviour:
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
     Amount: 3
-  prefab: {fileID: 5842111772823241907, guid: f4cce29c5f513954e854be289a6ff299, type: 3}
+  prefab: {fileID: 441423786751572301, guid: 72e2fb67b7ed2446c92c680e3d879a27, type: 3}
   Event:
     Enabled: 11
     LookAtResource: {fileID: 0}
