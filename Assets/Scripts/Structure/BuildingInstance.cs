@@ -6,7 +6,7 @@ public  class BuildingInstance : MonoBehaviour
 {
     [SerializeField] private Structure _data;
     [SerializeField] private Resource _resources;
-    [SerializeField] private ResourceType _coinResource;
+    [SerializeField] private ResourceType _coinResource;    
 
     public Structure Data => _data;
     public BuildingGrid Grid => _grid;
@@ -17,6 +17,7 @@ public  class BuildingInstance : MonoBehaviour
 
     private int _produceCount;
     private static FloatingText _popupPrefab;
+    private static GameObject _wreckagePrefab;
 
     protected virtual string ExtraInfo => "";
     protected virtual void Start()
@@ -172,12 +173,16 @@ public  class BuildingInstance : MonoBehaviour
         int c = _produceCount;
         return c;
     }
+    
+    public void TryDestroy(GameObject moduleToDestory)  //Destroy stuff goes in here
+    {
+        if (_wreckagePrefab == null) _wreckagePrefab = Resources.Load<GameObject>("Wreckage");
+        if (_wreckagePrefab == null) return;
 
-    //protected virtual void PrintCurrentInfo()
-    //{
-    //    Debug.Log($"Id = {StrucData.Id}, " + $"Name = {StrucData.DisplayName}, " +  
-    //        $"{ExtraInfo}", this);
-    //}
+        Transform moduleTransform = moduleToDestory.transform;
+        Destroy(moduleToDestory, 1f);
+        Instantiate(_wreckagePrefab, moduleTransform.position.Flatten(), moduleTransform.rotation);
+    }
 
     public void DisplayDescription(){
         GameObject[] textBoxes = GameObject.FindGameObjectsWithTag("ModuleInfoUI");

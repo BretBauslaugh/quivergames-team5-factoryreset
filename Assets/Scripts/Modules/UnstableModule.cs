@@ -110,7 +110,7 @@ public class UnstableModule : MonoBehaviour, IAutoPressable
     {
         //Explosion
         Playsfx(_sfx.Fail);
-        if(_event.DestroyOnFail) Destroy(gameObject, 1f);
+        if(_event.DestroyOnFail) _building.TryDestroy(this.gameObject);
 
     }
 

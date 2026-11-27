@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: AnnoyingButtonModule
   m_EditorClassIdentifier: Assembly-CSharp::Structure
   DisplayName: Annoying Button
-  Description: 
+  Description: Press the button within 2 seconds of it appearing to generate 50 Canisters.
+    Failing results in no canisters
   structureIcon: {fileID: 0}
-  Cost: []
+  Cost:
+  - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
+    Amount: 4
   prefab: {fileID: 2589483517643626316, guid: 8d4d3782559defe4c80bfd8a1c00db09, type: 3}
   Event:
     Enabled: 19

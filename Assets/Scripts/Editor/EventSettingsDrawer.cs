@@ -18,7 +18,7 @@ public class EventSettingsDrawer : PropertyDrawer
         (EventProp.Chance,        "Chance",                 new[] { "Chance" }),
         (EventProp.LookAtResource,"LookAtResource",         new[] { "LookAtResource" }),
         (EventProp.Divider,       "Divider",                new[] { "Divider" }),
-        (EventProp.DestroyOnFail, "Destroy On Fail",        new[] { "DestroyOnFail" }),        
+        (EventProp.DestroyOnFail, "TryDestroy On Fail",        new[] { "DestroyOnFail" }),        
         
     };
     

@@ -10,7 +10,7 @@ public class Structure : ScriptableObject
     public Sprite structureIcon;
     public ResourceAmount[] Cost;
     //public ResourceAmount[] ClickReward;
-    public GameObject prefab;
+    public GameObject prefab;    
 
     public EventSettings Event;
     public UISettings UI;
