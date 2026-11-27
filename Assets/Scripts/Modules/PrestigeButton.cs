@@ -106,12 +106,8 @@ public class PrestigeButton : MonoBehaviour,IAutoPressable
     private void OnFailed()
     {
         if(_counter >0) _counter--;
-        else if(_event.DestroyOnFail) _building.TryDestroy(this.gameObject);
+        if(_counter == 0 && _event.DestroyOnFail) _building.TryDestroy(this.gameObject);
 
     }
 
-    private void Update()
-    {
-        Debug.Log(_counter);
-    }
 }
