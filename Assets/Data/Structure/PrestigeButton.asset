@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95edc24e2b77ada46b4c053552cc8f16, type: 3}
+  m_Name: PrestigeButton
+  m_EditorClassIdentifier: Assembly-CSharp::Structure
+  DisplayName: Prestige Button
+  Description: 
+  structureIcon: {fileID: 0}
+  Cost: []
+  prefab: {fileID: 125164830777338355, guid: 36d1a57f335ae4049a26e96cc0584111, type: 3}
+  Event:
+    Enabled: 663
+    LookAtResource: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
+    Time: 3
+    MinTime: 12
+    MaxTime: 12
+    MinValue: 3
+    MaxValue: 1
+    PressNeeded: 1
+    Reward:
+    - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
+      Amount: 100
+    - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
+      Amount: 1
+    FailLost: []
+    Chance: 0.1
+    Divider: 1
+    DestroyOnFail: 1
+  UI:
+    Prompt: ' '
+    ScreenOffset: {x: 0, y: 200}
+    UIShowTime: 0.5
+  Sfx:
+    Appear:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Complete:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Fail:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
+    Press:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
