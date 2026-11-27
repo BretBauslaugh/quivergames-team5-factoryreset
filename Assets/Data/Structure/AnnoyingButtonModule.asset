@@ -15,7 +15,7 @@ MonoBehaviour:
   DisplayName: Annoying Button
   Description: Press the button within 2 seconds of it appearing to generate 50 Canisters.
     Failing results in no canisters
-  structureIcon: {fileID: 0}
+  structureIcon: {fileID: 21300000, guid: 585ce09dd16b30042a9b303766c850eb, type: 3}
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
     Amount: 4

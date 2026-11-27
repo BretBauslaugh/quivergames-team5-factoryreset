@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Generators_SO
   DisplayName: Savings Account
   Description: 
-  structureIcon: {fileID: 0}
+  structureIcon: {fileID: 21300000, guid: f59b9df1c0753d143b59b245c227181d, type: 3}
   Cost: []
   prefab: {fileID: 1560091533256440074, guid: 25bb770bc98a94f4ea45c079360bdf5e, type: 3}
   Event:

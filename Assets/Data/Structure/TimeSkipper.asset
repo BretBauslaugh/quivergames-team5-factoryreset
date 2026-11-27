@@ -14,20 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Structure
   DisplayName: Time Skipper
   Description: Modules to sides with Timers have their max time reduced by 25%
-  structureIcon: {fileID: 0}
+  structureIcon: {fileID: 21300000, guid: 018461ae983cf12459d2c9aac46d3e94, type: 3}
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
     Amount: 4
   prefab: {fileID: 8997791274236418592, guid: 4308298adaf6f4a4f970a6c85830ec52, type: 3}
   Event:
     Enabled: 0
+    LookAtResource: {fileID: 0}
     Time: 0
     MinTime: 0
     MaxTime: 0
+    MinValue: 1
+    MaxValue: 1
     PressNeeded: 1
     Reward: []
     FailLost: []
     Chance: 0.1
+    Divider: 1
     DestroyOnFail: 0
   UI:
     Prompt: ' '

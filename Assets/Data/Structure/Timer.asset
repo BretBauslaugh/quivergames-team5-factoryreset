@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Generators_SO
   DisplayName: Timer
   Description: 'Automatically makes 150 Canisters every 20 Seconds '
-  structureIcon: {fileID: 0}
+  structureIcon: {fileID: 21300000, guid: 89807b27855239b43983700bec0505b7, type: 3}
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
     Amount: 2
