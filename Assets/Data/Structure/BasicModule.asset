@@ -17,18 +17,23 @@ MonoBehaviour:
   structureIcon: {fileID: 21300000, guid: 39dd75e9f9a70e24a8593f7e34846d43, type: 3}
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
-    Amount: 2
+    Amount: 0
   prefab: {fileID: 7551068447394674275, guid: 764067b075d9e2f49808d8eac22f1eff, type: 3}
   Event:
     Enabled: 10
+    LookAtResource: {fileID: 0}
     Time: 10
     MinTime: 0
     MaxTime: 0
+    MinValue: 1
+    MaxValue: 1
     PressNeeded: 1
     Reward:
     - Type: {fileID: 11400000, guid: 0551ed216f377b046962d3efed441be1, type: 2}
       Amount: 100
     FailLost: []
+    Chance: 0.1
+    Divider: 1
     DestroyOnFail: 0
   UI:
     Prompt: PRESS THE BUTTON

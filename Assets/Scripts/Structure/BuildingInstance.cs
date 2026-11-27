@@ -74,6 +74,13 @@ public  class BuildingInstance : MonoBehaviour
         grid.Register(this, Cell);
     }
 
+    private float LineBonus(System.Collections.Generic.IEnumerable<BuildingInstance> line)
+    {
+        foreach (var b in line)
+            if (b != this && b.TryGetComponent(out IRowEnhancer r)) return r.RowMultiplier;
+        return 1f;
+    }
+
     private void OnDestroy()
     {
         if(_grid != null)
@@ -120,10 +127,12 @@ public  class BuildingInstance : MonoBehaviour
                 if (n.TryGetComponent(out IEnhancer e))
                 {
                     mult *= e.Multiplier;
-                    if (n.TryGetComponent(out IPayoutListener l))
-                        (boosted ??= new()).Add(l);
+                    if (n.TryGetComponent(out IPayoutListener l)) (boosted ??= new()).Add(l);
                 }
             }
+
+            if (_grid.IsRowFull(Cell.z)) mult *= LineBonus(_grid.Row(Cell.z));
+            if (_grid.IsColumnFull(Cell.x)) mult *= LineBonus(_grid.Column(Cell.x));
             paid = Mathf.RoundToInt((amount + flat) * mult);
         }
 
@@ -131,9 +140,7 @@ public  class BuildingInstance : MonoBehaviour
         ShowPopup(type, paid);
 
         if (boosted != null)
-        {
             foreach (var l in boosted) l.OnBoostedPayout();
-        }
     }
 
     public void PayOut(ResourceAmount[] rewards)
