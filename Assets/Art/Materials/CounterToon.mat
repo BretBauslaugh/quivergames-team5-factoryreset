@@ -124,7 +124,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bb17ed07d3ebd4e4fbbbb0a9e7a16ca3, type: 3}
+        m_Texture: {fileID: 2800000, guid: cda1db0b49d31403094ca53952ab5de6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
@@ -140,7 +140,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 2be7719a321ff43709e7e707bd39e4f2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8a120742897d149ceb9c11634e6ff791, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapForMatCap:
