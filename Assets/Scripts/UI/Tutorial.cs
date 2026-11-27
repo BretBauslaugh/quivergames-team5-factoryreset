@@ -5,6 +5,7 @@ namespace UI //Rider standard
 {
     public class Tutorial : MonoBehaviour
     {
+        public int tutorialIndex; //key to let other scripts know which part in the tutorial the player is in
         [SerializeField] private GameObject[] tutorialObjects; //list of tutorial objects
         [SerializeField] private bool skipTutorial; //tutorial won't show up if its enabled
         [SerializeField] private bool autoStart; //starts first tutorialObject at Start()
@@ -17,7 +18,7 @@ namespace UI //Rider standard
                 obj.SetActive(false); //hides every tutorial object
             }
             tutorialObjects[tutorialNum].SetActive(true); //shows selected object
-
+            tutorialIndex = tutorialNum;
         }
 
         public void SetSkipTutorialMode(bool skip) //so buttons can call Tutorial.cs to either skip the tutorial or re-enable it.
