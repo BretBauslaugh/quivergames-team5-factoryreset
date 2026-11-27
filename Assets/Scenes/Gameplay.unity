@@ -2056,6 +2056,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a717d240cf1bec241b96d8161651e095, type: 2}
   - {fileID: 11400000, guid: 2b279cc156007f842b6c8003ad1027a9, type: 2}
   - {fileID: 11400000, guid: 8d0f62d489f36aa48bcb47a406d32cd7, type: 2}
+  - {fileID: 11400000, guid: 998292d378bdb784b83ff7879bc8f298, type: 2}
   pool1:
   - {fileID: 11400000, guid: 36b12eeb59a20564280b9bdd2607c4d2, type: 2}
   - {fileID: 11400000, guid: 588cab73acd4cbb4e8e2d2d818f36ed0, type: 2}
@@ -5454,8 +5455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _grid: {fileID: 45728441}
-  _areaMin: {x: -3, y: -3}
-  _areaSize: {x: 7, y: 7}
 --- !u!65 &1455849285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6890,8 +6889,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _grid: {fileID: 45728441}
-  _areaMin: {x: -4, y: -3}
-  _areaSize: {x: 7, y: 7}
 --- !u!1 &2055186730
 GameObject:
   m_ObjectHideFlags: 0

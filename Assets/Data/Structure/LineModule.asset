@@ -17,7 +17,7 @@ MonoBehaviour:
   structureIcon: {fileID: 21300000, guid: b4a36616c06860a41a9cf2d9da8598de, type: 3}
   Cost:
   - Type: {fileID: 11400000, guid: 9d4940bdd39a24f418f8aec219a9b721, type: 2}
-    Amount: 0
+    Amount: 4
   prefab: {fileID: 6656758709929076083, guid: 2d224b7c37ce85048bbf3297bbc300a4, type: 3}
   Event:
     Enabled: 0
