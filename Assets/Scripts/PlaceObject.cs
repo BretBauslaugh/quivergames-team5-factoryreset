@@ -17,6 +17,7 @@ public class PlaceObject : MonoBehaviour
     [SerializeField] private Resource _resource;
     [SerializeField] private ResourceType _coin;
     [SerializeField] private Shop _shopReference; //reference needed so we can detect if its freebie mode and disable it
+    [SerializeField] private UI.Tutorial tutorial;
     
 
     [Header("FMOD")]
@@ -68,7 +69,7 @@ public class PlaceObject : MonoBehaviour
     {
         GameObject prefab = shopButton.modulePrefab;
         Structure data = prefab.GetComponent<BuildingInstance>().Data;
-        
+        if (tutorial.tutorialIndex == 0) tutorial.UpdateTutorial(1); //checking if this is the first placement to update the tutorial to next page
         if (_resource.TryGetMissing(data.Cost , out var missing) && !shopButton.GetBought())
         {
             ErrorText.Show($"Not enough {missing.DisplayName}s!");
