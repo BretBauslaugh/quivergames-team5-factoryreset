@@ -98,7 +98,7 @@ public class PrestigeButton : MonoBehaviour,IAutoPressable
             }
             
             _building.CountProduction();
-            _counter++;
+            //_counter++;
             _qteActive = false;
         }
     }
